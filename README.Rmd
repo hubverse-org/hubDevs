@@ -55,10 +55,14 @@ fs::dir_tree(path)
 
 ## Set up package on GitHub
 
+Once the new package is launched, you can set it up on GitHub with:
+
+
 ```{r, eval=FALSE}
 use_hubdev_github()
 ```
 
+_Note: Your GitHub token must have rights to create a repository in the hubverse organisation for this to succeed._
 
 The function runs a number of internal utilities for setting up a hubverse package on GitHub:
 

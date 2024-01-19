@@ -38,8 +38,8 @@ library(hubDevs)
 temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
-#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg/'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg'
+#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg/'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg'
 #> ✔ Creating 'R/'
 #> ✔ Writing 'DESCRIPTION'
 #> Package: testPkg
@@ -59,7 +59,7 @@ create_hubdev_pkg(path)
 #> ✔ Adding '.Rproj.user' to '.gitignore'
 #> ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
 #> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg'
 #> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
 #> 
 #> ✔ Adding 'testthat' to Suggests field in DESCRIPTION
@@ -79,7 +79,7 @@ create_hubdev_pkg(path)
 #> • Re-knit 'README.Rmd' with `devtools::build_readme()`
 #> ℹ Installing testPkg in temporary library
 #> ℹ Building
-#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg/README.Rmd'
+#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg/README.Rmd'
 #> ✔ Creating '.github/'
 #> ✔ Adding '^\\.github$' to '.Rbuildignore'
 #> ✔ Adding '*.html' to '.github/.gitignore'
@@ -93,7 +93,7 @@ create_hubdev_pkg(path)
 
 ``` r
 fs::dir_tree(path)
-#> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg
+#> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg
 #> ├── DESCRIPTION
 #> ├── LICENSE
 #> ├── LICENSE.md
@@ -109,9 +109,14 @@ fs::dir_tree(path)
 
 ## Set up package on GitHub
 
+Once the new package is launched, you can set it up on GitHub with:
+
 ``` r
 use_hubdev_github()
 ```
+
+*Note: Your GitHub token must have rights to create a repository in the
+hubverse organisation for this to succeed.*
 
 The function runs a number of internal utilities for setting up a
 hubverse package on GitHub:
