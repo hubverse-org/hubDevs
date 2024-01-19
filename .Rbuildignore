@@ -1,0 +1,14 @@
+^hubDevs\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^cran-comments\.md$
+^\.github$
+^\.DStore$
+^\.DS_Store$
+^\.Rhistory$
+^\.Rdata$
+^\.httr-oauth$
+^\.secrets$
+^\.github/workflows$
+^\.github/workflows/pkgdown-netlify-preview\.yaml$

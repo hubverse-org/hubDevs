@@ -1,0 +1,50 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+# {{{ pkgname }}}
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of {{{ pkgname }}} is to ...
+
+## Installation
+
+You can install the development version of {{{ pkgname }}} from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("{{{ organisation }}}/{{{ pkgname }}}")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library({{pkgname}})
+## basic example code
+```
+
+## Code of Conduct
+
+Please note that the {{{ pkgname }}} package is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+
+
+## Contributing
+
+Interested in contributing back to the open-source Hubverse project?
+Learn more about how to [get involved in the Hubverse Community]({{{ hubdocs_contribute_url }}}) or [how to contribute to the {{{ pkgname }}} package](.github/CONTRIBUTING.md).
