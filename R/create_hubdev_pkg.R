@@ -62,19 +62,3 @@ hubdev_ignore <- function(files = c(
   )
 }
 
-
-use_hubdev_github <- function(organisation = "Infectious-Disease-Modeling-Hubs") {
-
-    usethis::use_github(organisation = organisation)
-
-    # Create standard GitHub Actions workflows
-    usethis::use_github_action("check-standard")
-    usethis::use_github_action("test-coverage")
-    usethis::use_github_action("lint")
-
-    # Set up pkgdown
-    usethis::use_pkgdown()
-    usethis::use_github_pages()
-    use_hubdev_pkgdown_action()
-
-}
