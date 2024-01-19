@@ -3,6 +3,7 @@
 export(create_hubdev_pkg)
 export(use_hubdev_coc)
 export(use_hubdev_contributing)
+export(use_hubdev_github)
 export(use_hubdev_github_action)
 export(use_hubdev_pkgdown_action)
 export(use_hubdev_readme)
