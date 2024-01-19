@@ -5,14 +5,14 @@
 #' Each function creates the relevant file in the `.github` directory from templates
 #' and is set up with appropriate hubverse default values.
 #'
-#' @param contacts Character string. Contact name and email of hubverse community
-#' members responsible for enforcing the Code of Conduct.
 #'
 #' @export
 #' @rdname community
-use_hubdev_coc <- function(contacts = "Lucie Contamin (contamin@pitt.edu),
-                           Emily Howerton (ehowerton@psu.edu) or
-                           Seb Funk (sebastian.funk@lshtm.ac.uk)") {
+use_hubdev_coc <- function() {
+  contacts = "Lucie Contamin (contamin@pitt.edu),
+  Emily Howerton (ehowerton@psu.edu) or
+  Seb Funk (sebastian.funk@lshtm.ac.uk)"
+
   usethis::use_directory(".github", ignore = TRUE)
   usethis::use_git_ignore("*.html", directory = ".github")
 

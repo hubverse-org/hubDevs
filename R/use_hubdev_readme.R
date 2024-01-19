@@ -14,7 +14,7 @@ use_hubdev_readme <- function(
         hubdocs_contribute_url = hubdocs_contribute_url
     )
 
-    use_template(
+    usethis::use_template(
         "package-README",
         "README.Rmd",
         data = data,

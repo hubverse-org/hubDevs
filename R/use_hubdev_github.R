@@ -12,10 +12,7 @@
 #'      and PR previews to a Netlify site
 #' @inheritParams create_hubdev_pkg
 #'
-#' @return
 #' @export
-#'
-#' @examples
 use_hubdev_github <- function(organisation = "Infectious-Disease-Modeling-Hubs") {
 
     usethis::use_github(organisation = organisation)

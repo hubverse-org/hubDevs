@@ -5,10 +5,7 @@
 \alias{use_hubdev_contributing}
 \title{Helpers for creating community facing hubverse package documents.}
 \usage{
-use_hubdev_coc(
-  contacts =
-    "Lucie Contamin (contamin@pitt.edu),\\n                           Emily Howerton (ehowerton@psu.edu) or\\n                           Seb Funk (sebastian.funk@lshtm.ac.uk)"
-)
+use_hubdev_coc()
 
 use_hubdev_contributing(
   organisation = "Infectious-Disease-Modeling-Hubs",
@@ -17,9 +14,6 @@ use_hubdev_contributing(
 )
 }
 \arguments{
-\item{contacts}{Character string. Contact name and email of hubverse community
-members responsible for enforcing the Code of Conduct.}
-
 \item{organisation}{Character string. The hubverse GitHub organisation name.
 The user's role and the token's scopes must be such that you have permission
 to create repositories in the hubverse organisation.}
