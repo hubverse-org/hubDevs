@@ -12,3 +12,6 @@
 ^\.secrets$
 ^\.github/workflows$
 ^\.github/workflows/pkgdown-netlify-preview\.yaml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
