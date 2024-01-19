@@ -82,8 +82,8 @@
 <span><span class="va">temp_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="va">temp_dir</span>, <span class="st">"testPkg"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/create_hubdev_pkg.html">create_hubdev_pkg</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg/'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg'</span></span>
+<span><span class="co">#&gt; ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg/'</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg'</span></span>
 <span><span class="co">#&gt; ✔ Creating 'R/'</span></span>
 <span><span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span></span>
 <span><span class="co">#&gt; Package: testPkg</span></span>
@@ -103,7 +103,7 @@
 <span><span class="co">#&gt; ✔ Adding '.Rproj.user' to '.gitignore'</span></span>
 <span><span class="co">#&gt; ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'</span></span>
 <span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg'</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg'</span></span>
 <span><span class="co">#&gt; ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ✔ Adding 'testthat' to Suggests field in DESCRIPTION</span></span>
@@ -123,7 +123,7 @@
 <span><span class="co">#&gt; • Re-knit 'README.Rmd' with `devtools::build_readme()`</span></span>
 <span><span class="co">#&gt; ℹ Installing testPkg in temporary library</span></span>
 <span><span class="co">#&gt; ℹ Building</span></span>
-<span><span class="co">#&gt;   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg/README.Rmd'</span></span>
+<span><span class="co">#&gt;   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg/README.Rmd'</span></span>
 <span><span class="co">#&gt; ✔ Creating '.github/'</span></span>
 <span><span class="co">#&gt; ✔ Adding '^\\.github$' to '.Rbuildignore'</span></span>
 <span><span class="co">#&gt; ✔ Adding '*.html' to '.github/.gitignore'</span></span>
@@ -135,7 +135,7 @@
 <span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/Rtmpt4WNQW/testPkg</span></span>
+<span><span class="co">#&gt; /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpoyuIeh/testPkg</span></span>
 <span><span class="co">#&gt; ├── DESCRIPTION</span></span>
 <span><span class="co">#&gt; ├── LICENSE</span></span>
 <span><span class="co">#&gt; ├── LICENSE.md</span></span>
@@ -151,8 +151,10 @@
 <div class="section level2">
 <h2 id="set-up-package-on-github">Set up package on GitHub<a class="anchor" aria-label="anchor" href="#set-up-package-on-github"></a>
 </h2>
+<p>Once the new package is launched, you can set it up on GitHub with:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">use_hubdev_github</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><em>Note: Your GitHub token must have rights to create a repository in the hubverse organisation for this to succeed.</em></p>
 <p>The function runs a number of internal utilities for setting up a hubverse package on GitHub:</p>
 <ul>
 <li>Creates a repo in the hubverse GitHub organisation</li>
