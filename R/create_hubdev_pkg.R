@@ -27,9 +27,6 @@ create_hubdev_pkg <- function(path, fields = list(),
     organisation = organisation,
     hubdocs_contribute_url = hubdocs_contribute_url
   )
-  devtools::build_readme()
-  usethis::use_lifecycle_badge("experimental")
-  use_cran_badge()
 
   # Create community documents
   use_hubdev_coc()

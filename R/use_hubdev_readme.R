@@ -22,4 +22,8 @@ use_hubdev_readme <- function(
         open = FALSE,
         package = "hubDevs"
     )
+
+    usethis::use_lifecycle_badge("experimental")
+    usethis::use_cran_badge()
+    devtools::build_readme()
 }
