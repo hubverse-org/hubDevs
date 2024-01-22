@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/404.html</loc>
   </url>
   <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>/CONTRIBUTING.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/index.html</loc>
   </url>
   <url>
-    <loc>/reference/add_website_needs.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/add_website_needs.html</loc>
   </url>
   <url>
-    <loc>/reference/community.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/community.html</loc>
   </url>
   <url>
-    <loc>/reference/create_hubdev_pkg.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/create_hubdev_pkg.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/use_hubdev_github.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_github.html</loc>
   </url>
   <url>
-    <loc>/reference/use_hubdev_github_action.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_github_action.html</loc>
   </url>
   <url>
-    <loc>/reference/use_hubdev_pkgdown_action.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_pkgdown.html</loc>
   </url>
   <url>
-    <loc>/reference/use_hubdev_readme.html</loc>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_pkgdown_action.html</loc>
+  </url>
+  <url>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_readme.html</loc>
   </url>
 </urlset>
