@@ -16,9 +16,12 @@ Imports:
     cli,
     devtools,
     fs,
+    hubStyle,
     purrr,
     rlang,
     usethis,
     whisker
+Remotes:
+    Infectious-Disease-Modeling-Hubs/hubStyle
 URL: https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs
 BugReports: https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs/issues

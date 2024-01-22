@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# {{{ pkgname }}}
+# {{{ pkgname }}} <a href="https://{{{ organisation }}}.github.io/{{{ pkgname }}}/"><img src="man/figures/logo.svg" align="right" height="131" alt="{{{ pkgname }}} website" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
