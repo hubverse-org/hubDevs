@@ -22,6 +22,9 @@ create_hubdev_pkg <- function(path, fields = list(),
   hubdev_ignore()
   usethis::use_testthat()
   usethis::use_mit_license(copyright_holder)
+  suppressMessages(
+    usethis::use_logo(system.file("logo.png", package = "hubStyle"))
+  )
 
   use_hubdev_readme(
     organisation = organisation,
@@ -61,4 +64,3 @@ hubdev_ignore <- function(files = c(
     "Adding {.file {files}} to {.file .gitignore} and {.file .Rbuildignore}"
   )
 }
-
