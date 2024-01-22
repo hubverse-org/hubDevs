@@ -38,8 +38,8 @@ library(hubDevs)
 temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
-#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpxIMELo/testPkg/'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpxIMELo/testPkg'
+#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg/'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg'
 #> ✔ Creating 'R/'
 #> ✔ Writing 'DESCRIPTION'
 #> Package: testPkg
@@ -59,7 +59,7 @@ create_hubdev_pkg(path)
 #> ✔ Adding '.Rproj.user' to '.gitignore'
 #> ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
 #> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpxIMELo/testPkg'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg'
 #> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
 #> 
 #> ✔ Adding 'testthat' to Suggests field in DESCRIPTION
@@ -79,7 +79,7 @@ create_hubdev_pkg(path)
 #> • Re-knit 'README.Rmd' with `devtools::build_readme()`
 #> ℹ Installing testPkg in temporary library
 #> ℹ Building
-#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpxIMELo/testPkg/README.Rmd'
+#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg/README.Rmd'
 #> ✔ Creating '.github/'
 #> ✔ Adding '^\\.github$' to '.Rbuildignore'
 #> ✔ Adding '*.html' to '.github/.gitignore'
@@ -91,21 +91,39 @@ create_hubdev_pkg(path)
 #> ✔ Setting active project to '<no active project>'
 ```
 
-``` r
-fs::dir_tree(path)
-#> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpxIMELo/testPkg
-#> ├── DESCRIPTION
-#> ├── LICENSE
-#> ├── LICENSE.md
-#> ├── NAMESPACE
-#> ├── R
-#> ├── README.Rmd
-#> ├── README.md
-#> ├── testPkg.Rproj
-#> └── tests
-#>     ├── testthat
-#>     └── testthat.R
-```
+    #> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg
+    #> ├── .Rbuildignore
+    #> ├── .git
+    #> │   ├── HEAD
+    #> │   ├── config
+    #> │   ├── description
+    #> │   ├── hooks
+    #> │   │   ├── README.sample
+    #> │   │   └── pre-commit
+    #> │   ├── info
+    #> │   │   └── exclude
+    #> │   ├── objects
+    #> │   │   ├── info
+    #> │   │   └── pack
+    #> │   └── refs
+    #> │       ├── heads
+    #> │       └── tags
+    #> ├── .github
+    #> │   ├── .gitignore
+    #> │   ├── CODE_OF_CONDUCT.md
+    #> │   └── CONTRIBUTING.md
+    #> ├── .gitignore
+    #> ├── DESCRIPTION
+    #> ├── LICENSE
+    #> ├── LICENSE.md
+    #> ├── NAMESPACE
+    #> ├── R
+    #> ├── README.Rmd
+    #> ├── README.md
+    #> ├── testPkg.Rproj
+    #> └── tests
+    #>     ├── testthat
+    #>     └── testthat.R
 
 ## Set up package on GitHub
 

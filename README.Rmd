@@ -37,7 +37,6 @@ remotes::install_github("Infectious-Disease-Modeling-Hubs/hubDevs")
 
 First create a package skeleton.
 
-This creates all basic infrastucture including a hubverse README and intiates the package as a git repository.
 
 ```{r example, eval=TRUE}
 library(hubDevs)
@@ -47,9 +46,11 @@ path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
 ```
 
+This creates all basic infrastructure including a hubverse template README, logo, community documents, MIT LICENSE and initiates the package as a git repository.
 
-```{r}
-fs::dir_tree(path)
+
+```{r, echo=FALSE}
+fs::dir_tree(path, all = TRUE, recurse = TRUE)
 ```
 
 
@@ -68,7 +69,7 @@ The function runs a number of internal utilities for setting up a hubverse packa
 
 - Creates a repo in the hubverse GitHub organisation
 - Adds details of the repository to the DESCRIPTION file
-- Initailises pkgdown documentation
+- Initialises pkgdown documentation
 - Creates GitHub Action workflows for:
     - standard R CMD CHECK
     - test coverage
