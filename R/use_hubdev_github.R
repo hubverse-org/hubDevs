@@ -26,8 +26,6 @@ use_hubdev_github <- function(organisation = "Infectious-Disease-Modeling-Hubs")
     usethis::use_pkgdown()
     usethis::use_github_pages()
     use_hubdev_pkgdown_action()
-    add_website_needs()
-    pkgdown::build_favicons()
     use_hubdev_pkgdown()
 
 }
