@@ -32,11 +32,7 @@ create_hubdev_pkg <- function(path, fields = list(),
   )
 
   # Create community documents
-  use_hubdev_coc()
-  use_hubdev_contributing(
-    organisation = organisation,
-    hubdocs_contribute_url = hubdocs_contribute_url
-  )
+  use_hubdev_community()
 
   usethis::use_git()
   usethis::use_git_hook(
