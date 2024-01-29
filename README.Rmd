@@ -33,7 +33,9 @@ You can install the development version of hubDevs from [GitHub](https://github.
 remotes::install_github("Infectious-Disease-Modeling-Hubs/hubDevs")
 ```
 
-## Creating a hubverse package skeleton
+## Initialise a hubverse package
+
+### Create a hubverse package skeleton
 
 First create a package skeleton.
 
@@ -54,7 +56,7 @@ fs::dir_tree(path, all = TRUE, recurse = TRUE)
 ```
 
 
-## Set up package on GitHub
+### Set up package on GitHub
 
 Once the new package is launched, you can set it up on GitHub with:
 
@@ -69,13 +71,27 @@ The function runs a number of internal utilities for setting up a hubverse packa
 
 - Creates a repo in the hubverse GitHub organisation
 - Adds details of the repository to the DESCRIPTION file
-- Initialises pkgdown documentation
+- Initialises pkgdown documentation including configuring site to use the `hubStyle` pkgdown template.
 - Creates GitHub Action workflows for:
     - standard R CMD CHECK
     - test coverage
     - linting with `lintr`
     - building pkgdown documentation and deploying production docs to GitHub Pages
       and PR previews to a Netlify site
+
+## Individual Utilities
+
+The high level functions above are wrappers for a number of individual utilities that can be run separately.
+
+### Add community documents
+
+To add a Code of Conduct and Contributing guide to your package, run:
+
+```{r, eval=FALSE}
+use_hubdev_community()
+```
+
+This runs `use_hubdev_coc()` and `use_hubdev_contributing()` and creates a `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md` in the `.github/` directory.
 
 ## Code of Conduct
 
@@ -86,3 +102,5 @@ Please note that the hubDevs package is released with a [Contributor Code of Con
 
 Interested in contributing back to the open-source Hubverse project?
 Learn more about how to [get involved in the Hubverse Community](https://hubdocs.readthedocs.io/en/latest/overview/contribute.html) or [how to contribute to the hubDevs package](.github/CONTRIBUTING.md).
+
+

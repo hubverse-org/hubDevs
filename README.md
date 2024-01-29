@@ -25,12 +25,11 @@ You can install the development version of hubDevs from
 remotes::install_github("Infectious-Disease-Modeling-Hubs/hubDevs")
 ```
 
-## Creating a hubverse package skeleton
+## Initialise a hubverse package
+
+### Create a hubverse package skeleton
 
 First create a package skeleton.
-
-This creates all basic infrastucture including a hubverse README and
-intiates the package as a git repository.
 
 ``` r
 library(hubDevs)
@@ -38,8 +37,8 @@ library(hubDevs)
 temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
-#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg/'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg'
+#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg/'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg'
 #> ✔ Creating 'R/'
 #> ✔ Writing 'DESCRIPTION'
 #> Package: testPkg
@@ -59,7 +58,7 @@ create_hubdev_pkg(path)
 #> ✔ Adding '.Rproj.user' to '.gitignore'
 #> ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
 #> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg'
 #> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
 #> 
 #> ✔ Adding 'testthat' to Suggests field in DESCRIPTION
@@ -79,7 +78,7 @@ create_hubdev_pkg(path)
 #> • Re-knit 'README.Rmd' with `devtools::build_readme()`
 #> ℹ Installing testPkg in temporary library
 #> ℹ Building
-#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg/README.Rmd'
+#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg/README.Rmd'
 #> ✔ Creating '.github/'
 #> ✔ Adding '^\\.github$' to '.Rbuildignore'
 #> ✔ Adding '*.html' to '.github/.gitignore'
@@ -91,7 +90,11 @@ create_hubdev_pkg(path)
 #> ✔ Setting active project to '<no active project>'
 ```
 
-    #> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpyvOrAG/testPkg
+This creates all basic infrastructure including a hubverse template
+README, logo, community documents, MIT LICENSE and initiates the package
+as a git repository.
+
+    #> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg
     #> ├── .Rbuildignore
     #> ├── .git
     #> │   ├── HEAD
@@ -120,12 +123,15 @@ create_hubdev_pkg(path)
     #> ├── R
     #> ├── README.Rmd
     #> ├── README.md
+    #> ├── man
+    #> │   └── figures
+    #> │       └── logo.png
     #> ├── testPkg.Rproj
     #> └── tests
     #>     ├── testthat
     #>     └── testthat.R
 
-## Set up package on GitHub
+### Set up package on GitHub
 
 Once the new package is launched, you can set it up on GitHub with:
 
@@ -141,13 +147,31 @@ hubverse package on GitHub:
 
 - Creates a repo in the hubverse GitHub organisation
 - Adds details of the repository to the DESCRIPTION file
-- Initailises pkgdown documentation
+- Initialises pkgdown documentation including configuring site to use
+  the `hubStyle` pkgdown template.
 - Creates GitHub Action workflows for:
   - standard R CMD CHECK
   - test coverage
   - linting with `lintr`
   - building pkgdown documentation and deploying production docs to
     GitHub Pages and PR previews to a Netlify site
+
+## Individual Utilities
+
+The high level functions above are wrappers for a number of individual
+utilities that can be run separately.
+
+### Add community documents
+
+To add a Code of Conduct and Contributing guide to your package, run:
+
+``` r
+use_hubdev_community()
+```
+
+This runs `use_hubdev_coc()` and `use_hubdev_contributing()` and creates
+a `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md` in the `.github/`
+directory.
 
 ## Code of Conduct
 
