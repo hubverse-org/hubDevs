@@ -13,9 +13,10 @@ pkgdown site to use the \code{hubStyle} template for docs styling.
 \item Runs \code{\link[=use_pkgdown]{use_pkgdown()}} to initialise pkgdown documentation.
 \item Runs \code{\link[=use_github_pages]{use_github_pages()}} to initialise GitHub Pages for the package.
 \item Adds a GitHub Action workflow for building pkgdown documentation and deploying
-to GitHub Pages (productions) and Netlify (PR previews).
+to GitHub Pages (productions) and Netlify (PR previews) using
+\code{use_hubdev_pkgdown_action()}.
 \item Adds the \code{hubStyle} repository to the \code{DESCRIPTION}'s
-\code{Config/Needs/website} property.
+\code{Config/Needs/website} property using \code{add_website_needs()}.
 \item Creates a favicon for the package using the \code{hubStyle} logo.
 \item Overwrites standard \verb{_pkgdown.yml} file with customised configuration to
 use the hubverse \code{hubStyle} package for docs styling.

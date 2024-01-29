@@ -28,8 +28,7 @@ find_template <- function(template_name, package = "usethis") {
 
 # Update a description field
 # Source: https://github.com/r-lib/usethis/blob/a795b743a49bf18975dfad2cf6c8a3b918015cb8/R/proj-desc.R#L32
-proj_desc_field_update <- function (key, value, overwrite = TRUE, append = FALSE)
-{
+proj_desc_field_update <- function(key, value, overwrite = TRUE, append = FALSE) {
   checkmate::assert_character(key, len = 1L)
   checkmate::assert_character(value)
   checkmate::assert_logical(overwrite, len = 1L)

@@ -4,9 +4,9 @@
 #' @export
 #'
 add_website_needs <- function() {
-    proj_desc_field_update(
-        key = "Config/Needs/website",
-        value = "Infectious-Disease-Modeling-Hubs/hubStyle",
-        append = TRUE
-    )
+  proj_desc_field_update(
+    key = "Config/Needs/website",
+    value = "Infectious-Disease-Modeling-Hubs/hubStyle",
+    append = TRUE
+  )
 }

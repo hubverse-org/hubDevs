@@ -12,13 +12,11 @@
 use_hubdev_community <- function(
     organisation = "Infectious-Disease-Modeling-Hubs",
     hubdocs_contribute_url = "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html") {
-
   use_hubdev_coc()
   use_hubdev_contributing(
     organisation = organisation,
     hubdocs_contribute_url = hubdocs_contribute_url
   )
-
 }
 
 #' @export
@@ -56,5 +54,3 @@ use_hubdev_contributing <- function(
     package = "hubDevs"
   )
 }
-
-
