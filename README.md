@@ -37,8 +37,8 @@ library(hubDevs)
 temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
-#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg/'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg'
+#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg/'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg'
 #> ✔ Creating 'R/'
 #> ✔ Writing 'DESCRIPTION'
 #> Package: testPkg
@@ -58,7 +58,7 @@ create_hubdev_pkg(path)
 #> ✔ Adding '.Rproj.user' to '.gitignore'
 #> ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
 #> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg'
+#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg'
 #> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
 #> 
 #> ✔ Adding 'testthat' to Suggests field in DESCRIPTION
@@ -78,7 +78,7 @@ create_hubdev_pkg(path)
 #> • Re-knit 'README.Rmd' with `devtools::build_readme()`
 #> ℹ Installing testPkg in temporary library
 #> ℹ Building
-#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg/README.Rmd'
+#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg/README.Rmd'
 #> ✔ Creating '.github/'
 #> ✔ Adding '^\\.github$' to '.Rbuildignore'
 #> ✔ Adding '*.html' to '.github/.gitignore'
@@ -94,7 +94,7 @@ This creates all basic infrastructure including a hubverse template
 README, logo, community documents, MIT LICENSE and initiates the package
 as a git repository.
 
-    #> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpvSNWKZ/testPkg
+    #> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg
     #> ├── .Rbuildignore
     #> ├── .git
     #> │   ├── HEAD
@@ -172,6 +172,31 @@ use_hubdev_community()
 This runs `use_hubdev_coc()` and `use_hubdev_contributing()` and creates
 a `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md` in the `.github/`
 directory.
+
+### Configure pkgdown site to use hubverse defaults
+
+To configure your package site to pkgdown with the `hubStyle` template,
+and deploy using the hubverse’s pkgdown deployment GitHub action run:
+
+``` r
+use_hubdev_pkgdown()
+```
+
+The function performs a number of actions to configure a hubverse
+package’s pkgdown site to use the `hubStyle` template for docs styling.
+
+- Runs `use_pkgdown()` to initialise pkgdown documentation.
+- Runs `use_github_pages()` to initialise GitHub Pages for the package.
+- Adds a GitHub Action workflow for building pkgdown documentation and
+  deploying to GitHub Pages (productions) and Netlify (PR previews)
+  using `use_hubdev_pkgdown_action()`.
+- Adds the `hubStyle` repository to the `DESCRIPTION`’s
+  `Config/Needs/website` property using `add_website_needs()`.
+- Creates a favicon for the package using the `hubStyle` logo.
+- Overwrites standard `_pkgdown.yml` file with customised configuration
+  to use the hubverse `hubStyle` package for docs styling.
+
+------------------------------------------------------------------------
 
 ## Code of Conduct
 

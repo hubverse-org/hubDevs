@@ -23,9 +23,6 @@ use_hubdev_github <- function(organisation = "Infectious-Disease-Modeling-Hubs")
     usethis::use_github_action("lint")
 
     # Set up pkgdown
-    usethis::use_pkgdown()
-    usethis::use_github_pages()
-    use_hubdev_pkgdown_action()
     use_hubdev_pkgdown()
 
 }
