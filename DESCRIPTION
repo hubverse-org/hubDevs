@@ -28,3 +28,4 @@ Remotes:
     Infectious-Disease-Modeling-Hubs/hubStyle
 URL: https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs
 BugReports: https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs/issues
+Config/Needs/website: Infectious-Disease-Modeling-Hubs/hubStyle
