@@ -2,8 +2,9 @@
 #'
 #' @inheritParams create_hubdev_pkg
 #' @export
-use_hubdev_readme <- function(organisation = "Infectious-Disease-Modeling-Hubs",
-                              hubdocs_contribute_url = "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html") {
+use_hubdev_readme <- function(
+    organisation = "Infectious-Disease-Modeling-Hubs",
+    hubdocs_contribute_url = "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html") {
   rlang::check_installed("rmarkdown")
 
   data <- list(

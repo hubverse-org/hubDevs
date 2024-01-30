@@ -40,7 +40,8 @@ proj_desc_field_update <- function(key, value, overwrite = TRUE, append = FALSE)
     return(invisible())
   }
   if (!overwrite && length(old > 0) && any(old != "")) {
-    usethis::ui_stop("{usethis::ui_field(key)} has a different value in DESCRIPTION. \\\n      Use {usethis::ui_code('overwrite = TRUE')} to overwrite.")
+    usethis::ui_stop("{usethis::ui_field(key)} has a different value in DESCRIPTION. \\\n
+                     Use {usethis::ui_code('overwrite = TRUE')} to overwrite.")
   }
   usethis::ui_done("Adding {usethis::ui_value(value)} to {usethis::ui_field(key)}")
   if (append) {
