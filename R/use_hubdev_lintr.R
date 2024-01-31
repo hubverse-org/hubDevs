@@ -2,11 +2,11 @@
 #'
 #' @export
 use_hubdev_lintr <- function() {
-    usethis::use_template(
-        "_lintr",
-        ".lintr",
-        ignore = TRUE,
-        open = FALSE,
-        package = "hubDevs"
-    )
+  usethis::use_template(
+    "_lintr",
+    ".lintr",
+    ignore = TRUE,
+    open = FALSE,
+    package = "hubDevs"
+  )
 }

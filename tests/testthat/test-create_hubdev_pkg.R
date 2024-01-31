@@ -6,18 +6,19 @@ test_that("create_hubdev_pkg works", {
 
   # Check basic structure
   visible_files <- fs::dir_ls(pkg_path, recurse = TRUE) |>
-  fs::path_rel(temp_dir)
+    fs::path_rel(temp_dir)
   expect_snapshot(visible_files)
 
   expect_true(fs::dir_exists(fs::path(pkg_path, ".git")))
 
   github_files <- fs::dir_ls(
-      fs::path(pkg_path, ".github"),
-      recurse = TRUE) |>
-      fs::path_rel(temp_dir)
+    fs::path(pkg_path, ".github"),
+    recurse = TRUE
+  ) |>
+    fs::path_rel(temp_dir)
 
   expect_snapshot(
-      github_files
+    github_files
   )
 
   expect_snapshot(readLines(fs::path(pkg_path, "README.Rmd")))
@@ -25,5 +26,3 @@ test_that("create_hubdev_pkg works", {
   expect_snapshot(readLines(fs::path(pkg_path, ".Rbuildignore")))
   expect_snapshot(readLines(fs::path(pkg_path, "LICENSE")))
 })
-
-
