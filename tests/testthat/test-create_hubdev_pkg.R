@@ -6,7 +6,9 @@ test_that("create_hubdev_pkg works", {
 
   # Check basic structure
   visible_files <- fs::dir_ls(pkg_path, recurse = TRUE) |>
-    fs::path_rel(temp_dir)
+    fs::path_rel(temp_dir) |>
+      sort()
+
   expect_snapshot(visible_files)
 
   expect_true(fs::dir_exists(fs::path(pkg_path, ".git")))
@@ -15,7 +17,8 @@ test_that("create_hubdev_pkg works", {
     fs::path(pkg_path, ".github"),
     recurse = TRUE
   ) |>
-    fs::path_rel(temp_dir)
+    fs::path_rel(temp_dir) |>
+      sort()
 
   expect_snapshot(
     github_files
