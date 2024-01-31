@@ -19,6 +19,7 @@ Imports:
     devtools,
     fs,
     hubStyle,
+    magick,
     pkgdown,
     purrr,
     rlang,
