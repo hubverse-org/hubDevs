@@ -4,7 +4,10 @@
 \alias{use_hubdev_pkgdown_action}
 \title{Use the hubdev custom pkgdown GitHub Action}
 \usage{
-use_hubdev_pkgdown_action()
+use_hubdev_pkgdown_action(remove_std = TRUE)
+}
+\arguments{
+\item{remove_std}{Logical. Whether to remove the standard pkgdown action if it exists.}
 }
 \description{
 The functions creates a \code{pkgdown-netlify-preview.yaml} action in the \code{.github/workflows}

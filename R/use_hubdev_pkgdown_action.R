@@ -4,6 +4,9 @@
 #' directory. The action follows the standard pkgdown publishing to `gh-pages` in the
 #' event of a merge into `main` branch but can also be set up to publish internal
 #' PR previews to Netlify.
+#'
+#' @param remove_std Logical. Whether to remove the standard pkgdown action if it exists.
+#'
 #' @details
 #' To activate Netlify Previews, you must:
 #' - Create a new site on Netlify. See <https://docs.netlify.com/welcome/add-new-site/> for more details.
@@ -19,7 +22,12 @@
 #' for more details.
 #'
 #' @export
-use_hubdev_pkgdown_action <- function() {
+use_hubdev_pkgdown_action <- function(remove_std = TRUE) {
+
+  # Remove old pkgdown action if it exists
+  if (remove_std && file.exists(".github/workflows/pkgdown.yaml")) {
+    file.remove(".github/workflows/pkgdown.yaml")
+  }
   use_hubdev_github_action("pkgdown-netlify-preview")
 
   usethis::ui_todo("To activate Netlify Previews, remember to:")
