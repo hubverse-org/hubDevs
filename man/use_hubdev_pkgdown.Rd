@@ -4,7 +4,10 @@
 \alias{use_hubdev_pkgdown}
 \title{Configure hubverse pkgdown site}
 \usage{
-use_hubdev_pkgdown()
+use_hubdev_pkgdown(add_logo = FALSE)
+}
+\arguments{
+\item{add_logo}{Logical. Whether to add the logo to the package.}
 }
 \description{
 The function performs a number of actions to configure a hubverse package's
