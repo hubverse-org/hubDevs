@@ -8,3 +8,5 @@
 .quarto
 docs
 attic
+tests/*/*/*use_hubdev_github*
+tests/*/*use_hubdev_github*
