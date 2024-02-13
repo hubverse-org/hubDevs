@@ -12,14 +12,22 @@
 #' - Creates a favicon for the package using the `hubStyle` logo.
 #' - Overwrites standard `_pkgdown.yml` file with customised configuration to
 #'   use the hubverse `hubStyle` package for docs styling.
+#'
+#' @param add_logo Logical. Whether to add the logo to the package.
+#'
 #' @export
-use_hubdev_pkgdown <- function() {
+use_hubdev_pkgdown <- function(add_logo = FALSE) {
   usethis::use_pkgdown()
   try(usethis::use_github_pages())
   use_hubdev_pkgdown_action()
 
   add_website_needs()
-  pkgdown::build_favicons()
+  if (add_logo) {
+    suppressMessages(
+      usethis::use_logo(system.file("logo.png", package = "hubStyle"))
+    )
+  }
+  pkgdown::build_favicons(overwrite = TRUE)
 
   data <- list(
     organisation = "infectious-disease-modeling-hubs",
