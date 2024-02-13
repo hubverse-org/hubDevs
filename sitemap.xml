@@ -22,7 +22,13 @@
     <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/index.html</loc>
   </url>
   <url>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/news/index.html</loc>
+  </url>
+  <url>
     <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/add_website_needs.html</loc>
+  </url>
+  <url>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/append_hubdev_readme_footer.html</loc>
   </url>
   <url>
     <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/create_hubdev_pkg.html</loc>
@@ -38,6 +44,9 @@
   </url>
   <url>
     <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_github_action.html</loc>
+  </url>
+  <url>
+    <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_lintr.html</loc>
   </url>
   <url>
     <loc>https://infectious-disease-modeling-hubs.github.io/hubDevs/reference/use_hubdev_pkg_actions.html</loc>
