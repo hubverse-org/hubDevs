@@ -23,9 +23,7 @@ use_hubdev_pkgdown <- function(add_logo = FALSE) {
 
   add_website_needs()
   if (add_logo) {
-    suppressMessages(
-      usethis::use_logo(system.file("logo.png", package = "hubStyle"))
-    )
+    usethis::use_logo(system.file("logo.png", package = "hubStyle"))
   }
   pkgdown::build_favicons(overwrite = TRUE)
 
