@@ -39,7 +39,7 @@
       [14] "```"                                                                                                                                                                                                        
       [15] ""                                                                                                                                                                                                           
       [16] ""                                                                                                                                                                                                           
-      [17] "# testPkg <a href=\"https://Infectious-Disease-Modeling-Hubs.github.io/testPkg/\"><img src=\"man/figures/logo.svg\" align=\"right\" height=\"131\" alt=\"testPkg website\" /></a>"                          
+      [17] "# testPkg <a href=\"https://Infectious-Disease-Modeling-Hubs.github.io/testPkg/\"><img src=\"man/figures/logo.png\" align=\"right\" height=\"131\" alt=\"testPkg website\" /></a>"                          
       [18] ""                                                                                                                                                                                                           
       [19] "<!-- badges: start -->"                                                                                                                                                                                     
       [20] "[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)"                                                
