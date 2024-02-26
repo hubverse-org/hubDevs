@@ -22,7 +22,7 @@ overriding default values. See \code{\link[usethis:use_description]{use_descript
 personalized defaults using package options.}
 
 \item{copyright_holder}{Name of the copyright holder or holders. This
-defaults to "{package name} authors"; you should only change this if you
+defaults to \code{"{package name} authors"}; you should only change this if you
 use a CLA to assign copyright to a single entity.}
 
 \item{organisation}{Character string. The hubverse GitHub organisation name.

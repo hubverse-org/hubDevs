@@ -14,12 +14,14 @@ knitr::opts_chunk$set(
 ```
 
 
-# {{{ pkgname }}} <a href="https://{{{ organisation }}}.github.io/{{{ pkgname }}}/"><img src="man/figures/logo.svg" align="right" height="131" alt="{{{ pkgname }}} website" /></a>
+# {{{ pkgname }}} <a href="https://{{{ organisation }}}.github.io/{{{ pkgname }}}/"><img src="man/figures/logo.png" align="right" height="131" alt="{{{ pkgname }}} website" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 The goal of {{{ pkgname }}} is to ...
+
+This package is part of the [hubverse](https://hubdocs.readthedocs.io/en/latest/) ecosystem, which aims to provide a set of tools for infectious disease modeling hubs to share and collaborate on their work.
 
 ## Installation
 
