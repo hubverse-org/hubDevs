@@ -21,6 +21,8 @@ knitr::opts_chunk$set(
 
 The goal of {{{ pkgname }}} is to ...
 
+This package is part of the [hubverse](https://hubdocs.readthedocs.io/en/latest/) ecosystem, which aims to provide a set of tools for infectious disease modeling hubs to share and collaborate on their work.
+
 ## Installation
 
 You can install the development version of {{{ pkgname }}} from [GitHub](https://github.com/) with:
