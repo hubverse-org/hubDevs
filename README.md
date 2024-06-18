@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hubDevs)](https://CRAN.R-project.org/package=hubDevs)
-[![R-CMD-check](https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/hubverse-org/hubDevs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hubverse-org/hubDevs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of hubDevs is to provide utilities for creating and
@@ -22,7 +22,7 @@ You can install the development version of hubDevs from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("Infectious-Disease-Modeling-Hubs/hubDevs")
+remotes::install_github("hubverse-org/hubDevs")
 ```
 
 ## Initialise a hubverse package

@@ -28,7 +28,7 @@ use_hubdev_pkgdown <- function(add_logo = FALSE) {
   pkgdown::build_favicons(overwrite = TRUE)
 
   data <- list(
-    organisation = "infectious-disease-modeling-hubs",
+    organisation = "hubverse-org",
     pkgname = get_pkgname()
   )
 

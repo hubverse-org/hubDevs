@@ -8,7 +8,7 @@ create_hubdev_pkg(
   path,
   fields = list(),
   copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
-  organisation = "Infectious-Disease-Modeling-Hubs",
+  organisation = "hubverse-org",
   hubdocs_contribute_url =
     "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html"
 )

@@ -1,6 +1,6 @@
 Package: hubDevs
 Title: Utilities for creating and standardising Hubverse packages
-Version: 0.0.0.9004
+Version: 0.0.1
 Authors@R: 
     person("Anna", "Krystalli", , "annakrystalli@googlemail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2378-4915"))
@@ -26,7 +26,7 @@ Imports:
     usethis,
     whisker
 Remotes:
-    Infectious-Disease-Modeling-Hubs/hubStyle
-URL: https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs
-BugReports: https://github.com/Infectious-Disease-Modeling-Hubs/hubDevs/issues
-Config/Needs/website: Infectious-Disease-Modeling-Hubs/hubStyle
+    hubverse-org/hubStyle
+URL: https://github.com/hubverse-org/hubDevs
+BugReports: https://github.com/hubverse-org/hubDevs/issues
+Config/Needs/website: hubverse-org/hubStyle

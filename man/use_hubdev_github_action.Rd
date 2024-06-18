@@ -8,7 +8,7 @@ use_hubdev_github_action(name)
 }
 \arguments{
 \item{name}{Name of workflow, i.e. the name of one of the
-\href{https://github.com/Infectious-Disease-Modeling-Hubs/hubverse-developer-actions}{hubverse developer action repository}
+\href{https://github.com/hubverse-org/hubverse-developer-actions}{hubverse developer action repository}
 directories containing a GitHub Action workflow \code{.yaml} file.}
 }
 \description{
@@ -16,5 +16,5 @@ Sets up common hubverse developer continuous integration (CI) workflows for
 hubverse packages hosted on GitHub using
 \href{https://github.com/features/actions}{GitHub Actions}.
 Available actions are hosted in repository
-\href{https://github.com/Infectious-Disease-Modeling-Hubs/hubverse-developer-actions}{Infectious-Disease-Modeling-Hubs/hubverse-developer-actions}
+\href{https://github.com/hubverse-org/hubverse-developer-actions}{hubverse-org/hubverse-developer-actions}
 }

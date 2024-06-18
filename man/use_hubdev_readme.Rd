@@ -5,7 +5,7 @@
 \title{Create a basic hubverse README.Rmd from template}
 \usage{
 use_hubdev_readme(
-  organisation = "Infectious-Disease-Modeling-Hubs",
+  organisation = "hubverse-org",
   hubdocs_contribute_url =
     "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html"
 )
