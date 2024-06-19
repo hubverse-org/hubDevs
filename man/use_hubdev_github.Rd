@@ -4,7 +4,7 @@
 \alias{use_hubdev_github}
 \title{Set up hubverse package on GitHub}
 \usage{
-use_hubdev_github(organisation = "Infectious-Disease-Modeling-Hubs")
+use_hubdev_github(organisation = "hubverse-org")
 }
 \arguments{
 \item{organisation}{Character string. The hubverse GitHub organisation name.

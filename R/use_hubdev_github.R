@@ -13,7 +13,7 @@
 #' @inheritParams create_hubdev_pkg
 #'
 #' @export
-use_hubdev_github <- function(organisation = "Infectious-Disease-Modeling-Hubs") {
+use_hubdev_github <- function(organisation = "hubverse-org") {
   usethis::use_github(organisation = organisation)
 
   # Create standard GitHub Actions workflows
