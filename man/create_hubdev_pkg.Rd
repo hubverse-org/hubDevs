@@ -10,7 +10,7 @@ create_hubdev_pkg(
   copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
   organisation = "hubverse-org",
   hubdocs_contribute_url =
-    "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html"
+    "https://hubverse.io/en/latest/overview/contribute.html"
 )
 }
 \arguments{
