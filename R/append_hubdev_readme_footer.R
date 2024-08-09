@@ -2,7 +2,7 @@
 #'
 #' @inheritParams create_hubdev_pkg
 #' @export
-append_hubdev_readme_footer <- function(hubdocs_contribute_url = "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html") { # nolint
+append_hubdev_readme_footer <- function(hubdocs_contribute_url = "https://hubverse.io/en/latest/overview/contribute.html") { # nolint
   data <- list(
     pkgname = get_pkgname(),
     hubdocs_contribute_url = hubdocs_contribute_url

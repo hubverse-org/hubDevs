@@ -6,7 +6,7 @@
 \usage{
 append_hubdev_readme_footer(
   hubdocs_contribute_url =
-    "https://hubdocs.readthedocs.io/en/latest/overview/contribute.html"
+    "https://hubverse.io/en/latest/overview/contribute.html"
 )
 }
 \arguments{
