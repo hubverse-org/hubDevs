@@ -1,0 +1,198 @@
+---
+title: "The Release Process"
+description: >
+  Reference for how to perform R package releases in the Hubverse
+vignette: >
+  %\VignetteIndexEntry{The Release Process}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '#>'
+---
+
+This document is adapted for The Hubverse from [The Carpentries Hubverse Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
+
+## Checklist
+
+ - [ ] Create a new branch from `main` called `release-X.Y.Z`
+ - [ ] Update version number in DESCRIPTION and check that the `Remotes:` is
+       up-to-date
+ - [ ] Update NEWS for the changes in this version
+ - [ ] commit, push changes, and create pull request
+ - [ ] get a review from another member of the Hubverse dev team and merge on approval
+ - [ ] add new tag (signed preferred) with the name "<package> X.Y.Z" and push
+
+      ```bash
+      # example: create a signed (-s) tag for sandpaper 3.3.3
+      git tag -s 3.3.3 -m '<short explanation of what changed>'
+      git push --tags
+      ```
+ - [ ] create a release on github from the new tag
+
+
+## Background
+
+Each of these packages are available on the [Hubverse R-Universe][r-universe]
+and new versions are checked for hourly. This allows folks to get up-to-date
+versions of The Hubverse packages built for their system without running out
+of GitHub API query attempts.
+
+In order to maintain quality, packages are only sent to the R-Universe if they
+have been formally released on GitHub ([as specified in the packages.json
+configuration
+file](https://github.com/hubverse-org/hubverse-org.r-universe.dev/blob/HEAD/packages.json#L16-L33)).
+This allows us to incrementally add new experimental features without changing
+the stable deployments.
+
+## Versioning
+
+The hubverse is built using very basic semantic versioning using the
+`X.Y.Z[.9000]` pattern. 
+
+[`X`]{#major}
+: **Major version number** this version number will change if there are
+  significant breaking changes to any of the user-facing workflows. That is, if
+  a change requires users to modify their scripts, then it is a breaking change.
+  _For example:_ at this time of writing, `{pegboard}` is at version 0.7.0, for
+  which the `Lesson` object assumes a Jekyll lesson by default. If we were to
+  change this to assume a sandpaper lesson by default, then this would be a
+  breaking change because anyone who is using `Lesson$new()` will now need to
+  use `Lesson$new(jekyll = TRUE)`.
+
+[`Y`]{#minor}
+: **Minor version number** this version number will change if there are new
+  features or enhanced behaviors available to the users in a way that _does not
+  affect how users who do not need the new features use the package_. An example
+  of this is `{pegboard}` version 0.7.0 introduced processing of child
+  documents. If the lesson has no child documents, then it is processed as
+  expected, but if the child documents exist, then they are additionally
+  processed and validated. 
+
+[`Z`]{#patch}
+: **Patch version number** this version number will change if something that
+  was previously broken was fixed, but no new features have been added. An
+  example of this is in [`{sandpaper}` version
+  0.13.3](https://github.com/carpentries/sandpaper/releases/tag/0.13.3) where
+  there were two bugfixes that affected links to setup page sections and 404
+  page rendering that otherwise did not add any new features.
+
+[`9000`]{#dev}
+: **Development version indicator** this indicates that the version of
+  {sandpaper} on GitHub is in development and not yet released. This indicator
+  is always appended to the current release number and should be between 9000
+  and 9999. For example, you the development version indicator for the version
+  of sandpaper after 0.13.2 is 0.13.2.9000. This particular version resulted in
+  a bump to 0.13.3, but it could also have resulted in 0.14.0 or 1.0.0.  It has
+  not been extensively used in the past, but it is quite useful for tracking
+  incremental changes with different bugfixes and features that may appear. When
+  this development version indicator exists, the documentation site will have an
+  extra `dev/` directory that contains the upcoming changes so that we can
+  continue to develop the hubverse without disrupting the regular documentation
+  flow.
+
+
+## Release Process
+
+When a package is ready for release we use [the checklist](#checklist) at the 
+top of this document. The rationale for this process is described in
+[The proposal discussion for R package release guidelines](https://github.com/orgs/hubverse-org/discussions/29).
+
+### Non-urgent releases only
+
+This release process assumes that we have accumulated bugfixes and/or features
+in the `main` branch, which we are ready to release. If you have a bug that
+needs to be patched _immediately_ and you have new features in the main branch
+that are not yet released, then you should [create a hotfix](hotfixes) instead.
+
+### Releases
+
+Releases are a concept that is specific for GitHub. Under the hood, releases are
+created from commits or tags. When you use the GitHub web interface, you can
+choose to have a tag automatically created from a release. 
+
+Once the release is created on GitHub, then the package will be available on
+the R-Universe in about an hour or less. 
+
+It is good practice to create a tag to release from so that we have a way to
+track the releases even if we eventually move away from GitHub. Even better
+practice is to create _signed_ tags, which adds a cryptographic signature to
+the tag that allows anyone to verify that it came from your computer and not
+someone pretending to be you.
+
+#### Signed Tags
+
+Zhian likes to create tags via the command line because he has set up his git
+configuration to use [a gpg signature](https://www.garrickadenbuie.com/blog/signed-verified-git-commits-keybase-rstudio/#fnref3)
+so the tags and the releases are both verified. Recently, Git and GitHub added
+support for [creating signatures via an SSH key](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification), which is _a lot_ more approchable than GPG.
+
+Tagging and Release can be achieved in a single step with the [github
+cli](https://cli.github.com/) with the command `gh release create X.Y.Z` for
+the version number
+
+```bash
+gh release create 3.3.3
+# ? Title (optional) sandpaper 3.3.3
+# ? Release notes  [Use arrows to move, type to filter]
+#   Write my own
+# > Write using generated notes as template
+#   Leave blank
+```
+
+Selecting "Write using generated notes as a template" opens an editor and
+populates it with the pull requests that have been accepted since the last
+release.
+
+
+## Release Timeline Example
+
+In the early days of most software, the release process is ad-hoc because the
+number of users is low, but with an entire community is using it, it is
+**important to set expectations and properly communicate changes to the users**.
+For [patch relases](#patch), these releases should continue to happen ad-hoc
+because, by definition, these releases only fix bugs and do not add new
+features.
+
+The release timelines are based on one fundamental assumption: 
+
+1. a M--F workweek (i.e. NEVER release on a Friday unless you like working on
+   the weekend)
+
+### Minor Feature Updates
+
+For releases that add new non-breaking features which bump the [minor
+version](#minor), it is important to alert the community a couple of days in
+advance of the release so they have a chance to give feedback before the
+release. Thus, I propose the following timeline:
+
+ 1. **Friday (drafting)**: Members of Maintainer Group draft
+    communications describing new features
+ 2. **Monday (communications)**: Communications describing new features sent to
+    relevant communities 
+ 3. **Wednesday (release)**: New version of package(s) released
+
+We release on Wednesday in order to give enough time for the communications to
+sink in _and_ give enough time for us to release patches to the release before
+all lessons get rebuilt. 
+
+
+### Breaking Changes
+
+If there are breaking changes, it is important to give the community enough time
+to adapt and to offer them a path forward to fix their workflows. Depending on
+how drastic the change is, it may be important to create separate development
+branches to ensure non-breaking features can continue to be included. It is als
+important to conduct beta testing to ensure that the change doesn't contain any
+unforseen bugs and, importantly, that it _improves the workflow for the
+audience over doing nothing at all_.
+
+The release should still happen on a Wednesday, but the communications aspect
+should be timely, specific, targeted, and repeated. It may be that you have to
+communicate about the change one week, one month, or even one quarter ahead of
+the release. In a volunteer community, you will end up in situations where
+people are checked out for months at a time and will see everything changed, so
+please do take care with the communications and changes. 
+
+[r-universe]: https://hubverse-org.r-universe.dev/
