@@ -27,6 +27,8 @@ Imports:
     rlang,
     usethis,
     whisker
+Suggests:
+    quarto
 Remotes:
     hubverse-org/hubStyle
 URL: https://github.com/hubverse-org/hubDevs, https://hubverse-org.github.io/hubDevs
