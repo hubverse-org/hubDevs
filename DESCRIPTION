@@ -8,6 +8,7 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Suggests: 
     knitr,
+    quarto,
     rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -27,8 +28,6 @@ Imports:
     rlang,
     usethis,
     whisker
-Suggests:
-    quarto
 Remotes:
     hubverse-org/hubStyle
 URL: https://github.com/hubverse-org/hubDevs, https://hubverse-org.github.io/hubDevs
