@@ -3,9 +3,9 @@ title: "The Release Process"
 description: >
   Reference for how to perform R package releases in the Hubverse
 vignette: >
-  %  VignetteIndexEntry{The Release Process}
-  %  VignetteEngine{quarto::html}
-  %  VignetteEncoding{UTF-8}
+  %  \VignetteIndexEntry{The Release Process}
+  %  \VignetteEngine{quarto::html}
+  %  \VignetteEncoding{UTF-8}
 knitr:
   opts_chunk: 
     collapse: true
