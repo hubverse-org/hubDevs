@@ -3,9 +3,9 @@ title: "The Release Process"
 description: >
   Reference for how to perform R package releases in the Hubverse
 vignette: >
-  %\VignetteIndexEntry{The Release Process}
-  %\VignetteEngine{quarto::html}
-  %\VignetteEncoding{UTF-8}
+  %  VignetteIndexEntry{The Release Process}
+  %  VignetteEngine{quarto::html}
+  %  VignetteEncoding{UTF-8}
 knitr:
   opts_chunk: 
     collapse: true
@@ -23,6 +23,7 @@ This document is adapted for The Hubverse from [The Carpentries Hubverse Develop
  - [ ] commit, push changes, and create pull request
  - [ ] get a review from another member of the Hubverse dev team and merge on approval
  - [ ] add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
+      
       ```bash
       # example: create a signed (-s) tag for version 3.3.3
       git tag -s 3.3.3 -m '<short explanation of what changed>'
@@ -53,7 +54,7 @@ The hubverse is built using very basic semantic versioning using the
 [`X`]{#major}
 : **Major version number**: this version number will change if there are
   significant breaking changes to any of the user-facing workflows. That is, if
-  a change requires users to modify their scripts, then it is a breaking change. \\
+  a change requires users to modify their scripts, then it is a breaking change.     
   **EXAMPLE**: There are no examples of hubverse packages undergoing a major
   version change, but [schemas v3.0.0](https://github.com/hubverse-org/schemas/releases/tag/v3.0.0)
   included the breaking change of switching `sample/output_type_id` (an array) 
@@ -68,7 +69,7 @@ The hubverse is built using very basic semantic versioning using the
 : **Minor version number**: this version number will change if there are new
   features or enhanced behaviors available to the users in a way that _does not
   affect how users who do not need the new features use the package_. This
-  number grows the fastes in early stages of development. \\
+  number grows the fastes in early stages of development.     
   **EXAMPLE**: The [`{hubValidations}` package version 0.5.0](https://hubverse-org.github.io/hubValidations/news/index.html#hubvalidations-050)
   gives users the ability to reduce compute time by allowing them to sub-set
   the configuration by the new `output_type` argument to 
@@ -77,7 +78,7 @@ The hubverse is built using very basic semantic versioning using the
 
 [`Z`]{#patch}
 : **Patch version number**: this version number will change if something that
-  was previously broken was fixed, but no new features have been added. \\
+  was previously broken was fixed, but no new features have been added.     
   **EXAMPLE**: the `{hubAdmin}` package needed an enhancement for schema version
   3.0.1, which removed the requirements for `CDF` outputs to have a specific
   pattern. [The actual fix was not something a user would interact 
