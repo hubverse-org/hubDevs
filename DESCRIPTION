@@ -27,7 +27,8 @@ Suggests:
     quarto,
     rmarkdown,
     testthat (>= 3.0.0)
-VignetteBuilder: 
+VignetteBuilder:
+    knitr,
     quarto
 Remotes:
     hubverse-org/hubStyle
