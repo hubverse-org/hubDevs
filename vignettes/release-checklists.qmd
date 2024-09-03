@@ -70,7 +70,7 @@ Caveats:
     merge into the original PR, it's best to **create a new issue from the PR
     review** and, after merging, **create a new PR to fix that issue**. This
     helps keep disparate bugfixes and features separate.
- 
+
 ## Hotfix Checklist
 
 A hotfix is a bug fix that is independent from in-development features and needs
@@ -81,7 +81,7 @@ follow this protocol:
  - [ ] Create a new branch from the latest tag using `<author>/<hotfix>/<issue>`
    ```sh
    (main)$ git switch --detach 0.14.0 # checkout the tag
-   (detached-head)$ git switch -c znk/hotfix/143 # create a new branch
+   ((0.14.0))$ git switch -c znk/hotfix/143 # create a new branch
    (znk/hotfix/143)$
    ```
  - [ ] Write a test, fix the bug, commit, and push 

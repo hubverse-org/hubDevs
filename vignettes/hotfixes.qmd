@@ -12,14 +12,12 @@ knitr:
     comment: '#>'
 ---
 
----
-title: "Releasing Hotfixes"
----
+This document is adapted for The Hubverse from [The Carpentries Developer’s Handbook](https://carpentries.github.io/workbench-dev/hotfixes.html) (c) The Carpentries.
 
 A hotfix is a bug fix for a situation where a bug has been found, but the main
 branch has new features that are not yet ready to be released. This chapter will
 be a walkthrough of a scenario with a diagram of the status of the Git
-repository during each iteration. This was the process used in
+repository during each iteration based on the real life process used in
 [carpentries/sandpaper#539](https://github.com/carpentries/sandpaper/pull/539)
 to resolve a bug in link processing.
 
@@ -55,13 +53,16 @@ new bugfix branch from the `main` branch. Here's the catch: if you check out
 from the main branch you will grab `feature1` as well, which is not yet ready
 for production because you intended `feature2` to be released along side. In
 this case, you need to create a hotfix, and create the branch _from the last
-tag_:
+tag_ (which in this case is 0.14.0):
 
 ```sh
-git switch --detach 0.14.0 # checkout the tag
-git switch -c hotfix-143 # create a new branch
-# do some work
-git commit -m 'hotfix for #143'
+(main)$ git describe
+#| 0.14.0-3-ggpne
+(main)$ git switch --detach 0.14.0 # checkout the tag
+#| HEAD is now at efgh Merge pull request #140 from hubverse-org/release-0.14.0
+((0.14.0))$ git switch -c znk/hotfix/143 # create a new branch
+#| switched to new branch 'znk/hotfix/143'
+(znk/hotfix/143)$
 ```
 
 ```{mermaid}
@@ -70,7 +71,7 @@ gitGraph
     commit id: "efgh" tag: "0.14.0"
     branch feature1
     branch feature2
-    branch hotfix-143
+    branch znk/hotfix/143
     checkout main
     checkout feature1
     commit id: "ijkl"
@@ -80,7 +81,7 @@ gitGraph
     checkout feature2
     commit id: "qrst"
     commit id: "uvwx"
-    checkout hotfix-143
+    checkout znk/hotfix/143
     commit id: "yzAB"
 ```
 
@@ -89,28 +90,22 @@ Once you have made your hotfix (with a test of course, because we always make
 sure to verify our fixes), then you should push it up and open a pull request:
 
 ```sh
-git push -u origin hotfix-143
+(znk/hotfix/143)$ git push -u origin znk/hotfix/143
 ```
 
-## Step 2: Run Integration Test, Bump the Version and Add a Tag
+## Step 2: Ensure Checks pass and create tag
 
-You should check that the hotfix does not break any existing tests AND you
-should check the [Workbench Integration
-Test](https://github.com/carpentries/workbench-integration-test#readme) with the
-pull request you just created and the repository that is reporting the error.
-
-Once you have confirmed that everything works as expected, the next step is to
-bump the version and add a tag. This tag will allow you to release the patch
-version.
+You should check that the hotfix does not break any existing tests, which are
+automatically run from the pull request. Once you have confirmed that
+everything works as expected, the next step is to bump the version and add a
+tag. This tag will allow you to release the patch version.
 
 ```sh
-nano DESCRIPTION # bump the patch version
-nano NEWS.md     # add a new section describing the bug fix
-git add DESCRIPTION NEWS.md
-git commit -m 'bump version to 0.14.1'
-git tag -s 0.14.1 -m 'hotfix for 143'
-git push
-git push --tags
+(znk/hotfix/143)$ git add DESCRIPTION NEWS.md
+(znk/hotfix/143)$ git commit -m 'bump version to 0.14.1'
+(znk/hotfix/143)$ git tag -s 0.14.1 -m 'flipped retroencabulator switch option'
+(znk/hotfix/143)$ git push
+(znk/hotfix/143)$ git push --tags
 ```
 
 
@@ -120,7 +115,7 @@ gitGraph
     commit id: "efgh" tag: "0.14.0"
     branch feature1
     branch feature2
-    branch hotfix-143
+    branch znk/hotfix/143
     checkout main
     checkout feature1
     commit id: "ijkl"
@@ -130,24 +125,26 @@ gitGraph
     checkout feature2
     commit id: "qrst"
     commit id: "uvwx"
-    checkout hotfix-143
+    checkout znk/hotfix/143
     commit id: "yzAB"
     commit id: "CDEF" tag: "0.14.1"
 ```
 
 At this point, the checks will not run on the pull request because there will be
 a conflict in the DESCRIPTION and NEWS.md files. This is okay. All you did was
-update the version numbers and add NEWS. The next step is to release the patch.
+update the version numbers and add NEWS. **Do not merge at this point**. The
+next step is to release the patch.
 
 ## Step 3: Release the Patch
 
 You will release the patch using the same method as described in [the releases
 chapter](releases). You can either release on GitHub directly or via the GitHub
 CLI. Importantly, when you create the release, you should _create the release
-from the new tag_:
+from the new tag_. This can be done via the GitHub interface or using GitHub's
+CLI tool.
 
 ```sh
-gh release create 0.14.1
+(znk/hotfix/143)$ gh release create 0.14.1
 ```
 
 ## Step 4: Resolve Conflicts and Merge
@@ -163,7 +160,7 @@ gitGraph
     commit id: "efgh" tag: "0.14.0"
     branch feature1
     branch feature2
-    branch hotfix-143
+    branch znk/hotfix/143
     checkout main
     checkout feature1
     commit id: "ijkl"
@@ -173,17 +170,16 @@ gitGraph
     checkout feature2
     commit id: "qrst"
     commit id: "uvwx"
-    checkout hotfix-143
+    checkout znk/hotfix/143
     commit id: "yzAB"
     commit id: "CDEF" tag: "0.14.1"
     checkout main
-    merge hotfix-143 id: "DeFn"
+    merge znk/hotfix/143 id: "DeFn"
 ```
 
-
 Now you will have the patch in place for the released version _and_ the devel
-version of The Workbench, which means that you can continue to develop as
-normal and merge the next feature when you are ready:
+version of this hubverse package, which means that you can continue to develop
+as normal and merge the next feature when you are ready:
 
 ```{mermaid}
 gitGraph
@@ -191,7 +187,7 @@ gitGraph
     commit id: "efgh" tag: "0.14.0"
     branch feature1
     branch feature2
-    branch hotfix-143
+    branch znk/hotfix/143
     checkout main
     checkout feature1
     commit id: "ijkl"
@@ -201,11 +197,11 @@ gitGraph
     checkout feature2
     commit id: "qrst"
     commit id: "uvwx"
-    checkout hotfix-143
+    checkout znk/hotfix/143
     commit id: "yzAB"
     commit id: "CDEF" tag: "0.14.1"
     checkout main
-    merge hotfix-143 id: "DeFn"
+    merge znk/hotfix/143 id: "DeFn"
     checkout feature2
     commit id: "GHIJ"
     commit id: "KLMN"

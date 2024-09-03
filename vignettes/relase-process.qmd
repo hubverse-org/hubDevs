@@ -12,7 +12,7 @@ knitr:
     comment: '#>'
 ---
 
-This document is adapted for The Hubverse from [The Carpentries Hubverse Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
+This document is adapted for The Hubverse from [The Carpentries Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
 
 ## Background
 
@@ -123,10 +123,12 @@ the R-Universe in about an hour or less.
 #### Signed Tags
 
 It is good practice to create a tag to release from so that we have a way to
-track the releases even if we eventually move away from GitHub. Even better
-practice is to create _signed_ tags, which adds a cryptographic signature to
-the tag that allows anyone to verify that it came from your computer and not
-someone pretending to be you.
+track the releases even if we eventually move away from GitHub. Better practice
+is to create _annotated_ tags with the `-a` flag, which adds metadata to the
+tag, meaning that it cannot be moved. Even better practice is to create
+_signed_ tags with the `-s` flag,  which adds a cryptographic signature to the
+annotated tag metadata that allows anyone to verify that it came from your
+computer and not someone pretending to be you.
 
 Zhian likes to create tags via the command line because he has set up his git
 configuration to use [a gpg signature](https://www.garrickadenbuie.com/blog/signed-verified-git-commits-keybase-rstudio/#fnref3)
