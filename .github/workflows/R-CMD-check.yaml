@@ -33,7 +33,7 @@ jobs:
 
       - name: Setup for Hotfix Testing
         id: hotfix-setup
-        if: "${{ contains(github.event.pull_request.pull_request.head.ref, '/hotfix/') }}"
+        if: "${{ contains(github.event.pull_request.head.ref, '/hotfix/') }}"
         run: |
           # remove the remote declarations from the DESCRIPTION so that we
           # test the released version
