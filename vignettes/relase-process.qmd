@@ -14,24 +14,6 @@ knitr:
 
 This document is adapted for The Hubverse from [The Carpentries Hubverse Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
 
-## Checklist
-
- - [ ] Create a new branch from `main` called `release-X.Y.Z`
- - [ ] Update version number in DESCRIPTION and check that the `Remotes:` is
-       up-to-date
- - [ ] Update NEWS for the changes in this version
- - [ ] commit, push changes, and create pull request
- - [ ] get a review from another member of the Hubverse dev team and merge on approval
- - [ ] add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
-      
-      ```bash
-      # example: create a signed (-s) tag for version 3.3.3
-      git tag -s 3.3.3 -m '<short explanation of what changed>'
-      git push --tags
-      ```
- - [ ] create a release on github from the new tag
-
-
 ## Background
 
 Each of these packages are available on the [Hubverse R-Universe][r-universe]
@@ -95,13 +77,25 @@ The hubverse is built using very basic semantic versioning using the
   site will have an extra `dev/` directory that contains the upcoming changes
   so that we can continue to develop the hubverse without disrupting the
   regular documentation flow.
+      Advice on incrementing the version number from [The R Packages Book (Wickham and Bryan, 2023)](https://r-pkgs.org/lifecycle.html#sec-lifecycle-version-number-tidyverse):
+      
+      > Increment the development version, e.g. from 9000 to 9001, if you’ve
+      > added an important feature and you (or others) need to be able to
+      > detect or require the presence of this feature. For example, this can
+      > happen when two packages are developing in tandem. This is generally
+      > the only reason that we bother to increment the development version.
+      > This makes in-development versions special and, in some sense,
+      > degenerate. Since we don’t increment the development component with
+      > each Git commit, the same package version number is associated with
+      > many different states of the package source, in between releases.
 
 
 ## Release Process
 
-When a package is ready for release we use [the checklist](#checklist) at the 
-top of this document. The rationale for this process is described in
-[The proposal discussion for R package release guidelines](https://github.com/orgs/hubverse-org/discussions/29).
+When a package is ready for release we use The Release Checklist (detailed in
+`vignette("release-checklists", package = "hubDevs")`). The rationale for this
+process is described in [The proposal discussion for R package release
+guidelines](https://github.com/orgs/hubverse-org/discussions/29).
 
 ### Non-urgent releases only
 
