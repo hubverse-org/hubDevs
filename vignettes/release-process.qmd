@@ -17,6 +17,15 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
 **Looking for a checklist?    
 Check out `vignette("release-checklists", package = "hubDevs")`.**
 
+## TL;DR
+
+The release process is now a general workflow that can help to reduce the size
+of pull requests:
+
+1. Iterate on small bug fixes and PRs on branches, merging into main as a
+   stable development branch
+2. When ready, bump the version, add an annotated git tag, and release
+3. Bump the version in `main` back to a development version
 
 ## Background
 
@@ -95,7 +104,7 @@ to retrospectively review that PR.
 With the R-universe, builds can be pinned to Releases on specific tags, which 
 can give a git graph that looks similar to [the first graph](#before), but it
 can also **allow developers to work in parallel** on independent features,
-allowing users to intermittentnly test these features by installing from the
+allowing users to intermittently test these features by installing from the
 default branch in GitHub. 
 
 ```{mermaid}
