@@ -293,9 +293,10 @@ Testing against the development versions of packages is achieved by setting [the
 this ensures that when dependencies are installed for the GitHub workflow run,
 the hubverse dependencies are installed from GitHub and not the R-universe.
 
-During releases and hotfixes, the remote declarations of hubverse packages are
-removed (before the dependencies are installed) with the command
-`sed -i -e '/  hubverse-org/d' DESCRIPTION`.
+During releases and hotfixes (detected by checking that the branch name
+contains either `/release/` or  `/hotfix/`, the remote declarations of hubverse
+packages are removed (before the dependencies are installed) with the command
+`sed -i -e '/[ ][ ]hubverse-org/d' DESCRIPTION`.
 
 
 
