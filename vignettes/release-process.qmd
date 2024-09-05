@@ -29,8 +29,8 @@ In order to maintain quality, packages are only sent to the R-Universe if they
 have been formally released on GitHub ([as specified in the packages.json
 configuration
 file](https://github.com/hubverse-org/hubverse-org.r-universe.dev/blob/HEAD/packages.json#L16-L33)).
-This allows us to incrementally add new experimental features without changing
-the stable deployments.
+This allows us to incrementally add new experimental, non-breaking features
+without changing the stable deployments.
 
 ### Before the R-Universe {#before}
 
@@ -272,9 +272,31 @@ GitHub and create the release (or you can use the `gh` CLI utility and run
 
 ## Testing
 
-Because we will now have two versions of packages available, released and 
-development, it is important that both versions of these packages be tested.
+Packages will exist in two states: released and stable development. Both of
+these states need to pass `R CMD check` and test coverage tests, but the
+challenge with two versions becomes: how do you ensure both versions work with
+both versions of the other packages?
 
-When working 
+The strategy is three-fold:
+
+ - All packages in development are tested against development packages. It is
+   important to remember that development versions must also not introduce
+   breaking changes. Testing breaking changes should be performed in a separate
+   branch. 
+ - On release/hotfix, pull request, all packages are tested against the
+   released packages to ensure no regressions.
+ - All packages (released and devel) are tested weekly. This helps to avoid
+   surprise reverse-dependency problems.
+
+Testing against the development versions of packages is achieved by setting [the
+`Remotes: ` section in your DESCRIPTION file](https://r-pkgs.org/dependencies-in-practice.html#sec-dependencies-nonstandard);
+this ensures that when dependencies are installed for the GitHub workflow run,
+the hubverse dependencies are installed from GitHub and not the R-universe.
+
+During releases and hotfixes, the remote declarations of hubverse packages are
+removed (before the dependencies are installed) with the command
+`sed -i -e '/  hubverse-org/d' DESCRIPTION`.
+
+
 
 [r-universe]: https://hubverse-org.r-universe.dev/
