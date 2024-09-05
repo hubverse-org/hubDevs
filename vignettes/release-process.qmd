@@ -253,7 +253,7 @@ annotated tag metadata that allows anyone to verify that it came from your
 computer and not someone pretending to be you.
 
 Zhian likes to create tags via the command line because he has set up his git
-configuration to use [a gpg signature](https://www.garrickadenbuie.com/blog/signed-verified-git-commits-keybase-rstudio/#fnref3)
+configuration to use [a gpg signature](https://gist.github.com/phortuin/cf24b1cca3258720c71ad42977e1ba57)
 so the tags and the releases are both verified. Recently, Git and GitHub added
 support for [creating signatures via an SSH key](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification), which is _a lot_ more approchable than GPG.
 
@@ -266,8 +266,15 @@ git push --tags
 ```
 
 Once you have a signed tag created, you can then go to the Releases tab on
-GitHub and create the release (or you can use the `gh` CLI utility) and run 
-`gh release create X.Y.Z` to interactively create the release.
+GitHub and create the release (or you can use the `gh` CLI utility and run 
+`gh release create X.Y.Z` to interactively create the release).
 
+
+## Testing
+
+Because we will now have two versions of packages available, released and 
+development, it is important that both versions of these packages be tested.
+
+When working 
 
 [r-universe]: https://hubverse-org.r-universe.dev/
