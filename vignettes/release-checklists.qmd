@@ -14,11 +14,11 @@ knitr:
 
 ## Release Checklist
 
- - [ ] Create a new branch from `main` called `release-X.Y.Z`
+ - [ ] Create a new branch from `main` called `<author>/release/<X.Y.Z>` (e.g. `ls/release/0.1.6`)
  - [ ] Update version number in DESCRIPTION and check that the `Remotes:` is
        up-to-date
  - [ ] Update NEWS for the changes in this version
- - [ ] commit, push changes, and create pull request
+ - [ ] commit, push changes, and create pull request (tests will run against the released versions of the dependencies)
  - [ ] get a review from another member of the Hubverse dev team and merge on approval
  - [ ] add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
       
@@ -43,7 +43,7 @@ development
 ## Subsequent PR Checklist
 
 Subsequent PRs are business-as-usual development. All PRs are tested against
-the development versions of packages and must work before being merged. 
+the development versions of packages and must work before being merged.
 
 It is important to remember that PRs should focus on _independent features_. If
 you want add a new feature and fix a bug, these should be two separate PRs. This
@@ -70,6 +70,8 @@ Caveats:
     merge into the original PR, it's best to **create a new issue from the PR
     review** and, after merging, **create a new PR to fix that issue**. This
     helps keep disparate bugfixes and features separate.
+ 3. If introducing **breaking changes**, you must not merge into `main` until
+    these changes have been tested and communicated with the community.
 
 ## Hotfix Checklist
 
@@ -90,7 +92,7 @@ follow this protocol:
    (znk/hotfix/143)$ git commit -m 'hotfix for #143'
    (znk/hotfix/143)$ git push -u origin znk/hotfix/143 # push the hotfix
    ```
- - [ ] Create a pull request, get a review from another hubverse developer, and confirm that checks pass **(Do not merge yet)**
+ - [ ] Create a pull request, get a review from another hubverse developer, and confirm that checks pass against the released versions of the packages **(Do not merge yet)**
  - [ ] Update the NEWS and bump the [patch version](#patch) in the DESCRIPTION
  - [ ] Release from the hotfix branch
    ```sh
