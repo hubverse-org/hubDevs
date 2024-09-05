@@ -3,6 +3,7 @@ linters: linters_with_defaults(
     commented_code_linter = NULL
   )
 exclusions: list(
-    "vignettes/hotfixes.qmd" # lintr does not recognise mermaid diagrams
+    "vignettes/hotfixes.qmd", # lintr does not recognise mermaid diagrams
     "vignettes/release-process.qmd"
   )
+
