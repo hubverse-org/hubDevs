@@ -31,9 +31,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup for Hotfix Testing
+      - name: Setup for Hotfix/Release Testing
         id: hotfix-setup
-        if: "${{ contains(github.event.pull_request.head.ref, '/hotfix/') }}"
+        if: "${{ contains(github.event.pull_request.head.ref, '/hotfix/') || contains(github.event.pull_request.head.ref, '/release/') }}"
         run: |
           # remove the remote declarations from the DESCRIPTION so that we
           # test the released version

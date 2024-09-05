@@ -53,7 +53,12 @@ new bugfix branch from the `main` branch. Here's the catch: if you check out
 from the main branch you will grab `feature1` as well, which is not yet ready
 for production because you intended `feature2` to be released along side. In
 this case, you need to create a hotfix, and create the branch _from the last
-tag_ (which in this case is 0.14.0):
+tag_ (which in this case is 0.14.0).
+
+**IMPORTANT**: When you create a hotfix, name the branch 
+`<author>/hotfix/<issue>`. By using `/hotfix/` in the branch name, the GitHub
+workflows will know to test this package against the released versions from the
+R-universe.
 
 ```sh
 (main)$ git describe

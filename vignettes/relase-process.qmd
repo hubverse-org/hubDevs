@@ -1,5 +1,5 @@
 ---
-title: "The Release Process"
+title: "Introduction to the release process"
 description: >
   Reference for how to perform R package releases in the Hubverse
 vignette: >
@@ -12,14 +12,18 @@ knitr:
     comment: '#>'
 ---
 
-This document is adapted for The Hubverse from [The Carpentries Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
+Parts of this document is adapted for The Hubverse from [The Carpentries Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
+
+**Looking for a checklist?
+Check out `vignette("release-checklists", package = "hubDevs")`.**
+
 
 ## Background
 
-Each of these packages are available on the [Hubverse R-Universe][r-universe]
-and new versions are checked for hourly. This allows folks to get up-to-date
-versions of The Hubverse packages built for their system without running out
-of GitHub API query attempts.
+As of August 2024, the hubverse packages are available on the [Hubverse
+R-Universe][r-universe] and new versions are checked for hourly. This allows
+users to get up-to-date versions of The Hubverse packages built for their
+system without running out of GitHub API query attempts.
 
 In order to maintain quality, packages are only sent to the R-Universe if they
 have been formally released on GitHub ([as specified in the packages.json
@@ -28,10 +32,128 @@ file](https://github.com/hubverse-org/hubverse-org.r-universe.dev/blob/HEAD/pack
 This allows us to incrementally add new experimental features without changing
 the stable deployments.
 
+### Before the R-Universe {#before}
+
+Before we had the R-universe, **each pull request merged to the `main` branch
+effectively meant the release of a new version**. Ideally, this meant that our
+Git history would look like a series of adjacent belt loops:
+
+```{mermaid}
+gitGraph
+    commit id: "abcd"
+    commit id: "efgh (0.14.0)"
+    branch feature1
+    checkout main
+    checkout feature1
+    commit id: "ijkl"
+    commit id: "mnop"
+    checkout main
+    merge feature1 id: "gpne (0.14.1)"
+    branch feature2
+    checkout feature2
+    commit id: "qrst"
+    commit id: "uvwx"
+    checkout main
+    merge feature2 id: "punx (0.14.2)"
+```
+
+However, a pattern often emerges where more than one feature in a particular
+release is desired and, because we release directly to `main`, the graph looks
+like a thundercloud:
+
+
+```{mermaid}
+gitGraph
+    commit id: "abcd"
+    commit id: "efgh (0.14.0)"
+    branch feature1
+    checkout main
+    checkout feature1
+    commit id: "ijkl"
+    commit id: "mnop"
+    branch feature2
+    checkout feature2
+    commit id: "qrst"
+    checkout feature1 
+    commit id: "uvwx"
+    checkout feature2
+    commit id: "yz12"
+    checkout feature1 
+    merge feature2 id: "xu12"
+    checkout main
+    merge feature1 id: "gpxe (0.14.1)"
+```
+
+The problem with the second graph is that, as the number of extra features grows,
+the size of the PR that will be the release becomes larger and larger.
+Moreover, the exact changes that were needed in the original PR are mixed in
+with all the changes from the child branches, meaning that it is more difficult
+to retrospectively review that PR. 
+
+### After the R-Universe {#after}
+
+With the R-universe, builds can be pinned to Releases on specific tags, which 
+can give a git graph that looks similar to [the first graph](#before), but it
+can also **allow developers to work in parallel** on independent features,
+allowing users to intermittentnly test these features by installing from the
+default branch in GitHub. 
+
+```{mermaid}
+gitGraph
+    commit id: "abcd"
+    commit id: "efgh" tag: "0.14.0"
+    branch feature1
+    branch feature2
+    checkout main
+    checkout feature1
+    commit id: "ijkl"
+    commit id: "mnop"
+    checkout main
+    checkout feature2
+    commit id: "qrst"
+    commit id: "uvwx"
+    checkout main
+    merge feature1 id: "gpne"
+    merge feature2 id: "punx"
+    branch release
+    checkout release
+    commit id: "2zy1"
+    checkout main
+    merge release id: "1u2n" tag: "0.14.1"
+```
+
 ## Versioning
 
 The hubverse is built using very basic semantic versioning using the
-`X.Y.Z[.9000]` pattern. 
+`X.Y.Z[.9000]` pattern. If we take [the previous git graph](#after) and labelled
+the version number, you can see how the first release in our graph was a minor
+release, followed by a patch release. Everything that has [a `.9000` attached
+is considered in-development](#dev). Read below for details and examples of
+each of these semantic versions:
+
+```{mermaid}
+gitGraph
+    commit id: "abcd (0.13.2.9000)"
+    commit id: "efgh (0.14.0)" tag: "0.14.0"
+    branch feature1
+    branch feature2
+    checkout main
+    checkout feature1
+    commit id: "ijkl (0.14.0.9000)"
+    commit id: "mnop (0.14.0.9000)"
+    checkout main
+    checkout feature2
+    commit id: "qrst (0.14.0.9000)"
+    commit id: "uvwx (0.14.0.9000)"
+    checkout main
+    merge feature1 id: "gpne (0.14.0.9000)"
+    merge feature2 id: "punx (0.14.0.9000)"
+    branch release
+    checkout release
+    commit id: "2zy1 (0.14.1)"
+    checkout main
+    merge release id: "1u2n (1.14.1)" tag: "0.14.1"
+```
 
 [`X`]{#major}
 : **Major version number**: this version number will change if there are
