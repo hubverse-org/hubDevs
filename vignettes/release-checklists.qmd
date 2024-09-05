@@ -103,8 +103,8 @@ follow this protocol:
    ```
    At this point, there will be a conflict on the NEWS and DESCRIPTION, but
    that's because you confirmed that it worked in the previous step.
- - [ ] Create the release from the tag on github or using GitHub's CLI tool: 
-   `gh release create 0.14.1`
+ - [ ] Create the release from the tag on github (or using GitHub's CLI tool: 
+   `gh release create 0.14.1`)
  - [ ] Resolve conflicts in PR and merge into main. 
 
 
