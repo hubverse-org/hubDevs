@@ -12,7 +12,7 @@ knitr:
     comment: '#>'
 ---
 
-Parts of this document is adapted for The Hubverse from [The Carpentries Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries. 
+Parts of this document is adapted for The Hubverse from [The Carpentries Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries under the [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/). 
 
 **Looking for a checklist?    
 Check out `vignette("release-checklists", package = "hubDevs")`.**

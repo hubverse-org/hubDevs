@@ -12,7 +12,7 @@ knitr:
     comment: '#>'
 ---
 
-This document is adapted for The Hubverse from [The Carpentries Developer’s Handbook](https://carpentries.github.io/workbench-dev/hotfixes.html) (c) The Carpentries.
+This document is adapted for The Hubverse from [The Carpentries Developer’s Handbook](https://carpentries.github.io/workbench-dev/hotfixes.html) (c) The Carpentries under the [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/). 
 
 A hotfix is a bug fix for a situation where a bug has been found, but the main
 branch has new features that are not yet ready to be released. This chapter will
