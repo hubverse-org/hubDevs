@@ -41,7 +41,7 @@ development
  - [ ] Add `.9000` to the version number in DESCRIPTION (to indicate in development version)
  - [ ] Add a new heading to NEWS.md: `## <package name> (development)`
  - [ ] commit, push changes, create a pull request
- - [ ] merge (with or without approval)
+ - [ ] merge (with approval)
 
 ## Subsequent PR Checklist
 
