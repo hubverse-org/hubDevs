@@ -13,15 +13,17 @@ knitr:
 ---
 
 Parts of this document is adapted for The Hubverse from [The Carpentries Developer's Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c) The Carpentries under the [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/). 
+
 ## Release Checklist
 
  - [ ] Create a new branch from `main` called `<author>/release/<X.Y.Z>` (e.g. `ls/release/0.1.6`)
- - [ ] Update version number in DESCRIPTION and check that the `Remotes:` is
+ - [ ] Update version number in `DESCRIPTION` and check that the `Remotes:` is
        up-to-date
- - [ ] Update NEWS for the changes in this version
- - [ ] commit, push changes, and create pull request (tests will run against the released versions of the dependencies)
- - [ ] get a review from another member of the Hubverse dev team and merge on approval
- - [ ] add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
+ - [ ] Check that all new authors/contributors are accounted for in the `DESCRIPTION`
+ - [ ] Proofread the `NEWS.md` and update the version number
+ - [ ] Commit, push changes, and create pull request (tests will run against the released versions of the dependencies)
+ - [ ] Get a review from another member of the Hubverse dev team and merge on approval
+ - [ ] Add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
       
       ```bash
       # example: create a signed (-s) tag for version 3.3.3
