@@ -278,6 +278,27 @@ Once you have a signed tag created, you can then go to the Releases tab on
 GitHub and create the release (or you can use the `gh` CLI utility and run 
 `gh release create X.Y.Z` to interactively create the release).
 
+### Releasing to CRAN
+
+Releasing a package on CRAN is a relatively straightforward process that takes
+5 minutes on your part as the maintainer.
+The time between sending your package to CRAN and the time it becomes available to the public usually ranges anywhere from 30 minutes to two or three days, depending on volume and feedback from CRAN maintainers.
+Because CRAN submissions are often a back and forth process, you should not tag your release until you have confirmed that CRAN has accepted the submission.
+
+Some tips for CRAN submissions:
+
+ - Your first submission will likely take the longest (see [Chapter 22 of R Packages by Wickham and Bryan](https://r-pkgs.org/release.html#sec-release-initial))
+ - Don't use the webform; use [`devtools::release()`](https://devtools.r-lib.org/reference/release.html)
+ - Remove the `Remotes:` items in the DESCRIPTION with
+   `sed -E -e '/(Remotes:|  hubverse-org)/d' DESCRIPTION` (you will restore this later with  `git restore DESCRIPTION`). [^uncommitted]
+ - Commit the `CRAN_SUBMISSION` file when it changes
+ - There is a missing stair that can make submissions unpleasant. 
+   If you get a nasty review from Ripley, contact one of the R folks for backup/strategy/comiseration.
+
+
+[^uncommitted]: You will get a warning from devtools saying that all files should be tracked and committed before release.
+  Double check that all that changed was removing the `Remotes:` field from the
+  DESCRIPTION and proceed.
 
 ## Testing
 

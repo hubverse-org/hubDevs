@@ -21,7 +21,8 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
        up-to-date
  - [ ] Check that all new authors/contributors are accounted for in the `DESCRIPTION`
  - [ ] Proofread the `NEWS.md` and update the version number
- - [ ] Commit, push changes, and create pull request (tests will run against the released versions of the dependencies)
+ - [ ] Commit, push changes, and create a draft pull request (tests will run against the released versions of the dependencies)
+ - [ ] If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran) 
  - [ ] Get a review from another member of the Hubverse dev team and merge on approval
  - [ ] Add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
       
@@ -31,6 +32,15 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
       git push --tags
       ```
  - [ ] create a release on github from the new tag
+
+### Release to CRAN
+
+The release process for CRAN releases requires extra time and attention.
+
+ - [ ] run `devtools::release()` and follow the prompts
+ - [ ] after CRAN submission, add and commit the `CRAN_SUBMISSION` file
+ - [ ] continue with the [Release steps](#release-checklist)
+
 
 ## Post Release Checklist
 
