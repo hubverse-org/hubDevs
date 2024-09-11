@@ -1,3 +1,14 @@
 url: https://hubverse-org.github.io/hubDevs/
 template:
   package: hubStyle
+
+articles:
+  - title: "Developer Guides"
+    navbar: ~
+    contents:
+      - "release-process"
+      - "hotfixes"
+  - title: "Release/Hotfix/PR Checklist"
+    navbar: ~
+    contents:
+      - "release-checklists"
