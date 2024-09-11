@@ -16,13 +16,13 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
 
 ## Release Checklist
 
- - [ ] Create a new branch from `main` called `<author>/release/<X.Y.Z>` (e.g. `ls/release/0.1.6`)
- - [ ] Update version number in `DESCRIPTION` and check that the `Remotes:` is
-       up-to-date
- - [ ] Check that all new authors/contributors are accounted for in the `DESCRIPTION`
- - [ ] Proofread the `NEWS.md` and update the version number
+ - [ ] Create a new branch from `main` called `<author>/release/<X.Y.Z>` (MUST be this pattern, e.g. `ls/release/0.1.6`)
+ - [ ] (For R packages) Update version number in `DESCRIPTION` and check that the `Remotes:` is
+       up-to-date[^remotes]
+ - [ ] (For R packages) Check that all new authors/contributors are accounted for in the `DESCRIPTION`
+ - [ ] Proofread the `NEWS.md` or  `changelog.md` and update the version number
  - [ ] Commit, push changes, and create a draft pull request (tests will run against the released versions of the dependencies)
- - [ ] If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran) 
+ - [ ] (For R packages) If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran) 
  - [ ] Get a review from another member of the Hubverse dev team and merge on approval
  - [ ] Add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
       
@@ -32,6 +32,22 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
       git push --tags
       ```
  - [ ] create a release on github from the new tag
+
+
+[^remotes]: This describes an edge case (after development of cross-package functionality). 
+
+    Effectively, if you have two packages that have complementary features in
+    two pull requests, you can test them in the pull request by changing the
+    `Remotes:` field.
+
+    For example, a branch `pkgA@feature-A1` depends on`pkgB@feature-B1`, so you
+    would do the following steps:
+
+    1. add `org/pkgB@feature-B1` the `Remotes: ` field of `pkgA@feature-A1` (and bump the
+    development version number in `pkgB@feature-B1`) during development.
+    2. `pkgB@feature-B1` should be merged before `pkgA@feature-A1`.
+    3. Before you merge `pkgA@feature-A1`, you should ensure that the `Remotes:`
+    removes the feature branch specification.
 
 ### Release to CRAN
 
@@ -48,8 +64,8 @@ Immediately after the release, follow these steps to set the version back to
 development
 
  - [ ] Create new branch from main called `post-release-X.Y.Z`
- - [ ] Add `.9000` to the version number in DESCRIPTION (to indicate in development version)
- - [ ] Add a new heading to NEWS.md: `## <package name> (development)`
+ - [ ] Add `.9000` to the version number (to indicate in development version)
+ - [ ] Add a new heading to `NEWS.md` or `changelog.md`: `## <package name> (development)`
  - [ ] commit, push changes, create a pull request
  - [ ] merge (with approval)
 
@@ -68,7 +84,7 @@ strategy _reduces the size of the PR, making it easier to review_.
        which was authored by Anna Krystalli to change the check/fail class and
        print methods to fix [issue
        #111](https://github.com/hubverse-org/hubValidations/issues/111)).
- - [ ] Update NEWS.md (be sure to acknowledge non-core contributors by tagging
+ - [ ] Update `NEWS.md` or `changelog.md` (be sure to acknowledge non-core contributors by tagging
        their GitHub handle and version number)
  - [ ] Get review from a member of the hubverse team and merge into main on approval.
 

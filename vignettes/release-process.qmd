@@ -27,6 +27,9 @@ of pull requests:
 2. When ready, bump the version, add an annotated git tag, and release
 3. Bump the version in `main` back to a development version
 
+Some of the steps in these instructions are specific for R packages, but they
+are largely process-based and can apply to Python packages as well.
+
 ## Background
 
 As of August 2024, the hubverse packages are available on the [Hubverse
@@ -305,9 +308,9 @@ Some tips for CRAN submissions:
 ## Testing
 
 Packages will exist in two states: released and stable development. Both of
-these states need to pass `R CMD check` and test coverage tests, but the
-challenge with two versions becomes: how do you ensure both versions work with
-both versions of the other packages?
+these states need to pass checks (both `R CMD check` and test coverage tests),
+but the challenge with two versions becomes: how do you ensure both versions
+work with both versions of the other packages?
 
 The strategy is three-fold:
 
@@ -328,7 +331,7 @@ the hubverse dependencies are installed from GitHub and not the R-universe.
 During releases and hotfixes (detected by checking that the branch name
 contains either `/release/` or  `/hotfix/`, the remote declarations of hubverse
 packages are removed (before the dependencies are installed) with the command
-`sed -i -e '/[ ][ ]hubverse-org/d' DESCRIPTION`.
+`sed -i "" -E -e '/[ ][ ]hubverse-org/d' DESCRIPTION`.
 
 
 

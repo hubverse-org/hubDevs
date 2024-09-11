@@ -21,6 +21,15 @@ repository during each iteration based on the real life process used in
 [carpentries/sandpaper#539](https://github.com/carpentries/sandpaper/pull/539)
 to resolve a bug in link processing.
 
+A process for creating a hotfix release is similar to that of the standard 
+release with the following differences:
+
+|        | standard | hotfix |
+| ------ | -------- | ------ |
+| parent branch | `main` | `<tag>` |
+| tag and release | after merge | _before_ merge |
+| merge conflicts | never | with `DESCRIPTION` and `NEWS.md` |
+
 Take for example a situation where you want to introduce two new features into
 the project, so you create two branches for each of them. You finish the first
 and merge it into the main branch and you are still working on the second. Your
@@ -134,6 +143,8 @@ gitGraph
     commit id: "yzAB"
     commit id: "CDEF" tag: "0.14.1"
 ```
+
+**Note the 0.14.1 tag is on the `znk/hotfix/143` branch at the bottom.
 
 At this point, the checks will not run on the pull request because there will be
 a conflict in the DESCRIPTION and NEWS.md files. This is okay. All you did was
