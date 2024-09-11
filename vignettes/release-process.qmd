@@ -17,7 +17,7 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
 **Looking for a checklist?    
 Check out `vignette("release-checklists", package = "hubDevs")`.**
 
-## TL;DR
+## Executive Summary
 
 The release process is now a general workflow that can help to reduce the size
 of pull requests:
