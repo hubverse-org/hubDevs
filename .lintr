@@ -2,3 +2,8 @@ linters: linters_with_defaults(
     line_length_linter = line_length_linter(120L),
     commented_code_linter = NULL
   )
+exclusions: list(
+    "vignettes/hotfixes.qmd", # lintr does not recognise mermaid diagrams
+    "vignettes/release-process.qmd"
+  )
+

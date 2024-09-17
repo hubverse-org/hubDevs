@@ -1,17 +1,17 @@
 Package: hubDevs
-Title: Utilities for creating and standardising Hubverse packages
-Version: 0.0.1
-Authors@R: 
+Title: Utilities for Creating and Standardising Hubverse Packages
+Version: 0.1.0
+Authors@R: c(
     person("Anna", "Krystalli", , "annakrystalli@googlemail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-2378-4915"))
+           comment = c(ORCID = "0000-0002-2378-4915")),
+    person("Zhian N.", "Kamvar", , "zkamvar@gmail.com", role = "aut",
+           comment = c(ORCID = "0000-0003-1458-7108"))
+  )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+URL: https://github.com/hubverse-org/hubDevs,
+    https://hubverse-org.github.io/hubDevs
+BugReports: https://github.com/hubverse-org/hubDevs/issues
 Imports: 
     checkmate,
     cli,
@@ -25,8 +25,18 @@ Imports:
     rlang,
     usethis,
     whisker
+Suggests: 
+    knitr,
+    quarto,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder:
+    knitr,
+    quarto
 Remotes:
     hubverse-org/hubStyle
-URL: https://github.com/hubverse-org/hubDevs
-BugReports: https://github.com/hubverse-org/hubDevs/issues
 Config/Needs/website: hubverse-org/hubStyle
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
