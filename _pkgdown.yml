@@ -12,3 +12,6 @@ articles:
     navbar: ~
     contents:
       - "release-checklists"
+development:
+  mode: auto
+
