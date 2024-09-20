@@ -18,20 +18,21 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
 
  - [ ] Create a new branch from `main` called `<author>/release/<X.Y.Z>` (MUST be this pattern, e.g. `ls/release/0.1.6`)
  - [ ] (For R packages) Update version number in `DESCRIPTION` and check that the `Remotes:` is
-       up-to-date[^remotes]
+       up-to-date[^remotes]. Use `usethis::use_version()` to update the version number and add a new `NEWS.md` section.
  - [ ] (For R packages) Check that all new authors/contributors are accounted for in the `DESCRIPTION`
  - [ ] Proofread the `NEWS.md` or  `changelog.md` and update the version number
  - [ ] Commit, push changes, and create a draft pull request (tests will run against the released versions of the dependencies)
- - [ ] (For R packages) If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran) 
+ - [ ] (For R packages) If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran). A good place to start would be to open a template release issue using `usethis::use_release_issue()` and follow the instructions. 
  - [ ] Get a review from another member of the Hubverse dev team and merge on approval
+ - [ ] Checkout the `main` branch and make sure to pull the merged in changes.
  - [ ] Add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
       
       ```bash
       # example: create a signed (-s) tag for version 3.3.3
-      git tag -s 3.3.3 -m '<short explanation of what changed>'
+      git tag -s v3.3.3 -m '<short explanation of what changed>'
       git push --tags
       ```
- - [ ] create a release on github from the new tag
+ - [ ] create a release on github from the new tag. In R, you can use `usethis::use_github_release()`.
 
 
 [^remotes]: This describes an edge case (after development of cross-package functionality). 
@@ -51,10 +52,26 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
 
 ### Release to CRAN
 
-The release process for CRAN releases requires extra time and attention.
+The release process for CRAN releases requires extra time and attention. A good place to start would be to 
 
- - [ ] run `devtools::release()` and follow the prompts
- - [ ] after CRAN submission, add and commit the `CRAN_SUBMISSION` file
+ - [ ] open a template release issue using `usethis::use_release_issue()` and follow the instructions.
+ - [ ] If this the first release on CRAN, make sure to:
+    - [ ] Add the CRAN installation command to the installation instructions in the `README.Rmd`.
+    - [ ] Add a CRAN badge to the `README.Rmd` using `usethis::use_cran_badge()`.
+    - [ ] Rebuild `README.md`.
+ - [ ] Use `devtools::check(remote = TRUE, manual = TRUE)` to check the package locally.
+ - [ ] Use `devtools::check_win_devel()` to check the package with the devel version of R on <https://win-builder.r-project.org/>.
+ - Record the results of checks and respond concisely to any NOTEs not addressed in the `cran-comments.md` file. The contents of this file are included with package submission to CRAN. See more about [using `cran-comments.md` to communicate with CRAN](https://r-pkgs.org/release.html#sec-release-cran-comments). If the package does not have a `cran-comments.md` file, you can create one using `usethis::use_cran_comments()`.
+ - [ ] Make sure all your changes are committed and pushed to your release branch.
+ - [ ] Remove the `Remotes:` items in the DESCRIPTION with the [`desc`](https://r-lib.github.io/desc) package:
+   ```r
+   desc::desc()$del("Remotes")$write()
+   ``` 
+   (DO NOT COMMIT, you will restore this later with `git restore DESCRIPTION`).
+ - [ ] run `devtools::release()` and follow the prompts. This will run through a bunch of confirmation checks and finally submit the package to CRAN.
+ - [ ] run `system("git restore DESCRIPTION")` to restore the `Remotes:` field in the `DESCRIPTION` file.
+ - [ ] after CRAN submission, add and commit the `CRAN_SUBMISSION` file and push to your release branch.
+ - [ ] If the package is rejected by CRAN, make any necessary changes, update the `cran-comments.md` file with a summary of changes made, bump the version using `usethis::use_version("patch")` and resubmit to CRAN. 
  - [ ] continue with the [Release steps](#release-checklist)
 
 
@@ -63,9 +80,11 @@ The release process for CRAN releases requires extra time and attention.
 Immediately after the release, follow these steps to set the version back to
 development
 
- - [ ] Create new branch from main called `post-release-X.Y.Z`
- - [ ] Add `.9000` to the version number (to indicate in development version)
- - [ ] Add a new heading to `NEWS.md` or `changelog.md`: `## <package name> (development)`
+ - [ ] Create new branch from `main` called `post-release-X.Y.Z`
+ - [ ] Set project to development version by:
+        * Adding `.9000` to the version number (to indicate in development version)
+        * Adding a new heading to `NEWS.md` or `changelog.md`: `## <package name> (development)`.
+        For R packages you can do both with `usethis::use_dev_version()`.
  - [ ] commit, push changes, create a pull request
  - [ ] merge (with approval)
 
