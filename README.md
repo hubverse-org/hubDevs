@@ -10,6 +10,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hubDevs)](https://CRAN.R-project.org/package=hubDevs)
 [![R-CMD-check](https://github.com/hubverse-org/hubDevs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hubverse-org/hubDevs/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The goal of hubDevs is to provide utilities for creating and
@@ -17,7 +18,19 @@ standardising Hubverse packages
 
 ## Installation
 
-You can install the development version of hubDevs from
+### Latest
+
+You can install the [latest version of hubDevs from the
+R-universe](https://hubverse-org.r-universe.dev/hubAdmin):
+
+``` r
+install.packages("hubDevs", repos = c("https://hubverse-org.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+### Development
+
+If you want to test out new features that have not yet been released,
+you can install the development version of hubDevs from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -37,64 +50,68 @@ library(hubDevs)
 temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
-#> ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg/'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg'
-#> ✔ Creating 'R/'
-#> ✔ Writing 'DESCRIPTION'
+#> ✔ Creating '/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg/'.
+#> ✔ Setting active project to "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg".
+#> ✔ Creating 'R/'.
+#> ✔ Writing 'DESCRIPTION'.
 #> Package: testPkg
 #> Title: What the Package Does (One Line, Title Case)
 #> Version: 0.0.0.9000
 #> Authors@R (parsed):
-#>     * Anna Krystalli <annakrystalli@googlemail.com> [aut, cre] (<https://orcid.org/0000-0002-2378-4915>)
+#>     * Zhian N. Kamvar <zkamvar@gmail.com> [aut, cre] (<https://orcid.org/0000-0003-1458-7108>)
 #> Description: What the package does (one paragraph).
-#> License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-#>     license
+#> License: MIT + file LICENSE
 #> Encoding: UTF-8
 #> Roxygen: list(markdown = TRUE)
-#> RoxygenNote: 7.2.3
-#> ✔ Writing 'NAMESPACE'
-#> ✔ Writing 'testPkg.Rproj'
-#> ✔ Adding '^testPkg\\.Rproj$' to '.Rbuildignore'
-#> ✔ Adding '.Rproj.user' to '.gitignore'
-#> ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
-#> ✔ Setting active project to '<no active project>'
-#> ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg'
+#> RoxygenNote: 7.3.2
+#> ✔ Writing 'NAMESPACE'.
+#> ✔ Writing 'testPkg.Rproj'.
+#> ✔ Adding "^testPkg\\.Rproj$" to '.Rbuildignore'.
+#> ✔ Adding ".Rproj.user" to '.gitignore'.
+#> ✔ Adding "^\\.Rproj\\.user$" to '.Rbuildignore'.
+#> ✔ Setting active project to "<no active project>".
+#> ✔ Setting active project to "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg".
 #> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
-#> 
-#> ✔ Adding 'testthat' to Suggests field in DESCRIPTION
-#> ✔ Adding '3' to Config/testthat/edition
-#> ✔ Creating 'tests/testthat/'
-#> ✔ Writing 'tests/testthat.R'
-#> • Call `use_test()` to initialize a basic test file and open it for editing.
-#> ✔ Adding 'MIT + file LICENSE' to License
-#> ✔ Writing 'LICENSE'
-#> ✔ Writing 'LICENSE.md'
-#> ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
-#> ✔ Writing 'README.Rmd'
-#> ✔ Adding '^README\\.Rmd$' to '.Rbuildignore'
-#> ✔ Adding Lifecycle: experimental badge to 'README.Rmd'
-#> • Re-knit 'README.Rmd' with `devtools::build_readme()`
-#> ✔ Adding CRAN status badge to 'README.Rmd'
-#> • Re-knit 'README.Rmd' with `devtools::build_readme()`
+#> ✔ Adding testthat to 'Suggests' field in DESCRIPTION.
+#> ✔ Adding "3" to 'Config/testthat/edition'.
+#> ✔ Creating 'tests/testthat/'.
+#> ✔ Writing 'tests/testthat.R'.
+#> ☐ Call `usethis::use_test()` to initialize a basic test file and open it for editing.
+#> ✔ Writing 'LICENSE'.
+#> ✔ Writing 'LICENSE.md'.
+#> ✔ Adding "^LICENSE\\.md$" to '.Rbuildignore'.
+#> ✔ Writing 'README.Rmd'.
+#> ✔ Adding "^README\\.Rmd$" to '.Rbuildignore'.
+#> ✔ Adding "Lifecycle: experimental badge" to 'README.Rmd'.
+#> ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.
+#> ✔ Adding "CRAN status badge" to 'README.Rmd'.
+#> ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.
 #> ℹ Installing testPkg in temporary library
-#> ℹ Building
-#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg/README.Rmd'
-#> ✔ Creating '.github/'
-#> ✔ Adding '^\\.github$' to '.Rbuildignore'
-#> ✔ Adding '*.html' to '.github/.gitignore'
-#> ✔ Writing '.github/CODE_OF_CONDUCT.md'
-#> ✔ Writing '.github/CONTRIBUTING.md'
-#> ✔ Initialising Git repo
-#> ✔ Adding '.quarto' to '.gitignore'
-#> ✔ Writing '.git/hooks/pre-commit'
-#> ✔ Setting active project to '<no active project>'
+#> ℹ Building '/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg/README.Rmd'
+#> ✔ Creating '.github/'.
+#> 
+#> ✔ Adding "^\\.github$" to '.Rbuildignore'.
+#> 
+#> ✔ Adding "*.html" to '.github/.gitignore'.
+#> 
+#> ✔ Writing '.github/CODE_OF_CONDUCT.md'.
+#> 
+#> ✔ Writing '.github/CONTRIBUTING.md'.
+#> 
+#> ✔ Initialising Git repo.
+#> 
+#> ✔ Adding ".quarto" to '.gitignore'.
+#> 
+#> ✔ Writing '.git/hooks/pre-commit'.
+#> 
+#> ✔ Setting active project to "<no active project>".
 ```
 
 This creates all basic infrastructure including a hubverse template
 README, logo, community documents, MIT LICENSE and initiates the package
 as a git repository.
 
-    #> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg
+    #> /var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg
     #> ├── .Rbuildignore
     #> ├── .git
     #> │   ├── HEAD
@@ -208,5 +225,5 @@ project, you agree to abide by its terms.
 
 Interested in contributing back to the open-source Hubverse project?
 Learn more about how to [get involved in the Hubverse
-Community](https://hubverse.io/en/latest/overview/contribute.html)
-or [how to contribute to the hubDevs package](.github/CONTRIBUTING.md).
+Community](https://hubverse.io/en/latest/overview/contribute.html) or
+[how to contribute to the hubDevs package](.github/CONTRIBUTING.md).
