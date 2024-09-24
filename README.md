@@ -21,7 +21,7 @@ standardising Hubverse packages
 ### Latest
 
 You can install the [latest version of hubDevs from the
-R-universe](https://hubverse-org.r-universe.dev/hubAdmin):
+R-universe](https://hubverse-org.r-universe.dev/hubDevs):
 
 ``` r
 install.packages("hubDevs", repos = c("https://hubverse-org.r-universe.dev", "https://cloud.r-project.org"))
