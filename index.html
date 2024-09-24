@@ -29,7 +29,7 @@
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="index.html">hubDevs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,14 +67,26 @@
 </div>
 <!-- badges: start -->
 
+<!-- badges: end -->
 <p>The goal of hubDevs is to provide utilities for creating and standardising Hubverse packages</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of hubDevs from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="section level3">
+<h3 id="latest">Latest<a class="anchor" aria-label="anchor" href="#latest"></a>
+</h3>
+<p>You can install the <a href="https://hubverse-org.r-universe.dev/hubDevs" class="external-link">latest version of hubDevs from the R-universe</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"hubDevs"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://hubverse-org.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="development">Development<a class="anchor" aria-label="anchor" href="#development"></a>
+</h3>
+<p>If you want to test out new features that have not yet been released, you can install the development version of hubDevs from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"hubverse-org/hubDevs"</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="initialise-a-hubverse-package">Initialise a hubverse package<a class="anchor" aria-label="anchor" href="#initialise-a-hubverse-package"></a>
@@ -83,106 +95,110 @@
 <h3 id="create-a-hubverse-package-skeleton">Create a hubverse package skeleton<a class="anchor" aria-label="anchor" href="#create-a-hubverse-package-skeleton"></a>
 </h3>
 <p>First create a package skeleton.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hubverse-org/hubDevs" class="external-link">hubDevs</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">temp_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="va">temp_dir</span>, <span class="st">"testPkg"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/create_hubdev_pkg.html">create_hubdev_pkg</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Creating '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg/'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg'</span></span>
-<span><span class="co">#&gt; ✔ Creating 'R/'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'DESCRIPTION'</span></span>
+<span><span class="co">#&gt; ✔ Creating '/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg/'.</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg".</span></span>
+<span><span class="co">#&gt; ✔ Creating 'R/'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'DESCRIPTION'.</span></span>
 <span><span class="co">#&gt; Package: testPkg</span></span>
 <span><span class="co">#&gt; Title: What the Package Does (One Line, Title Case)</span></span>
 <span><span class="co">#&gt; Version: 0.0.0.9000</span></span>
 <span><span class="co">#&gt; Authors@R (parsed):</span></span>
-<span><span class="co">#&gt;     * Anna Krystalli &lt;annakrystalli@googlemail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0002-2378-4915&gt;)</span></span>
+<span><span class="co">#&gt;     * Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)</span></span>
 <span><span class="co">#&gt; Description: What the package does (one paragraph).</span></span>
-<span><span class="co">#&gt; License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a</span></span>
-<span><span class="co">#&gt;     license</span></span>
+<span><span class="co">#&gt; License: MIT + file LICENSE</span></span>
 <span><span class="co">#&gt; Encoding: UTF-8</span></span>
 <span><span class="co">#&gt; Roxygen: list(markdown = TRUE)</span></span>
-<span><span class="co">#&gt; RoxygenNote: 7.2.3</span></span>
-<span><span class="co">#&gt; ✔ Writing 'NAMESPACE'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'testPkg.Rproj'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^testPkg\\.Rproj$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Adding '.Rproj.user' to '.gitignore'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg'</span></span>
+<span><span class="co">#&gt; RoxygenNote: 7.3.2</span></span>
+<span><span class="co">#&gt; ✔ Writing 'NAMESPACE'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'testPkg.Rproj'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "^testPkg\\.Rproj$" to '.Rbuildignore'.</span></span>
+<span><span class="co">#&gt; ✔ Adding ".Rproj.user" to '.gitignore'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "^\\.Rproj\\.user$" to '.Rbuildignore'.</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to "&lt;no active project&gt;".</span></span>
+<span><span class="co">#&gt; ✔ Setting active project to "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg".</span></span>
 <span><span class="co">#&gt; ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ✔ Adding 'testthat' to Suggests field in DESCRIPTION</span></span>
-<span><span class="co">#&gt; ✔ Adding '3' to Config/testthat/edition</span></span>
-<span><span class="co">#&gt; ✔ Creating 'tests/testthat/'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'tests/testthat.R'</span></span>
-<span><span class="co">#&gt; • Call `use_test()` to initialize a basic test file and open it for editing.</span></span>
-<span><span class="co">#&gt; ✔ Adding 'MIT + file LICENSE' to License</span></span>
-<span><span class="co">#&gt; ✔ Writing 'LICENSE'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'LICENSE.md'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Writing 'README.Rmd'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^README\\.Rmd$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Adding Lifecycle: experimental badge to 'README.Rmd'</span></span>
-<span><span class="co">#&gt; • Re-knit 'README.Rmd' with `devtools::build_readme()`</span></span>
-<span><span class="co">#&gt; ✔ Adding CRAN status badge to 'README.Rmd'</span></span>
-<span><span class="co">#&gt; • Re-knit 'README.Rmd' with `devtools::build_readme()`</span></span>
+<span><span class="co">#&gt; ✔ Adding testthat to 'Suggests' field in DESCRIPTION.</span></span>
+<span><span class="co">#&gt; ✔ Adding "3" to 'Config/testthat/edition'.</span></span>
+<span><span class="co">#&gt; ✔ Creating 'tests/testthat/'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'tests/testthat.R'.</span></span>
+<span><span class="co">#&gt; ☐ Call `usethis::use_test()` to initialize a basic test file and open it for editing.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'LICENSE'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'LICENSE.md'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "^LICENSE\\.md$" to '.Rbuildignore'.</span></span>
+<span><span class="co">#&gt; ✔ Writing 'README.Rmd'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "^README\\.Rmd$" to '.Rbuildignore'.</span></span>
+<span><span class="co">#&gt; ✔ Adding "Lifecycle: experimental badge" to 'README.Rmd'.</span></span>
+<span><span class="co">#&gt; ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.</span></span>
+<span><span class="co">#&gt; ✔ Adding "CRAN status badge" to 'README.Rmd'.</span></span>
+<span><span class="co">#&gt; ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.</span></span>
 <span><span class="co">#&gt; ℹ Installing testPkg in temporary library</span></span>
-<span><span class="co">#&gt; ℹ Building</span></span>
-<span><span class="co">#&gt;   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg/README.Rmd'</span></span>
-<span><span class="co">#&gt; ✔ Creating '.github/'</span></span>
-<span><span class="co">#&gt; ✔ Adding '^\\.github$' to '.Rbuildignore'</span></span>
-<span><span class="co">#&gt; ✔ Adding '*.html' to '.github/.gitignore'</span></span>
-<span><span class="co">#&gt; ✔ Writing '.github/CODE_OF_CONDUCT.md'</span></span>
-<span><span class="co">#&gt; ✔ Writing '.github/CONTRIBUTING.md'</span></span>
-<span><span class="co">#&gt; ✔ Initialising Git repo</span></span>
-<span><span class="co">#&gt; ✔ Adding '.quarto' to '.gitignore'</span></span>
-<span><span class="co">#&gt; ✔ Writing '.git/hooks/pre-commit'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span></code></pre></div>
+<span><span class="co">#&gt; ℹ Building '/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg/README.Rmd'</span></span>
+<span><span class="co">#&gt; ✔ Creating '.github/'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Adding "^\\.github$" to '.Rbuildignore'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Adding "*.html" to '.github/.gitignore'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Writing '.github/CODE_OF_CONDUCT.md'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Writing '.github/CONTRIBUTING.md'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Initialising Git repo.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Adding ".quarto" to '.gitignore'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Writing '.git/hooks/pre-commit'.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ✔ Setting active project to "&lt;no active project&gt;".</span></span></code></pre></div>
 <p>This creates all basic infrastructure including a hubverse template README, logo, community documents, MIT LICENSE and initiates the package as a git repository.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">#&gt; /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpIUZtzk/testPkg</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; ├── .Rbuildignore</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; ├── .git</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; │   ├── HEAD</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; │   ├── config</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; │   ├── description</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; │   ├── hooks</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; │   │   ├── README.sample</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; │   │   └── pre-commit</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; │   ├── info</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; │   │   └── exclude</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; │   ├── objects</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; │   │   ├── info</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt; │   │   └── pack</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt; │   └── refs</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; │       ├── heads</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; │       └── tags</span></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; ├── .github</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; │   ├── .gitignore</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#&gt; │   ├── CODE_OF_CONDUCT.md</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#&gt; │   └── CONTRIBUTING.md</span></span>
-<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="co">#&gt; ├── .gitignore</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="co">#&gt; ├── DESCRIPTION</span></span>
-<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="co">#&gt; ├── LICENSE</span></span>
-<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co">#&gt; ├── LICENSE.md</span></span>
-<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co">#&gt; ├── NAMESPACE</span></span>
-<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#&gt; ├── R</span></span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; ├── README.Rmd</span></span>
-<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt; ├── README.md</span></span>
-<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; ├── man</span></span>
-<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt; │   └── figures</span></span>
-<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt; │       └── logo.png</span></span>
-<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt; ├── testPkg.Rproj</span></span>
-<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; └── tests</span></span>
-<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt;     ├── testthat</span></span>
-<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="co">#&gt;     └── testthat.R</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#&gt; /var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; ├── .Rbuildignore</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; ├── .git</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; │   ├── HEAD</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; │   ├── config</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; │   ├── description</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; │   ├── hooks</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; │   │   ├── README.sample</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; │   │   └── pre-commit</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; │   ├── info</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; │   │   └── exclude</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; │   ├── objects</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; │   │   ├── info</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; │   │   └── pack</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; │   └── refs</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt; │       ├── heads</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; │       └── tags</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; ├── .github</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt; │   ├── .gitignore</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt; │   ├── CODE_OF_CONDUCT.md</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt; │   └── CONTRIBUTING.md</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt; ├── .gitignore</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; ├── DESCRIPTION</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt; ├── LICENSE</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt; ├── LICENSE.md</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt; ├── NAMESPACE</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt; ├── R</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt; ├── README.Rmd</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt; ├── README.md</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; ├── man</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co">#&gt; │   └── figures</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="co">#&gt; │       └── logo.png</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="co">#&gt; ├── testPkg.Rproj</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="co">#&gt; └── tests</span></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="co">#&gt;     ├── testthat</span></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="co">#&gt;     └── testthat.R</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="set-up-package-on-github">Set up package on GitHub<a class="anchor" aria-label="anchor" href="#set-up-package-on-github"></a>
 </h3>
 <p>Once the new package is launched, you can set it up on GitHub with:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/use_hubdev_github.html">use_hubdev_github</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><em>Note: Your GitHub token must have rights to create a repository in the hubverse organisation for this to succeed.</em></p>
 <p>The function runs a number of internal utilities for setting up a hubverse package on GitHub:</p>
@@ -210,7 +226,7 @@
 <h3 id="add-community-documents">Add community documents<a class="anchor" aria-label="anchor" href="#add-community-documents"></a>
 </h3>
 <p>To add a Code of Conduct and Contributing guide to your package, run:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/use_hubdev_community.html">use_hubdev_community</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This runs <code><a href="reference/use_hubdev_community.html">use_hubdev_coc()</a></code> and <code><a href="reference/use_hubdev_community.html">use_hubdev_contributing()</a></code> and creates a <code>CODE_OF_CONDUCT.md</code> and <code>CONTRIBUTING.md</code> in the <code>.github/</code> directory.</p>
 </div>
@@ -218,7 +234,7 @@
 <h3 id="configure-pkgdown-site-to-use-hubverse-defaults">Configure pkgdown site to use hubverse defaults<a class="anchor" aria-label="anchor" href="#configure-pkgdown-site-to-use-hubverse-defaults"></a>
 </h3>
 <p>To configure your package site to pkgdown with the <code>hubStyle</code> template, and deploy using the hubverse’s pkgdown deployment GitHub action run:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/use_hubdev_pkgdown.html">use_hubdev_pkgdown</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The function performs a number of actions to configure a hubverse package’s pkgdown site to use the <code>hubStyle</code> template for docs styling.</p>
 <ul>
@@ -282,14 +298,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://CRAN.R-project.org/package=hubDevs" class="external-link"><img src="https://www.r-pkg.org/badges/version/hubDevs" alt="CRAN status"></a></li>
-<li><a href="https://github.com/hubverse-org/hubDevs/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/hubverse-org/hubDevs/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>
