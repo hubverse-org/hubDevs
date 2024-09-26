@@ -106,7 +106,7 @@
 <section class="level3"><h3 id="release-to-cran">Release to CRAN<a class="anchor" aria-label="anchor" href="#release-to-cran"></a>
 </h3>
 <p>The release process for CRAN releases requires extra time and attention. A good place to start would be to</p>
-<ul>
+<ul class="task-list">
 <li><p><label><input type="checkbox">open a template release issue using <code><a href="https://usethis.r-lib.org/reference/use_release_issue.html" class="external-link">usethis::use_release_issue()</a></code> and follow the instructions.</label></p></li>
 <li>
 <p><label><input type="checkbox">If this the first release on CRAN, make sure to:</label></p>
@@ -118,7 +118,7 @@
 </li>
 <li><p><label><input type="checkbox">Use <code>devtools::check(remote = TRUE, manual = TRUE)</code> to check the package locally.</label></p></li>
 <li><p><label><input type="checkbox">Use <code><a href="https://devtools.r-lib.org/reference/check_win.html" class="external-link">devtools::check_win_devel()</a></code> to check the package with the devel version of R on <a href="https://win-builder.r-project.org/" class="external-link uri">https://win-builder.r-project.org/</a>.</label></p></li>
-<li><p>Record the results of checks and respond concisely to any NOTEs not addressed in the <code>cran-comments.md</code> file. The contents of this file are included with package submission to CRAN. See more about <a href="https://r-pkgs.org/release.html#sec-release-cran-comments" class="external-link">using <code>cran-comments.md</code> to communicate with CRAN</a>. If the package does not have a <code>cran-comments.md</code> file, you can create one using <code><a href="https://usethis.r-lib.org/reference/use_cran_comments.html" class="external-link">usethis::use_cran_comments()</a></code>.</p></li>
+<li><p><label><input type="checkbox">Record the results of checks and respond concisely to any NOTEs not addressed in the <code>cran-comments.md</code> file. The contents of this file are included with package submission to CRAN. See more about <a href="https://r-pkgs.org/release.html#sec-release-cran-comments" class="external-link">using <code>cran-comments.md</code> to communicate with CRAN</a>. If the package does not have a <code>cran-comments.md</code> file, you can create one using <code><a href="https://usethis.r-lib.org/reference/use_cran_comments.html" class="external-link">usethis::use_cran_comments()</a></code>.</label></p></li>
 <li><p><label><input type="checkbox">Make sure all your changes are committed and pushed to your release branch.</label></p></li>
 <li>
 <p><label><input type="checkbox">Remove the <code>Remotes:</code> items in the DESCRIPTION with the <a href="https://r-lib.github.io/desc" class="external-link"><code>desc</code></a> package:</label></p>
@@ -136,7 +136,13 @@
 <p>Immediately after the release, follow these steps to set the version back to development</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Create new branch from <code>main</code> called <code>post-release-X.Y.Z</code></label></li>
-<li><label><input type="checkbox">Set project to development version by: * Adding <code>.9000</code> to the version number (to indicate in development version) * Adding a new heading to <code>NEWS.md</code> or <code>changelog.md</code>: <code>## &lt;package name&gt; (development)</code>. For R packages you can do both with <code><a href="https://usethis.r-lib.org/reference/use_version.html" class="external-link">usethis::use_dev_version()</a></code>.</label></li>
+<li>
+<label><input type="checkbox">Set project to development version by:</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Adding <code>.9000</code> to the version number (to indicate in development version)</label></li>
+<li><label><input type="checkbox">Adding a new heading to <code>NEWS.md</code> or <code>changelog.md</code>: <code>## &lt;package name&gt; (development)</code>. For R packages you can do both with <code><a href="https://usethis.r-lib.org/reference/use_version.html" class="external-link">usethis::use_dev_version()</a></code>.</label></li>
+</ul>
+</li>
 <li><label><input type="checkbox">commit, push changes, create a pull request</label></li>
 <li><label><input type="checkbox">merge (with approval)</label></li>
 </ul></section><section class="level2"><h2 id="subsequent-pr-checklist">Subsequent PR Checklist<a class="anchor" aria-label="anchor" href="#subsequent-pr-checklist"></a>
