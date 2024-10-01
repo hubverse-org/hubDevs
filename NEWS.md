@@ -1,3 +1,9 @@
+# hubDevs (development version)
+
+# hubDevs 0.1.0
+
+* New vignettes to describe the release process (#11 and #15)
+
 # hubDevs 0.0.0.9004
 
 * Fixed bug in README template the was requiring a `svg` logo instead of a `png` logo.
