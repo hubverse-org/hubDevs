@@ -14,12 +14,10 @@ knitr:
 
 This document is adapted for The Hubverse from [The Carpentries Developer’s Handbook](https://carpentries.github.io/workbench-dev/hotfixes.html) (c) The Carpentries under the [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/). 
 
+## Introduction
+
 A hotfix is a bug fix for a situation where a bug has been found, but the main
-branch has new features that are not yet ready to be released. This chapter will
-be a walkthrough of a scenario with a diagram of the status of the Git
-repository during each iteration based on the real life process used in
-[carpentries/sandpaper#539](https://github.com/carpentries/sandpaper/pull/539)
-to resolve a bug in link processing.
+branch has new features that are not yet ready to be released.
 
 A process for creating a hotfix release is similar to that of the standard 
 release with the following differences:
@@ -30,39 +28,84 @@ release with the following differences:
 | tag and release | after merge | _before_ merge |
 | merge conflicts | never | with `DESCRIPTION` and `NEWS.md` |
 
-Take for example a situation where you want to introduce two new features into
-the project, so you create two branches for each of them. You finish the first
-and merge it into the main branch and you are still working on the second. Your
-Git graph might look something like this:
+An example of good candidate for a hotfix in the hubverse is [hubValidations
+issue #123](https://github.com/hubverse-org/hubValidations/issues/123). This
+bug was discovered in [hubValidations
+0.6.2](https://github.com/hubverse-org/hubValidations/releases/tag/v0.6.2).
+However, this was after the `main` branch [had unreleased
+features](https://github.com/hubverse-org/hubValidations/commit/85d58251c7cbcbb4064a72f8126ad8846f351dbd).
+While the new features were stable, the documentation was not fully polished[^unreleased].
+A hotfix would give developers more time to document the new feature. 
 
+[^unreleased]: [the `create_custom_check()`
+  function](https://github.com/hubverse-org/hubValidations/issues/121) was
+  added in [pull request 122](https://github.com/hubverse-org/hubValidations/pull/122),
+  but the vignette for creating the custom check functions was still in a draft
+  state.
+
+While this bug fix was released through the [standard release process](release-process),
+It could have easily been a hotfix release. This chapter will be a walkthrough
+of the hotfix process if it had been applied in [hubValidations pull request 124](https://github.com/hubverse-org/hubValidations/pull/124).
+
+## Conventions
+
+This walkthrough will be presented as if our lead developer, Anna Krystalli
+were fixing the bug (which she did in real life!) via this hotfix process. We
+will diagram the process using the following conventions:
+
+ - Each step will be written in the second person perspective
+ - The commit IDs and branch names are simplified and will not directly match
+   the real life names
+   - Each new commit is a unique sequence of letters
+   - Each merge commit is a combination of letters from the two previous commits
+ - Each non-main branch will be prefixed with `ak/` 
+ - The command prompt will be displayed in the following format
+   ```sh
+   $ (<branch>) <COMMAND> # comment about <COMMAND>
+   #| output of <COMMAND>
+   ```
+
+## The Scenario
+
+ - [hubValidations 0.6.2](https://github.com/hubverse-org/hubValidations/releases/tag/v0.6.2)
+   was released on 2024-09-20.
+ - [the `create_custom_check()` function](https://github.com/hubverse-org/hubValidations/pull/122) 
+   was merged into hubValidations 0.6.2.9000 on 2024-10-01 
+   after it had been tested and validated.
+ - the vignette for creating custom validations was being drafted in a separate
+   branch on 2024-10-01.
+ - [A bug was discovered in hubValidations 0.6.2 on 2024-10-02](https://github.com/hubverse-org/hubValidations/issues/123).
+
+This is what the state of the project would look like on 2024-10-02 (simplified):
 
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-funs/121
+    branch ak/document-funs/121
     checkout main
-    checkout feature1
+    checkout ak/create-funs/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-funs/121
     commit id: "qrst"
     commit id: "uvwx"
 ```
 
+The rest of the walkthrough will detail the four steps required to fix the bug.
+
 
 ## Step 1: Create a Fix and Pull Request
 
-Then, you get a report (let's call it issue number 143) that something is broken
-and you need to fix it immediately. Normally, to fix bugs, you would check out a
-new bugfix branch from the `main` branch. Here's the catch: if you check out
-from the main branch you will grab `feature1` as well, which is not yet ready
-for production because you intended `feature2` to be released along side. In
-this case, you need to create a hotfix, and create the branch _from the last
-tag_ (which in this case is 0.14.0).
+Normally, to fix bugs, you would check out a new bugfix branch from the `main`
+branch. Here's the catch: if you check out from the main branch you will grab
+`ak/create-fun/121` as well, which is not yet ready for production because you
+intended `ak/document-fun/121` to be released along side. In this case, you
+need to create a hotfix, and create the branch _from the last tag_ (which in
+this case is `v0.6.2`).
 
 **IMPORTANT**: When you create a hotfix, name the branch 
 `<author>/hotfix/<issue>`. By using `/hotfix/` in the branch name, the GitHub
@@ -71,31 +114,31 @@ R-universe.
 
 ```sh
 (main)$ git describe
-#| 0.14.0-3-ggpne
-(main)$ git switch --detach 0.14.0 # checkout the tag
-#| HEAD is now at efgh Merge pull request #140 from hubverse-org/release-0.14.0
-((0.14.0))$ git switch -c znk/hotfix/143 # create a new branch
-#| switched to new branch 'znk/hotfix/143'
-(znk/hotfix/143)$
+#| v0.6.2-3-ggpne
+(main)$ git switch --detach v0.6.2 # checkout the tag
+#| HEAD is now at efgh Merge pull request #119 from hubverse-org/ak/release/v0.6.2
+((v0.6.2))$ git switch -c ak/hotfix/123 # create a new branch
+#| switched to new branch 'ak/hotfix/123'
+(ak/hotfix/123)$
 ```
 
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
 ```
 
@@ -104,47 +147,48 @@ Once you have made your hotfix (with a test of course, because we always make
 sure to verify our fixes), then you should push it up and open a pull request:
 
 ```sh
-(znk/hotfix/143)$ git push -u origin znk/hotfix/143
+(ak/hotfix/123)$ git push -u origin ak/hotfix/123
 ```
 
-## Step 2: Ensure Checks pass and create tag
+## Step 2: Ensure checks pass, get a review, and create tag
 
 You should check that the hotfix does not break any existing tests, which are
 automatically run from the pull request. Once you have confirmed that
-everything works as expected, the next step is to bump the version and add a
-tag. This tag will allow you to release the patch version.
+everything works as expected and have an approving review, the next step is to
+bump the version and add a tag. This tag will allow you to release the patch
+version.
 
 ```sh
-(znk/hotfix/143)$ git add DESCRIPTION NEWS.md
-(znk/hotfix/143)$ git commit -m 'bump version to 0.14.1'
-(znk/hotfix/143)$ git tag -s 0.14.1 -m 'flipped retroencabulator switch option'
-(znk/hotfix/143)$ git push
-(znk/hotfix/143)$ git push --tags
+(ak/hotfix/123)$ git add DESCRIPTION NEWS.md
+(ak/hotfix/123)$ git commit -m 'bump version to v0.6.3'
+(ak/hotfix/123)$ git tag -s v0.6.3 -m 'hotfix: validate tasks with optional output types'
+(ak/hotfix/123)$ git push
+(ak/hotfix/123)$ git push --tags
 ```
 
 
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
-    commit id: "CDEF" tag: "0.14.1"
+    commit id: "CDEF" tag: "v0.6.3"
 ```
 
-**Note the 0.14.1 tag is on the `znk/hotfix/143` branch at the bottom.
+**Note the v0.6.3 tag is on the `ak/hotfix/123` branch at the bottom.
 
 At this point, the checks will not run on the pull request because there will be
 a conflict in the DESCRIPTION and NEWS.md files. This is okay. All you did was
@@ -160,7 +204,7 @@ from the new tag_. This can be done via the GitHub interface or using GitHub's
 CLI tool.
 
 ```sh
-(znk/hotfix/143)$ gh release create 0.14.1
+(ak/hotfix/123)$ gh release create v0.6.3
 ```
 
 ## Step 4: Resolve Conflicts and Merge
@@ -173,24 +217,24 @@ cleaner):
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
-    commit id: "CDEF" tag: "0.14.1"
+    commit id: "CDEF" tag: "v0.6.3"
     checkout main
-    merge znk/hotfix/143 id: "DeFn"
+    merge ak/hotfix/123 id: "DeFn"
 ```
 
 Now you will have the patch in place for the released version _and_ the devel
@@ -200,27 +244,27 @@ as normal and merge the next feature when you are ready:
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
-    commit id: "CDEF" tag: "0.14.1"
+    commit id: "CDEF" tag: "v0.6.3"
     checkout main
-    merge znk/hotfix/143 id: "DeFn"
-    checkout feature2
+    merge ak/hotfix/123 id: "DeFn"
+    checkout ak/document-fun/121
     commit id: "GHIJ"
     commit id: "KLMN"
     checkout main
-    merge feature2 id: "FnNL"
+    merge ak/document-fun/121 id: "FnNL"
 ```
