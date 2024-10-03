@@ -82,15 +82,15 @@ This is what the state of the project would look like on 2024-10-02 (simplified)
 gitGraph
     commit id: "abcd"
     commit id: "efgh" tag: "v0.6.2"
-    branch ak/create-funs/121
-    branch ak/document-funs/121
+    branch ak/create-fun/121
+    branch ak/document-fun/121
     checkout main
-    checkout ak/create-funs/121
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
     merge ak/create-fun/121 id: "gpne"
-    checkout ak/document-funs/121
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
 ```
@@ -119,8 +119,10 @@ R-universe.
 #| HEAD is now at efgh Merge pull request #119 from hubverse-org/ak/release/v0.6.2
 ((v0.6.2))$ git switch -c ak/hotfix/123 # create a new branch
 #| switched to new branch 'ak/hotfix/123'
-(ak/hotfix/123)$
+(ak/hotfix/123)$ git push -u origin ak/hotfix/123 # push the branch to GitHub
 ```
+Now you are ready to iterate and fix the bug on the hotfix branch, adding the
+test and then adding the fix and any documentation to go with it. 
 
 ```{mermaid}
 gitGraph
@@ -142,13 +144,9 @@ gitGraph
     commit id: "yzAB"
 ```
 
+When you have finished iterating on your own and are satisfied that it works,
+the next step is to open a pull request and get a review.
 
-Once you have made your hotfix (with a test of course, because we always make
-sure to verify our fixes), then you should push it up and open a pull request:
-
-```sh
-(ak/hotfix/123)$ git push -u origin ak/hotfix/123
-```
 
 ## Step 2: Ensure checks pass, get a review, and create tag
 
@@ -170,7 +168,7 @@ version.
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: v0.6.2"
+    commit id: "efgh" tag: "v0.6.2"
     branch ak/create-fun/121
     branch ak/document-fun/121
     branch ak/hotfix/123
@@ -217,7 +215,7 @@ cleaner):
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: v0.6.2"
+    commit id: "efgh" tag: "v0.6.2"
     branch ak/create-fun/121
     branch ak/document-fun/121
     branch ak/hotfix/123
@@ -244,7 +242,7 @@ as normal and merge the next feature when you are ready:
 ```{mermaid}
 gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: v0.6.2"
+    commit id: "efgh" tag: "v0.6.2"
     branch ak/create-fun/121
     branch ak/document-fun/121
     branch ak/hotfix/123
