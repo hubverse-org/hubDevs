@@ -22,8 +22,11 @@ Parts of this document is adapted for The Hubverse from [The Carpentries Develop
  - [ ] (For R packages) Check that all new authors/contributors are accounted for in the `DESCRIPTION`
  - [ ] Proofread the `NEWS.md` or  `changelog.md` and update the version number
  - [ ] Commit, push changes, and create a draft pull request (tests will run against the released versions of the dependencies)
- - [ ] (For R packages) If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran). A good place to start would be to open a template release issue using `usethis::use_release_issue()` and follow the instructions. 
- - [ ] Get a review from another member of the Hubverse dev team and merge on approval
+ - [ ] Get a review from another member of the Hubverse dev team
+    - [ ] (For R packages) If package is on CRAN, [follow the steps to release to CRAN](#release-to-cran). 
+      Only merge when you get an email that says "on it's way to CRAN".
+      A good place to start would be to open a template release issue using `usethis::use_release_issue()` and follow the instructions. 
+    - [ ] Merge on approval/CRAN acceptance
  - [ ] Checkout the `main` branch and make sure to pull the merged in changes.
  - [ ] Add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name "<package> X.Y.Z" and push
       
