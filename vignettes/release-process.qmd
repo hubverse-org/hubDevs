@@ -236,7 +236,8 @@ guidelines](https://github.com/orgs/hubverse-org/discussions/29).
 This release process assumes that we have accumulated bugfixes and/or features
 in the `main` branch, which we are ready to release. If you have a bug that
 needs to be patched _immediately_ and you have new features in the main branch
-that are not yet released, then you should [create a hotfix](hotfixes) instead.
+that are not yet ready to be released, then you should [create a
+hotfix](hotfixes) instead.
 
 ### Releases
 
