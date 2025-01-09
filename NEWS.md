@@ -1,5 +1,10 @@
 # hubDevs (development version)
 
+* README template now includes release and development version instructions and
+  documentation sites (#12, #18)
+* README now includes instructions for confirming your GitHub PAT exists and is
+  available in R. 
+
 # hubDevs 0.1.0
 
 * New vignettes to describe the release process (#11 and #15)
