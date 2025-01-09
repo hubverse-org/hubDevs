@@ -5,8 +5,7 @@
 \title{Append the standard hubverse footer to a README.Rmd}
 \usage{
 append_hubdev_readme_footer(
-  hubdocs_contribute_url =
-    "https://hubverse.io/en/latest/overview/contribute.html"
+  hubdocs_contribute_url = "https://hubverse.io/en/latest/overview/contribute.html"
 )
 }
 \arguments{

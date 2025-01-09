@@ -18,14 +18,14 @@ Imports:
     desc,
     devtools,
     fs,
-    hubStyle,
-    magick,
     pkgdown,
     purrr,
     rlang,
     usethis,
     whisker
 Suggests: 
+    hubStyle,
+    magick,
     knitr,
     quarto,
     rmarkdown,
@@ -39,4 +39,5 @@ Config/Needs/website: hubverse-org/hubStyle
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
+Language: en-US

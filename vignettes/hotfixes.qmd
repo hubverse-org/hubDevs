@@ -43,7 +43,7 @@ A hotfix would give developers more time to document the new feature.
   but the vignette for creating the custom check functions was still in a draft
   state.
 
-While this bug fix was released through the [standard release process](release-process),
+While this bug fix was released through the [standard release process](release-process.html),
 It could have easily been a hotfix release. This chapter will be a walkthrough
 of the hotfix process if it had been applied in [hubValidations pull request 124](https://github.com/hubverse-org/hubValidations/pull/124).
 
@@ -196,7 +196,7 @@ next step is to release the patch.
 ## Step 3: Release the Patch
 
 You will release the patch using the same method as described in [the releases
-chapter](releases). You can either release on GitHub directly or via the GitHub
+chapter](release-process). You can either release on GitHub directly or via the GitHub
 CLI. Importantly, when you create the release, you should _create the release
 from the new tag_. This can be done via the GitHub interface or using GitHub's
 CLI tool.

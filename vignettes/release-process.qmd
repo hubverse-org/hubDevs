@@ -186,7 +186,7 @@ gitGraph
   features or enhanced behaviors available to the users in a way that _does not
   affect how users who do not need the new features use the package_. This
   number grows the fastes in early stages of development.     
-  **EXAMPLE**: The [`{hubValidations}` package version 0.5.0](https://hubverse-org.github.io/hubValidations/news/index.html#hubvalidations-050)
+  **EXAMPLE**: The `{hubValidations}` package [version 0.5.0](https://hubverse-org.github.io/hubValidations/news/index.html#hubvalidations-050)
   gives users the ability to reduce compute time by allowing them to sub-set
   the configuration by the new `output_type` argument to 
   `expand_model_out_grid()`. Users who change nothing in their workflows or
@@ -237,7 +237,7 @@ This release process assumes that we have accumulated bugfixes and/or features
 in the `main` branch, which we are ready to release. If you have a bug that
 needs to be patched _immediately_ and you have new features in the main branch
 that are not yet ready to be released, then you should [create a
-hotfix](hotfixes) instead.
+hotfix](hotfixes.html) instead.
 
 ### Releases
 

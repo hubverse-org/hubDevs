@@ -18,3 +18,4 @@
 ^attic$
 ^\.lintr$
 ^\.quarto$
+^vignettes/\.quarto$
