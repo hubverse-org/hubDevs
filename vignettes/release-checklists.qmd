@@ -118,7 +118,7 @@ Caveats:
 
  1. You should not change the development version number, **unless
     there are important feature changes that are required by an upstream
-    package** (see [more about the development version number](#dev)).
+    package** (see [more about the development version number](release-process.html#dev)).
  2. Review often brings up potential non-blocking features/bug fixes that are
     orthogonal to the original PR. In these cases, instead of creating a PR to
     merge into the original PR, it's best to **create a new issue from the PR
@@ -147,7 +147,7 @@ follow this protocol:
    (znk/hotfix/143)$ git push -u origin znk/hotfix/143 # push the hotfix
    ```
  - [ ] Create a pull request, get a review from another hubverse developer, and confirm that checks pass against the released versions of the packages **(Do not merge yet)**
- - [ ] Update the NEWS and bump the [patch version](#patch) in the DESCRIPTION
+ - [ ] Update the NEWS and bump the [patch version](release-process.html#patch) in the DESCRIPTION
  - [ ] Release from the hotfix branch
    ```sh
    (znk/hotfix/143)$ git commit -m 'bump version to 0.14.1'
