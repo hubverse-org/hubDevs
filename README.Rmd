@@ -25,6 +25,11 @@ knitr::opts_chunk$set(
 
 The goal of hubDevs is to provide utilities for creating and standardising Hubverse packages
 
+## Documentation
+
+ - Latest Release: https://https://hubverse-org.github.io/hubDevs/
+ - Stable Development Version: https://https://hubverse-org.github.io/hubDevs/dev/
+
 ## Installation
 
 ### Latest
@@ -65,6 +70,10 @@ fs::dir_tree(path, all = TRUE, recurse = TRUE)
 ```
 
 ### Set up package on GitHub
+
+Before going on, ensure that you have a GitHub personal access token (PAT) set up.
+Dr. Jenny Bryan provides a very good overview of how to do this from R with the
+`usethis` and `gitcreds` packages: https://happygitwithr.com/https-pat.html
 
 Once the new package is launched, you can set it up on GitHub with:
 

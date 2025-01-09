@@ -16,6 +16,12 @@ status](https://www.r-pkg.org/badges/version/hubDevs)](https://CRAN.R-project.or
 The goal of hubDevs is to provide utilities for creating and
 standardising Hubverse packages
 
+## Documentation
+
+- Latest Release: <https://https://hubverse-org.github.io/hubDevs/>
+- Stable Development Version:
+  <https://https://hubverse-org.github.io/hubDevs/dev/>
+
 ## Installation
 
 ### Latest
@@ -50,17 +56,20 @@ library(hubDevs)
 temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
-#> ✔ Creating '/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg/'.
-#> ✔ Setting active project to "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg".
+#> ✔ Creating
+#>   '/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg/'.
+#> ✔ Setting active project to
+#>   "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg".
 #> ✔ Creating 'R/'.
 #> ✔ Writing 'DESCRIPTION'.
 #> Package: testPkg
 #> Title: What the Package Does (One Line, Title Case)
 #> Version: 0.0.0.9000
 #> Authors@R (parsed):
-#>     * Zhian N. Kamvar <zkamvar@gmail.com> [aut, cre] (<https://orcid.org/0000-0003-1458-7108>)
+#>     * First Last <first.last@example.com> [aut, cre]
 #> Description: What the package does (one paragraph).
-#> License: MIT + file LICENSE
+#> License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+#>     license
 #> Encoding: UTF-8
 #> Roxygen: list(markdown = TRUE)
 #> RoxygenNote: 7.3.2
@@ -70,13 +79,16 @@ create_hubdev_pkg(path)
 #> ✔ Adding ".Rproj.user" to '.gitignore'.
 #> ✔ Adding "^\\.Rproj\\.user$" to '.Rbuildignore'.
 #> ✔ Setting active project to "<no active project>".
-#> ✔ Setting active project to "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg".
+#> ✔ Setting active project to
+#>   "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg".
 #> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
 #> ✔ Adding testthat to 'Suggests' field in DESCRIPTION.
 #> ✔ Adding "3" to 'Config/testthat/edition'.
 #> ✔ Creating 'tests/testthat/'.
 #> ✔ Writing 'tests/testthat.R'.
-#> ☐ Call `usethis::use_test()` to initialize a basic test file and open it for editing.
+#> ☐ Call `usethis::use_test()` to initialize a basic test file and open it for
+#>   editing.
+#> ✔ Adding "MIT + file LICENSE" to 'License'.
 #> ✔ Writing 'LICENSE'.
 #> ✔ Writing 'LICENSE.md'.
 #> ✔ Adding "^LICENSE\\.md$" to '.Rbuildignore'.
@@ -87,7 +99,8 @@ create_hubdev_pkg(path)
 #> ✔ Adding "CRAN status badge" to 'README.Rmd'.
 #> ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.
 #> ℹ Installing testPkg in temporary library
-#> ℹ Building '/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg/README.Rmd'
+#> ℹ Building
+#>   '/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg/README.Rmd'
 #> ✔ Creating '.github/'.
 #> 
 #> ✔ Adding "^\\.github$" to '.Rbuildignore'.
@@ -111,7 +124,7 @@ This creates all basic infrastructure including a hubverse template
 README, logo, community documents, MIT LICENSE and initiates the package
 as a git repository.
 
-    #> /var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpsYPDXR/testPkg
+    #> /var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg
     #> ├── .Rbuildignore
     #> ├── .git
     #> │   ├── HEAD
@@ -149,6 +162,11 @@ as a git repository.
     #>     └── testthat.R
 
 ### Set up package on GitHub
+
+Before going on, ensure that you have a GitHub personal access token
+(PAT) set up. Dr. Jenny Bryan provides a very good overview of how to do
+this from R with the `usethis` and `gitcreds` packages:
+<https://happygitwithr.com/https-pat.html>
 
 Once the new package is launched, you can set it up on GitHub with:
 
