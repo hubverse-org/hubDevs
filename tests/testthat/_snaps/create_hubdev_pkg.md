@@ -103,6 +103,6 @@
     Code
       readLines(fs::path(pkg_path, "LICENSE"))
     Output
-      [1] "YEAR: 2024"                                                      
+      [1] "YEAR: 2025"                                                      
       [2] "COPYRIGHT HOLDER: Consortium of Infectious Disease Modeling Hubs"
 
