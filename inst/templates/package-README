@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # {{{ pkgname }}} <a href="https://{{{ organisation }}}.github.io/{{{ pkgname }}}/"><img src="man/figures/logo.png" align="right" height="131" alt="{{{ pkgname }}} website" /></a>
 
 <!-- badges: start -->
@@ -22,6 +21,11 @@ knitr::opts_chunk$set(
 The goal of {{{ pkgname }}} is to ...
 
 This package is part of the [hubverse](https://hubverse.io/en/latest/) ecosystem, which aims to provide a set of tools for infectious disease modeling hubs to share and collaborate on their work.
+
+## Documentation
+
+ - Latest Release: https://https://{{{ organisation }}}.github.io/{{{ pkgname }}}/
+ - Stable Development Version: https://https://{{{ organisation }}}.github.io/{{{ pkgname }}}/dev/
 
 ## Installation
 ### Latest
