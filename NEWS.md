@@ -1,4 +1,4 @@
-# hubDevs (development version)
+# hubDevs 0.1.1
 
 * README template now includes release and development version instructions and
   documentation sites (#12, #18)
