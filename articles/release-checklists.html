@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="release-checklists_files/libs/quarto-html/popper.min.js"></script><script src="release-checklists_files/libs/quarto-html/tippy.umd.min.js"></script><link href="release-checklists_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="release-checklists_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Release Checklists">
@@ -29,7 +29,7 @@
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="../index.html">hubDevs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,8 +92,13 @@
 <li><p><label><input type="checkbox">(For R packages) Check that all new authors/contributors are accounted for in the <code>DESCRIPTION</code></label></p></li>
 <li><p><label><input type="checkbox">Proofread the <code>NEWS.md</code> or <code>changelog.md</code> and update the version number</label></p></li>
 <li><p><label><input type="checkbox">Commit, push changes, and create a draft pull request (tests will run against the released versions of the dependencies)</label></p></li>
-<li><p><label><input type="checkbox">(For R packages) If package is on CRAN, <a href="#release-to-cran">follow the steps to release to CRAN</a>. A good place to start would be to open a template release issue using <code><a href="https://usethis.r-lib.org/reference/use_release_issue.html" class="external-link">usethis::use_release_issue()</a></code> and follow the instructions.</label></p></li>
-<li><p><label><input type="checkbox">Get a review from another member of the Hubverse dev team and merge on approval</label></p></li>
+<li>
+<p><label><input type="checkbox">Get a review from another member of the Hubverse dev team</label></p>
+<ul class="task-list">
+<li><label><input type="checkbox">(For R packages) If package is on CRAN, <a href="#release-to-cran">follow the steps to release to CRAN</a>. Only merge when you get an email that says “on it’s way to CRAN”. A good place to start would be to open a template release issue using <code><a href="https://usethis.r-lib.org/reference/use_release_issue.html" class="external-link">usethis::use_release_issue()</a></code> and follow the instructions.</label></li>
+<li><label><input type="checkbox">Merge on approval/CRAN acceptance</label></li>
+</ul>
+</li>
 <li><p><label><input type="checkbox">Checkout the <code>main</code> branch and make sure to pull the merged in changes.</label></p></li>
 <li>
 <p><label><input type="checkbox">Add new tag (annotated (<code>-a</code>) or signed (<code>-s</code>) preferred) with the name “<package> X.Y.Z” and push</package></label></p>
@@ -156,7 +161,7 @@
 </ul>
 <p>Caveats:</p>
 <ol type="1">
-<li>You should not change the development version number, <strong>unless there are important feature changes that are required by an upstream package</strong> (see <a href="#dev">more about the development version number</a>).</li>
+<li>You should not change the development version number, <strong>unless there are important feature changes that are required by an upstream package</strong> (see <a href="release-process.html#dev">more about the development version number</a>).</li>
 <li>Review often brings up potential non-blocking features/bug fixes that are orthogonal to the original PR. In these cases, instead of creating a PR to merge into the original PR, it’s best to <strong>create a new issue from the PR review</strong> and, after merging, <strong>create a new PR to fix that issue</strong>. This helps keep disparate bugfixes and features separate.</li>
 <li>If introducing <strong>breaking changes</strong>, you must not merge into <code>main</code> until these changes have been tested and communicated with the community.</li>
 </ol></section><section class="level2"><h2 id="hotfix-checklist">Hotfix Checklist<a class="anchor" aria-label="anchor" href="#hotfix-checklist"></a>
@@ -175,7 +180,7 @@
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git push <span class="at">-u</span> origin znk/hotfix/143 <span class="co"># push the hotfix</span></span></code></pre></div>
 </li>
 <li><p><label><input type="checkbox">Create a pull request, get a review from another hubverse developer, and confirm that checks pass against the released versions of the packages <strong>(Do not merge yet)</strong></label></p></li>
-<li><p><label><input type="checkbox">Update the NEWS and bump the <a href="#patch">patch version</a> in the DESCRIPTION</label></p></li>
+<li><p><label><input type="checkbox">Update the NEWS and bump the <a href="release-process.html#patch">patch version</a> in the DESCRIPTION</label></p></li>
 <li>
 <p><label><input type="checkbox">Release from the hotfix branch</label></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">'bump version to 0.14.1'</span></span>

@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="release-process_files/libs/quarto-html/popper.min.js"></script><script src="release-process_files/libs/quarto-html/tippy.umd.min.js"></script><link href="release-process_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="release-process_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <script src="release-process_files/libs/quarto-diagram/mermaid.min.js"></script><script src="release-process_files/libs/quarto-diagram/mermaid-init.js"></script><link href="release-process_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="../index.html">hubDevs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -235,7 +235,7 @@ Check out <code><a href="../articles/release-checklists.html">vignette("release-
 </dd>
 <dt><span id="minor"><code>Y</code></span></dt>
 <dd>
-<strong>Minor version number</strong>: this version number will change if there are new features or enhanced behaviors available to the users in a way that <em>does not affect how users who do not need the new features use the package</em>. This number grows the fastes in early stages of development.<br><strong>EXAMPLE</strong>: The <a href="https://hubverse-org.github.io/hubValidations/news/index.html#hubvalidations-050" class="external-link"><code>{hubValidations}</code> package version 0.5.0</a> gives users the ability to reduce compute time by allowing them to sub-set the configuration by the new <code>output_type</code> argument to <code>expand_model_out_grid()</code>. Users who change nothing in their workflows or scripts will not see any change for the better or worse.
+<strong>Minor version number</strong>: this version number will change if there are new features or enhanced behaviors available to the users in a way that <em>does not affect how users who do not need the new features use the package</em>. This number grows the fastes in early stages of development.<br><strong>EXAMPLE</strong>: The <code>{hubValidations}</code> package <a href="https://hubverse-org.github.io/hubValidations/news/index.html#hubvalidations-050" class="external-link">version 0.5.0</a> gives users the ability to reduce compute time by allowing them to sub-set the configuration by the new <code>output_type</code> argument to <code>expand_model_out_grid()</code>. Users who change nothing in their workflows or scripts will not see any change for the better or worse.
 </dd>
 <dt><span id="patch"><code>Z</code></span></dt>
 <dd>
@@ -253,7 +253,7 @@ Check out <code><a href="../articles/release-checklists.html">vignette("release-
 <p>When a package is ready for release we use The Release Checklist (detailed in <code><a href="../articles/release-checklists.html">vignette("release-checklists", package = "hubDevs")</a></code>). The rationale for this process is described in <a href="https://github.com/orgs/hubverse-org/discussions/29" class="external-link">The proposal discussion for R package release guidelines</a>.</p>
 <section class="level3"><h3 id="non-urgent-releases-only">Non-urgent releases only<a class="anchor" aria-label="anchor" href="#non-urgent-releases-only"></a>
 </h3>
-<p>This release process assumes that we have accumulated bugfixes and/or features in the <code>main</code> branch, which we are ready to release. If you have a bug that needs to be patched <em>immediately</em> and you have new features in the main branch that are not yet released, then you should <a href="hotfixes">create a hotfix</a> instead.</p>
+<p>This release process assumes that we have accumulated bugfixes and/or features in the <code>main</code> branch, which we are ready to release. If you have a bug that needs to be patched <em>immediately</em> and you have new features in the main branch that are not yet ready to be released, then you should <a href="hotfixes.html">create a hotfix</a> instead.</p>
 </section><section class="level3"><h3 id="releases">Releases<a class="anchor" aria-label="anchor" href="#releases"></a>
 </h3>
 <p>Releases are a concept that is specific for GitHub. Under the hood, releases are created from commits or tags. When you use the GitHub web interface, you can choose to have a tag automatically created from a release (though the tag will not be annotated or signed, see below for creating stronger, signed tags). All releases should contain a summary of the changes that happened between this version and the previous version. A good example of this are <a href="https://github.com/hubverse-org/schemas/releases" class="external-link">the hubverse schema release notes</a>, and GitHub offers to automatically fill the release notes with titles and links to the pull requests that populated the release, which is a good summary (assuming people create good PR titles).</p>

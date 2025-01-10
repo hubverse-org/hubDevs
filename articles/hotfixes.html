@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="hotfixes_files/libs/quarto-html/popper.min.js"></script><script src="hotfixes_files/libs/quarto-html/tippy.umd.min.js"></script><link href="hotfixes_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="hotfixes_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <script src="hotfixes_files/libs/quarto-diagram/mermaid.min.js"></script><script src="hotfixes_files/libs/quarto-diagram/mermaid-init.js"></script><link href="hotfixes_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="../index.html">hubDevs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,9 @@
 
 
     <p>This document is adapted for The Hubverse from <a href="https://carpentries.github.io/workbench-dev/hotfixes.html" class="external-link">The Carpentries Developer’s Handbook</a> (c) The Carpentries under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC-BY 4.0 license</a>.</p>
-<p>A hotfix is a bug fix for a situation where a bug has been found, but the main branch has new features that are not yet ready to be released. This chapter will be a walkthrough of a scenario with a diagram of the status of the Git repository during each iteration based on the real life process used in <a href="https://github.com/carpentries/sandpaper/pull/539" class="external-link">carpentries/sandpaper#539</a> to resolve a bug in link processing.</p>
+<section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>A hotfix is a bug fix for a situation where a bug has been found, but the main branch has new features that are not yet ready to be released.</p>
 <p>A process for creating a hotfix release is similar to that of the standard release with the following differences:</p>
 <table class="table caption-top">
 <thead><tr class="header">
@@ -105,7 +107,38 @@
 </tr>
 </tbody>
 </table>
-<p>Take for example a situation where you want to introduce two new features into the project, so you create two branches for each of them. You finish the first and merge it into the main branch and you are still working on the second. Your Git graph might look something like this:</p>
+<p>An example of good candidate for a hotfix in the hubverse is <a href="https://github.com/hubverse-org/hubValidations/issues/123" class="external-link">hubValidations issue #123</a>. This bug was discovered in <a href="https://github.com/hubverse-org/hubValidations/releases/tag/v0.6.2" class="external-link">hubValidations 0.6.2</a>. However, this was after the <code>main</code> branch <a href="https://github.com/hubverse-org/hubValidations/commit/85d58251c7cbcbb4064a72f8126ad8846f351dbd" class="external-link">had unreleased features</a>. While the new features were stable, the documentation was not fully polished<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;a href="https://github.com/hubverse-org/hubValidations/issues/121" class="external-link"&gt;the &lt;code&gt;create_custom_check()&lt;/code&gt; function&lt;/a&gt; was added in &lt;a href="https://github.com/hubverse-org/hubValidations/pull/122" class="external-link"&gt;pull request 122&lt;/a&gt;, but the vignette for creating the custom check functions was still in a draft state.&lt;/p&gt;'><sup>1</sup></a>. A hotfix would give developers more time to document the new feature.</p>
+<p>While this bug fix was released through the <a href="release-process.html">standard release process</a>, It could have easily been a hotfix release. This chapter will be a walkthrough of the hotfix process if it had been applied in <a href="https://github.com/hubverse-org/hubValidations/pull/124" class="external-link">hubValidations pull request 124</a>.</p>
+</section><section class="level2"><h2 id="conventions">Conventions<a class="anchor" aria-label="anchor" href="#conventions"></a>
+</h2>
+<p>This walkthrough will be presented as if our lead developer, Anna Krystalli were fixing the bug (which she did in real life!) via this hotfix process. We will diagram the process using the following conventions:</p>
+<ul>
+<li><p>Each step will be written in the second person perspective</p></li>
+<li>
+<p>The commit IDs and branch names are simplified and will not directly match the real life names</p>
+<ul>
+<li>Each new commit is a unique sequence of letters</li>
+<li>Each merge commit is a combination of letters from the two previous commits</li>
+</ul>
+</li>
+<li><p>Each non-main branch will be prefixed with <code>ak/</code></p></li>
+<li>
+<p>The command prompt will be displayed in the following format</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> <span class="er">(</span><span class="op">&lt;</span>branch<span class="op">&gt;</span><span class="kw">)</span> <span class="op">&lt;</span>COMMAND<span class="op">&gt;</span> <span class="co"># comment about &lt;COMMAND&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| output of &lt;COMMAND&gt;</span></span></code></pre></div>
+</li>
+</ul></section><section class="level2"><h2 id="the-scenario">The Scenario<a class="anchor" aria-label="anchor" href="#the-scenario"></a>
+</h2>
+<ul>
+<li>
+<a href="https://github.com/hubverse-org/hubValidations/releases/tag/v0.6.2" class="external-link">hubValidations 0.6.2</a> was released on 2024-09-20.</li>
+<li>
+<a href="https://github.com/hubverse-org/hubValidations/pull/122" class="external-link">the <code>create_custom_check()</code> function</a> was merged into hubValidations 0.6.2.9000 on 2024-10-01 after it had been tested and validated.</li>
+<li>the vignette for creating custom validations was being drafted in a separate branch on 2024-10-01.</li>
+<li>
+<a href="https://github.com/hubverse-org/hubValidations/issues/123" class="external-link">A bug was discovered in hubValidations 0.6.2 on 2024-10-02</a>.</li>
+</ul>
+<p>This is what the state of the project would look like on 2024-10-02 (simplified):</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -114,16 +147,16 @@
 <div>
 <pre class="mermaid mermaid-js">gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
 </pre>
@@ -132,17 +165,19 @@
 </div>
 </div>
 </div>
-<section class="level2"><h2 id="step-1-create-a-fix-and-pull-request">Step 1: Create a Fix and Pull Request<a class="anchor" aria-label="anchor" href="#step-1-create-a-fix-and-pull-request"></a>
+<p>The rest of the walkthrough will detail the four steps required to fix the bug.</p>
+</section><section class="level2"><h2 id="step-1-create-a-fix-and-pull-request">Step 1: Create a Fix and Pull Request<a class="anchor" aria-label="anchor" href="#step-1-create-a-fix-and-pull-request"></a>
 </h2>
-<p>Then, you get a report (let’s call it issue number 143) that something is broken and you need to fix it immediately. Normally, to fix bugs, you would check out a new bugfix branch from the <code>main</code> branch. Here’s the catch: if you check out from the main branch you will grab <code>feature1</code> as well, which is not yet ready for production because you intended <code>feature2</code> to be released along side. In this case, you need to create a hotfix, and create the branch <em>from the last tag</em> (which in this case is 0.14.0).</p>
+<p>Normally, to fix bugs, you would check out a new bugfix branch from the <code>main</code> branch. Here’s the catch: if you check out from the main branch you will grab <code>ak/create-fun/121</code> as well, which is not yet ready for production because you intended <code>ak/document-fun/121</code> to be released along side. In this case, you need to create a hotfix, and create the branch <em>from the last tag</em> (which in this case is <code>v0.6.2</code>).</p>
 <p><strong>IMPORTANT</strong>: When you create a hotfix, name the branch <code>&lt;author&gt;/hotfix/&lt;issue&gt;</code>. By using <code>/hotfix/</code> in the branch name, the GitHub workflows will know to test this package against the released versions from the R-universe.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">main</span><span class="kw">)</span><span class="ex">$</span> git describe</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| 0.14.0-3-ggpne</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">main</span><span class="kw">)</span><span class="ex">$</span> git switch <span class="at">--detach</span> 0.14.0 <span class="co"># checkout the tag</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| HEAD is now at efgh Merge pull request #140 from hubverse-org/release-0.14.0</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">((</span><span class="dv">0</span>.<span class="dv">14</span>.<span class="dv">0</span><span class="kw">))</span><span class="ex">$</span> git switch <span class="at">-c</span> znk/hotfix/143 <span class="co"># create a new branch</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| switched to new branch 'znk/hotfix/143'</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">main</span><span class="kw">)</span><span class="ex">$</span> git describe</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| v0.6.2-3-ggpne</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">main</span><span class="kw">)</span><span class="ex">$</span> git switch <span class="at">--detach</span> v0.6.2 <span class="co"># checkout the tag</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| HEAD is now at efgh Merge pull request #119 from hubverse-org/ak/release/v0.6.2</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">((</span><span class="va">v0</span>.<span class="dv">6</span>.<span class="dv">2</span><span class="kw">))</span><span class="ex">$</span> git switch <span class="at">-c</span> ak/hotfix/123 <span class="co"># create a new branch</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| switched to new branch 'ak/hotfix/123'</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> git push <span class="at">-u</span> origin ak/hotfix/123 <span class="co"># push the branch to GitHub</span></span></code></pre></div>
+<p>Now you are ready to iterate and fix the bug on the hotfix branch, adding the test and then adding the fix and any documentation to go with it.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -151,20 +186,20 @@
 <div>
 <pre class="mermaid mermaid-js">gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
 </pre>
 </div>
@@ -172,16 +207,15 @@
 </div>
 </div>
 </div>
-<p>Once you have made your hotfix (with a test of course, because we always make sure to verify our fixes), then you should push it up and open a pull request:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git push <span class="at">-u</span> origin znk/hotfix/143</span></code></pre></div>
-</section><section class="level2"><h2 id="step-2-ensure-checks-pass-and-create-tag">Step 2: Ensure Checks pass and create tag<a class="anchor" aria-label="anchor" href="#step-2-ensure-checks-pass-and-create-tag"></a>
+<p>When you have finished iterating on your own and are satisfied that it works, the next step is to open a pull request and get a review.</p>
+</section><section class="level2"><h2 id="step-2-ensure-checks-pass-get-a-review-and-create-tag">Step 2: Ensure checks pass, get a review, and create tag<a class="anchor" aria-label="anchor" href="#step-2-ensure-checks-pass-get-a-review-and-create-tag"></a>
 </h2>
-<p>You should check that the hotfix does not break any existing tests, which are automatically run from the pull request. Once you have confirmed that everything works as expected, the next step is to bump the version and add a tag. This tag will allow you to release the patch version.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git add DESCRIPTION NEWS.md</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">'bump version to 0.14.1'</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git tag <span class="at">-s</span> 0.14.1 <span class="at">-m</span> <span class="st">'flipped retroencabulator switch option'</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git push</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> git push <span class="at">--tags</span></span></code></pre></div>
+<p>You should check that the hotfix does not break any existing tests, which are automatically run from the pull request. Once you have confirmed that everything works as expected and have an approving review, the next step is to bump the version and add a tag. This tag will allow you to release the patch version.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> git add DESCRIPTION NEWS.md</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">'bump version to v0.6.3'</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> git tag <span class="at">-s</span> v0.6.3 <span class="at">-m</span> <span class="st">'hotfix: validate tasks with optional output types'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> git push</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> git push <span class="at">--tags</span></span></code></pre></div>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -190,34 +224,34 @@
 <div>
 <pre class="mermaid mermaid-js">gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
-    commit id: "CDEF" tag: "0.14.1"
+    commit id: "CDEF" tag: "v0.6.3"
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>**Note the 0.14.1 tag is on the <code>znk/hotfix/143</code> branch at the bottom.</p>
+<p>**Note the v0.6.3 tag is on the <code>ak/hotfix/123</code> branch at the bottom.</p>
 <p>At this point, the checks will not run on the pull request because there will be a conflict in the DESCRIPTION and NEWS.md files. This is okay. All you did was update the version numbers and add NEWS. <strong>Do not merge at this point</strong>. The next step is to release the patch.</p>
 </section><section class="level2"><h2 id="step-3-release-the-patch">Step 3: Release the Patch<a class="anchor" aria-label="anchor" href="#step-3-release-the-patch"></a>
 </h2>
-<p>You will release the patch using the same method as described in <a href="releases">the releases chapter</a>. You can either release on GitHub directly or via the GitHub CLI. Importantly, when you create the release, you should <em>create the release from the new tag</em>. This can be done via the GitHub interface or using GitHub’s CLI tool.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">znk/hotfix/143</span><span class="kw">)</span><span class="ex">$</span> gh release create 0.14.1</span></code></pre></div>
+<p>You will release the patch using the same method as described in <a href="release-process">the releases chapter</a>. You can either release on GitHub directly or via the GitHub CLI. Importantly, when you create the release, you should <em>create the release from the new tag</em>. This can be done via the GitHub interface or using GitHub’s CLI tool.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">ak/hotfix/123</span><span class="kw">)</span><span class="ex">$</span> gh release create v0.6.3</span></code></pre></div>
 </section><section class="level2"><h2 id="step-4-resolve-conflicts-and-merge">Step 4: Resolve Conflicts and Merge<a class="anchor" aria-label="anchor" href="#step-4-resolve-conflicts-and-merge"></a>
 </h2>
 <p>Now that you’ve created the release, you should resolve the conflicts in the DESCRIPTION and NEWS files and then merge it back into <code>main</code> (note: this will create two merge commits, but I’m only showing one in the diagram to make it cleaner):</p>
@@ -229,24 +263,24 @@
 <div>
 <pre class="mermaid mermaid-js">gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
-    commit id: "CDEF" tag: "0.14.1"
+    commit id: "CDEF" tag: "v0.6.3"
     checkout main
-    merge znk/hotfix/143 id: "DeFn"
+    merge ak/hotfix/123 id: "DeFn"
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -262,29 +296,29 @@
 <div>
 <pre class="mermaid mermaid-js">gitGraph
     commit id: "abcd"
-    commit id: "efgh" tag: "0.14.0"
-    branch feature1
-    branch feature2
-    branch znk/hotfix/143
+    commit id: "efgh" tag: "v0.6.2"
+    branch ak/create-fun/121
+    branch ak/document-fun/121
+    branch ak/hotfix/123
     checkout main
-    checkout feature1
+    checkout ak/create-fun/121
     commit id: "ijkl"
     commit id: "mnop"
     checkout main
-    merge feature1 id: "gpne"
-    checkout feature2
+    merge ak/create-fun/121 id: "gpne"
+    checkout ak/document-fun/121
     commit id: "qrst"
     commit id: "uvwx"
-    checkout znk/hotfix/143
+    checkout ak/hotfix/123
     commit id: "yzAB"
-    commit id: "CDEF" tag: "0.14.1"
+    commit id: "CDEF" tag: "v0.6.3"
     checkout main
-    merge znk/hotfix/143 id: "DeFn"
-    checkout feature2
+    merge ak/hotfix/123 id: "DeFn"
+    checkout ak/document-fun/121
     commit id: "GHIJ"
     commit id: "KLMN"
     checkout main
-    merge feature2 id: "FnNL"
+    merge ak/document-fun/121 id: "FnNL"
 </pre>
 </div>
 <p></p></figure><p></p>
