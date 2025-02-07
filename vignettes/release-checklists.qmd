@@ -103,13 +103,15 @@ It is important to remember that PRs should focus on _independent features_. If
 you want add a new feature and fix a bug, these should be two separate PRs. This
 strategy _reduces the size of the PR, making it easier to review_.
 
-::: {.callout-tip title="Tip"}
-Review often brings up potential non-blocking features/bug fixes that are
+<div class="alert alert-info" role="note">
+
+**TIP:** Review often brings up potential non-blocking features/bug fixes that are
 orthogonal to the original PR. In these cases, instead of creating a PR to
 merge into the original PR, it's best to **create a new issue from the PR
 review** and, after merging, **create a new PR to fix that issue**. This
 helps keep disparate bugfixes and features separate.
-:::
+
+</div>
 
  - [ ] Create a new branch from main called `<initials>/<feature>/<issue>`.
        (e.g.
