@@ -1,5 +1,5 @@
 ---
-title: "Release Checklists"
+title: "R Release Checklists"
 description: >
   Reference for how to perform R package releases in the Hubverse
 vignette: >
@@ -103,6 +103,16 @@ It is important to remember that PRs should focus on _independent features_. If
 you want add a new feature and fix a bug, these should be two separate PRs. This
 strategy _reduces the size of the PR, making it easier to review_.
 
+<div class="alert alert-info" role="note">
+
+**TIP:** Review often brings up potential non-blocking features/bug fixes that are
+orthogonal to the original PR. In these cases, instead of creating a PR to
+merge into the original PR, it's best to **create a new issue from the PR
+review** and, after merging, **create a new PR to fix that issue**. This
+helps keep disparate bugfixes and features separate.
+
+</div>
+
  - [ ] Create a new branch from main called `<initials>/<feature>/<issue>`.
        (e.g.
        [`ak/change-check-fail-class-and-print/111`](https://github.com/hubverse-org/hubValidations/pull/114),
@@ -118,21 +128,17 @@ Caveats:
 
  1. You should not change the development version number, **unless
     there are important feature changes that are required by an upstream
-    package** (see [more about the development version number](release-process.html#dev)).
- 2. Review often brings up potential non-blocking features/bug fixes that are
-    orthogonal to the original PR. In these cases, instead of creating a PR to
-    merge into the original PR, it's best to **create a new issue from the PR
-    review** and, after merging, **create a new PR to fix that issue**. This
-    helps keep disparate bugfixes and features separate.
- 3. If introducing **breaking changes**, you must not merge into `main` until
+    package** (see [more about the development version number](https://hubverse.io/en/latest/developer/release-process.html#versioning)).
+ 2. If introducing **breaking changes**, you must not merge into `main` until
     these changes have been tested and communicated with the community.
 
 ## Hotfix Checklist
 
 A hotfix is a bug fix that is independent from in-development features and needs
-to be deployed within a day. Details on hotfixes can be found in
-`vignette("hotfixes", package = "hubDevs")`. To patch and release a hotfix,
-follow this protocol:
+to be deployed within a day. Refer to the Hubverse documentation for
+[details about hotfixes](https://hubverse.io/en/latest/developer/hotfix.html).
+
+To patch and release a hotfix, follow this protocol:
 
  - [ ] Create a new branch from the latest tag using `<author>/hotfix/<issue>` (MUST be this pattern)
    ```sh
@@ -147,7 +153,7 @@ follow this protocol:
    (znk/hotfix/143)$ git push -u origin znk/hotfix/143 # push the hotfix
    ```
  - [ ] Create a pull request, get a review from another hubverse developer, and confirm that checks pass against the released versions of the packages **(Do not merge yet)**
- - [ ] Update the NEWS and bump the [patch version](release-process.html#patch) in the DESCRIPTION
+ - [ ] Update the NEWS and bump the [patch version](https://hubverse.io/en/latest/developer/release-process.html#patch) in the DESCRIPTION
  - [ ] Release from the hotfix branch
    ```sh
    (znk/hotfix/143)$ git commit -m 'bump version to 0.14.1'
