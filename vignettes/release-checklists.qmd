@@ -128,7 +128,7 @@ Caveats:
 
  1. You should not change the development version number, **unless
     there are important feature changes that are required by an upstream
-    package** (see [more about the development version number](https://hubverse.io/en/latest/developer/release-process.html#versioning)).
+    package** (see [more about the development version number](https://docs.hubverse.io/en/latest/developer/release-process.html#versioning)).
  2. If introducing **breaking changes**, you must not merge into `main` until
     these changes have been tested and communicated with the community.
 
@@ -136,7 +136,7 @@ Caveats:
 
 A hotfix is a bug fix that is independent from in-development features and needs
 to be deployed within a day. Refer to the Hubverse documentation for
-[details about hotfixes](https://hubverse.io/en/latest/developer/hotfix.html).
+[details about hotfixes](https://docs.hubverse.io/en/latest/developer/hotfix.html).
 
 To patch and release a hotfix, follow this protocol:
 
@@ -153,7 +153,7 @@ To patch and release a hotfix, follow this protocol:
    (znk/hotfix/143)$ git push -u origin znk/hotfix/143 # push the hotfix
    ```
  - [ ] Create a pull request, get a review from another hubverse developer, and confirm that checks pass against the released versions of the packages **(Do not merge yet)**
- - [ ] Update the NEWS and bump the [patch version](https://hubverse.io/en/latest/developer/release-process.html#patch) in the DESCRIPTION
+ - [ ] Update the NEWS and bump the [patch version](https://docs.hubverse.io/en/latest/developer/release-process.html#patch) in the DESCRIPTION
  - [ ] Release from the hotfix branch
    ```sh
    (znk/hotfix/143)$ git commit -m 'bump version to 0.14.1'
