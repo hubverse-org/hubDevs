@@ -1,7 +1,7 @@
 # hubDevs 0.1.1.9000
 
 * Remove Hubverse release process overview vignettes (that information has moved
-  to the [Hubverse documentation](https://hubverse.io/en/latest/developer/)).
+  to the [Hubverse documentation](https://docs.hubverse.io/en/latest/developer/)).
 
 # hubDevs 0.1.1
 
