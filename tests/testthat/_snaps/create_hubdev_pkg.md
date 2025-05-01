@@ -47,7 +47,7 @@
       [22] ""                                                                                                                                                                                                   
       [23] "The goal of testPkg is to ..."                                                                                                                                                                      
       [24] ""                                                                                                                                                                                                   
-      [25] "This package is part of the [hubverse](https://hubverse.io/en/latest/) ecosystem, which aims to provide a set of tools for infectious disease modeling hubs to share and collaborate on their work."
+      [25] "This package is part of the [hubverse](https://hubverse.io) ecosystem, which aims to provide a set of tools for infectious disease modeling hubs to share and collaborate on their work."
       [26] ""                                                                                                                                                                                                   
       [27] "## Documentation"                                                                                                                                                                                   
       [28] ""                                                                                                                                                                                                   
@@ -91,7 +91,7 @@
       [66] "## Contributing"                                                                                                                                                                                    
       [67] ""                                                                                                                                                                                                   
       [68] "Interested in contributing back to the open-source Hubverse project?"                                                                                                                               
-      [69] "Learn more about how to [get involved in the Hubverse Community](https://hubverse.io/en/latest/overview/contribute.html) or [how to contribute to the testPkg package](.github/CONTRIBUTING.md)."   
+      [69] "Learn more about how to [get involved in the Hubverse Community](https://docs.hubverse.io/en/latest/overview/contribute.html) or [how to contribute to the testPkg package](.github/CONTRIBUTING.md)."   
 
 ---
 
