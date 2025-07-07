@@ -91,7 +91,7 @@
       [66] "## Contributing"                                                                                                                                                                                    
       [67] ""                                                                                                                                                                                                   
       [68] "Interested in contributing back to the open-source Hubverse project?"                                                                                                                               
-      [69] "Learn more about how to [get involved in the Hubverse Community](https://docs.hubverse.io/en/latest/overview/contribute.html) or [how to contribute to the testPkg package](.github/CONTRIBUTING.md)."   
+      [69] "Learn more about how to [get involved in the Hubverse Community](https://hubverse.io/community/) or [how to contribute to the testPkg package](.github/CONTRIBUTING.md)."   
 
 ---
 
