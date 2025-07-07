@@ -6,7 +6,7 @@
 \usage{
 use_hubdev_readme(
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://docs.hubverse.io/en/latest/overview/contribute.html"
+  hubdocs_contribute_url = "https://hubverse.io/community/"
 )
 }
 \arguments{
