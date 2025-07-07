@@ -23,12 +23,12 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of hubDevs is to provide utilities for creating and standardising Hubverse packages
+The goal of hubDevs is to provide utilities for creating and standardizing Hubverse packages
 
 ## Documentation
 
- - Latest Release: https://https://hubverse-org.github.io/hubDevs/
- - Stable Development Version: https://https://hubverse-org.github.io/hubDevs/dev/
+ - Latest Release: https://hubverse-org.github.io/hubDevs/
+ - Stable Development Version: https://hubverse-org.github.io/hubDevs/dev/
 
 ## Installation
 
@@ -135,6 +135,6 @@ Please note that the hubDevs package is released with a [Contributor Code of Con
 ## Contributing
 
 Interested in contributing back to the open-source Hubverse project?
-Learn more about how to [get involved in the Hubverse Community](https://docs.hubverse.io/en/latest/overview/contribute.html) or [how to contribute to the hubDevs package](.github/CONTRIBUTING.md).
+Learn more about how to [get involved in the Hubverse Community](https://hubverse.io/community/) or [how to contribute to the hubDevs package](.github/CONTRIBUTING.md).
 
 
