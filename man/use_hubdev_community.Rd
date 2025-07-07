@@ -8,14 +8,14 @@
 \usage{
 use_hubdev_community(
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://docs.hubverse.io/en/latest/overview/contribute.html"
+  hubdocs_contribute_url = "https://hubverse.io/community/"
 )
 
 use_hubdev_coc()
 
 use_hubdev_contributing(
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://docs.hubverse.io/en/latest/overview/contribute.html"
+  hubdocs_contribute_url = "https://hubverse.io/community/"
 )
 }
 \arguments{
