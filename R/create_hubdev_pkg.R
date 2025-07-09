@@ -14,7 +14,7 @@ create_hubdev_pkg <- function(
     path, fields = list(),
     copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
     organisation = "hubverse-org",
-    hubdocs_contribute_url = "https://docs.hubverse.io/en/latest/overview/contribute.html") {
+    hubdocs_contribute_url = "https://hubverse.io/community/") {
   path <- usethis::create_package(path,
     fields = fields,
     rstudio = TRUE, open = FALSE

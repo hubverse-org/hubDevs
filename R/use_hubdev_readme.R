@@ -4,7 +4,7 @@
 #' @export
 use_hubdev_readme <- function(
     organisation = "hubverse-org",
-    hubdocs_contribute_url = "https://docs.hubverse.io/en/latest/overview/contribute.html") {
+    hubdocs_contribute_url = "https://hubverse.io/community/") {
   rlang::check_installed("rmarkdown")
 
   data <- list(
