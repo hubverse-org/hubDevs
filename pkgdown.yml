@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   release-checklists: release-checklists.html
   release-process: release-process.html
-last_built: 2025-07-09T13:36Z
+last_built: 2025-07-23T13:36Z
 urls:
   reference: https://hubverse-org.github.io/hubDevs/reference
   article: https://hubverse-org.github.io/hubDevs/articles
