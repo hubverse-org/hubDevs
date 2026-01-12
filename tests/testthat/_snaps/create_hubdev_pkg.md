@@ -6,10 +6,11 @@
       testPkg/DESCRIPTION          testPkg/LICENSE              
       testPkg/LICENSE.md           testPkg/NAMESPACE            
       testPkg/R                    testPkg/README.Rmd           
-      testPkg/README.md            testPkg/man                  
-      testPkg/man/figures          testPkg/man/figures/logo.png 
-      testPkg/testPkg.Rproj        testPkg/tests                
-      testPkg/tests/testthat       testPkg/tests/testthat.R     
+      testPkg/README.md            testPkg/air.toml             
+      testPkg/man                  testPkg/man/figures          
+      testPkg/man/figures/logo.png testPkg/testPkg.Rproj        
+      testPkg/tests                testPkg/tests/testthat       
+      testPkg/tests/testthat.R     
 
 ---
 
@@ -110,4 +111,5 @@
        [4] "^\\.Rhistory$"     "^\\.Rdata$"        "^\\.httr-oauth$"  
        [7] "^\\.secrets$"      "^\\.claude$"       "^claude\\.md$"    
       [10] "^LICENSE\\.md$"    "^README\\.Rmd$"    "^\\.github$"      
+      [13] "^[.]?air[.]toml$"  "^\\.vscode$"      
 

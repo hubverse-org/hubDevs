@@ -39,6 +39,9 @@ create_hubdev_pkg <- function(
   # Create community documents
   use_hubdev_community()
 
+  # Set up Air formatting
+  usethis::use_air()
+
   usethis::use_git()
   usethis::use_git_hook(
     "pre-commit",
