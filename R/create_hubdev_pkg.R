@@ -11,13 +11,17 @@
 #' @return Path to the newly created project or package, invisibly.
 #' @export
 create_hubdev_pkg <- function(
-    path, fields = list(),
-    copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
-    organisation = "hubverse-org",
-    hubdocs_contribute_url = "https://hubverse.io/community/") {
-  path <- usethis::create_package(path,
+  path,
+  fields = list(),
+  copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
+  organisation = "hubverse-org",
+  hubdocs_contribute_url = "https://hubverse.io/community/"
+) {
+  path <- usethis::create_package(
+    path,
     fields = fields,
-    rstudio = TRUE, open = FALSE
+    rstudio = TRUE,
+    open = FALSE
   )
   usethis::local_project(path)
   hubdev_ignore()
@@ -47,10 +51,16 @@ create_hubdev_pkg <- function(
 
 
 hubdev_ignore <- function(
-    files = c(
-      ".DS_Store", ".Rhistory", ".Rdata",
-      ".httr-oauth", ".secrets", ".claude", "claude.md"
-    )) {
+  files = c(
+    ".DS_Store",
+    ".Rhistory",
+    ".Rdata",
+    ".httr-oauth",
+    ".secrets",
+    ".claude",
+    "claude.md"
+  )
+) {
   purrr::walk(
     files,
     ~ {

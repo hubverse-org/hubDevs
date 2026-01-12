@@ -3,8 +3,9 @@
 #' @inheritParams create_hubdev_pkg
 #' @export
 use_hubdev_readme <- function(
-    organisation = "hubverse-org",
-    hubdocs_contribute_url = "https://hubverse.io/community/") {
+  organisation = "hubverse-org",
+  hubdocs_contribute_url = "https://hubverse.io/community/"
+) {
   rlang::check_installed("rmarkdown")
 
   data <- list(

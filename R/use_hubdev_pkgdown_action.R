@@ -23,7 +23,6 @@
 #'
 #' @export
 use_hubdev_pkgdown_action <- function(remove_std = TRUE) {
-
   # Remove old pkgdown action if it exists
   if (remove_std && file.exists(".github/workflows/pkgdown.yaml")) {
     file.remove(".github/workflows/pkgdown.yaml")
