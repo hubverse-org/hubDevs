@@ -49,7 +49,7 @@ create_hubdev_pkg <- function(
 hubdev_ignore <- function(
     files = c(
       ".DS_Store", ".Rhistory", ".Rdata",
-      ".httr-oauth", ".secrets"
+      ".httr-oauth", ".secrets", ".claude", "claude.md"
     )) {
   purrr::walk(
     files,

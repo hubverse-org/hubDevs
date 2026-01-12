@@ -98,8 +98,8 @@
     Code
       readLines(fs::path(pkg_path, ".gitignore"))
     Output
-      [1] ".Rproj.user" ".DS_Store"   ".Rhistory"   ".Rdata"      ".httr-oauth"
-      [6] ".secrets"    ".RData"      ".quarto"    
+       [1] ".Rproj.user" ".DS_Store"   ".Rhistory"   ".Rdata"      ".httr-oauth"
+       [6] ".secrets"    ".claude"     "claude.md"   ".RData"      ".quarto"    
 
 ---
 
@@ -108,6 +108,6 @@
     Output
        [1] "^testPkg\\.Rproj$" "^\\.Rproj\\.user$" "^\\.DS_Store$"    
        [4] "^\\.Rhistory$"     "^\\.Rdata$"        "^\\.httr-oauth$"  
-       [7] "^\\.secrets$"      "^LICENSE\\.md$"    "^README\\.Rmd$"   
-      [10] "^\\.github$"      
+       [7] "^\\.secrets$"      "^\\.claude$"       "^claude\\.md$"    
+      [10] "^LICENSE\\.md$"    "^README\\.Rmd$"    "^\\.github$"      
 

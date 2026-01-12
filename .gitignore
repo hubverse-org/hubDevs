@@ -9,3 +9,5 @@
 docs
 attic
 inst/doc
+.claude
+claude.md
