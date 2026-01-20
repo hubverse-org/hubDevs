@@ -1,7 +1,8 @@
 # Changelog
 
-## hubDevs 0.1.1.9000
+## hubDevs 1.0.0
 
+- First stable release of hubDevs.
 - [`create_hubdev_pkg()`](https://hubverse-org.github.io/hubDevs/reference/create_hubdev_pkg.md)
   now sets up Air formatting via
   [`usethis::use_air()`](https://usethis.r-lib.org/reference/use_air.html)

@@ -13,13 +13,13 @@ Source:
 [`DESCRIPTION`](https://github.com/hubverse-org/hubDevs/blob/main/DESCRIPTION)
 
 Krystalli A, Kamvar Z (2026). *hubDevs: Utilities for Creating and
-Standardising Hubverse Packages*. R package version 0.1.1,
+Standardising Hubverse Packages*. R package version 1.0.0,
 <https://github.com/hubverse-org/hubDevs>.
 
     @Manual{,
       title = {hubDevs: Utilities for Creating and Standardising Hubverse Packages},
       author = {Anna Krystalli and Zhian N. Kamvar},
       year = {2026},
-      note = {R package version 0.1.1},
+      note = {R package version 1.0.0},
       url = {https://github.com/hubverse-org/hubDevs},
     }
