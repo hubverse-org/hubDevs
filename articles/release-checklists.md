@@ -1,0 +1,246 @@
+# R Release Checklists
+
+Parts of this document is adapted for The Hubverse from [The Carpentries
+Developer’s
+Handbook](https://carpentries.github.io/workbench-dev/releases.html) (c)
+The Carpentries under the [CC-BY 4.0
+license](https://creativecommons.org/licenses/by/4.0/).
+
+## Release Checklist
+
+Create a new branch from `main` called `<author>/release/<X.Y.Z>` (MUST
+be this pattern, e.g. `ls/release/0.1.6`)
+
+(For R packages) Update version number in `DESCRIPTION` and check that
+the `Remotes:` is up-to-date[¹](#fn1). Use
+[`usethis::use_version()`](https://usethis.r-lib.org/reference/use_version.html)
+to update the version number and add a new `NEWS.md` section.
+
+(For R packages) Check that all new authors/contributors are accounted
+for in the `DESCRIPTION`
+
+Proofread the `NEWS.md` or `changelog.md` and update the version number
+
+Commit, push changes, and create a draft pull request (tests will run
+against the released versions of the dependencies)
+
+Get a review from another member of the Hubverse dev team
+
+(For R packages) If package is on CRAN, [follow the steps to release to
+CRAN](#release-to-cran). Only merge when you get an email that says “on
+it’s way to CRAN”. A good place to start would be to open a template
+release issue using
+[`usethis::use_release_issue()`](https://usethis.r-lib.org/reference/use_release_issue.html)
+and follow the instructions.
+
+Merge on approval/CRAN acceptance
+
+Checkout the `main` branch and make sure to pull the merged in changes.
+
+Add new tag (annotated (`-a`) or signed (`-s`) preferred) with the name
+“ X.Y.Z” and push
+
+``` bash
+# example: create a signed (-s) tag for version 3.3.3
+git tag -s v3.3.3 -m '<short explanation of what changed>'
+git push --tags
+```
+
+create a release on github from the new tag. In R, you can use
+[`usethis::use_github_release()`](https://usethis.r-lib.org/reference/use_github_release.html).
+
+### Release to CRAN
+
+The release process for CRAN releases requires extra time and attention.
+A good place to start would be to
+
+open a template release issue using
+[`usethis::use_release_issue()`](https://usethis.r-lib.org/reference/use_release_issue.html)
+and follow the instructions.
+
+If this the first release on CRAN, make sure to:
+
+Add the CRAN installation command to the installation instructions in
+the `README.Rmd`.
+
+Add a CRAN badge to the `README.Rmd` using
+[`usethis::use_cran_badge()`](https://usethis.r-lib.org/reference/badges.html).
+
+Rebuild `README.md`.
+
+Use `devtools::check(remote = TRUE, manual = TRUE)` to check the package
+locally.
+
+Use
+[`devtools::check_win_devel()`](https://devtools.r-lib.org/reference/check_win.html)
+to check the package with the devel version of R on
+<https://win-builder.r-project.org/>.
+
+Record the results of checks and respond concisely to any NOTEs not
+addressed in the `cran-comments.md` file. The contents of this file are
+included with package submission to CRAN. See more about [using
+`cran-comments.md` to communicate with
+CRAN](https://r-pkgs.org/release.html#sec-release-cran-comments). If the
+package does not have a `cran-comments.md` file, you can create one
+using
+[`usethis::use_cran_comments()`](https://usethis.r-lib.org/reference/use_cran_comments.html).
+
+Make sure all your changes are committed and pushed to your release
+branch.
+
+Remove the `Remotes:` items in the DESCRIPTION with the
+[`desc`](https://r-lib.github.io/desc) package:
+
+``` r
+desc::desc()$del("Remotes")$write()
+```
+
+(DO NOT COMMIT, you will restore this later with
+`git restore DESCRIPTION`).
+
+run
+[`devtools::release()`](https://devtools.r-lib.org/reference/release.html)
+and follow the prompts. This will run through a bunch of confirmation
+checks and finally submit the package to CRAN.
+
+run `system("git restore DESCRIPTION")` to restore the `Remotes:` field
+in the `DESCRIPTION` file.
+
+after CRAN submission, add and commit the `CRAN_SUBMISSION` file and
+push to your release branch.
+
+If the package is rejected by CRAN, make any necessary changes, update
+the `cran-comments.md` file with a summary of changes made, bump the
+version using `usethis::use_version("patch")` and resubmit to CRAN.
+
+continue with the [Release steps](#release-checklist)
+
+## Post Release Checklist
+
+Immediately after the release, follow these steps to set the version
+back to development
+
+Create new branch from `main` called `post-release-X.Y.Z`
+
+Set project to development version by:
+
+Adding `.9000` to the version number (to indicate in development
+version)
+
+Adding a new heading to `NEWS.md` or `changelog.md`:
+`## <package name> (development)`. For R packages you can do both with
+[`usethis::use_dev_version()`](https://usethis.r-lib.org/reference/use_version.html).
+
+commit, push changes, create a pull request
+
+merge (with approval)
+
+## Subsequent PR Checklist
+
+Subsequent PRs are business-as-usual development. All PRs are tested
+against the development versions of packages and must work before being
+merged.
+
+It is important to remember that PRs should focus on *independent
+features*. If you want add a new feature and fix a bug, these should be
+two separate PRs. This strategy *reduces the size of the PR, making it
+easier to review*.
+
+**TIP:** Review often brings up potential non-blocking features/bug
+fixes that are orthogonal to the original PR. In these cases, instead of
+creating a PR to merge into the original PR, it’s best to **create a new
+issue from the PR review** and, after merging, **create a new PR to fix
+that issue**. This helps keep disparate bugfixes and features separate.
+
+Create a new branch from main called `<initials>/<feature>/<issue>`.
+(e.g.
+[`ak/change-check-fail-class-and-print/111`](https://github.com/hubverse-org/hubValidations/pull/114),
+which was authored by Anna Krystalli to change the check/fail class and
+print methods to fix [issue
+\#111](https://github.com/hubverse-org/hubValidations/issues/111)).
+
+Update `NEWS.md` or `changelog.md` (be sure to acknowledge non-core
+contributors by tagging their GitHub handle and version number)
+
+Get review from a member of the hubverse team and merge into main on
+approval.
+
+Caveats:
+
+1.  You should not change the development version number, **unless there
+    are important feature changes that are required by an upstream
+    package** (see [more about the development version
+    number](https://docs.hubverse.io/en/latest/developer/release-process.html#versioning)).
+2.  If introducing **breaking changes**, you must not merge into `main`
+    until these changes have been tested and communicated with the
+    community.
+
+## Hotfix Checklist
+
+A hotfix is a bug fix that is independent from in-development features
+and needs to be deployed within a day. Refer to the Hubverse
+documentation for [details about
+hotfixes](https://docs.hubverse.io/en/latest/developer/hotfix.html).
+
+To patch and release a hotfix, follow this protocol:
+
+Create a new branch from the latest tag using `<author>/hotfix/<issue>`
+(MUST be this pattern)
+
+``` sh
+(main)$ git switch --detach 0.14.0 # checkout the tag
+((0.14.0))$ git switch -c znk/hotfix/143 # create a new branch
+(znk/hotfix/143)$
+```
+
+Write a test, fix the bug, commit, and push **(do not bump the version
+number yet)**
+
+``` sh
+(znk/hotfix/143)$ git commit -m 'hotfix for #143'
+(znk/hotfix/143)$ git push -u origin znk/hotfix/143 # push the hotfix
+```
+
+Create a pull request, get a review from another hubverse developer, and
+confirm that checks pass against the released versions of the packages
+**(Do not merge yet)**
+
+Update the NEWS and bump the [patch
+version](https://docs.hubverse.io/en/latest/developer/release-process.html#patch)
+in the DESCRIPTION
+
+Release from the hotfix branch
+
+``` sh
+(znk/hotfix/143)$ git commit -m 'bump version to 0.14.1'
+(znk/hotfix/143)$ git tag -s 0.14.1 -m 'flipped retroencabulator switch option'
+(znk/hotfix/143)$ git push
+(znk/hotfix/143)$ git push --tags
+```
+
+At this point, there will be a conflict on the NEWS and DESCRIPTION, but
+that’s because you confirmed that it worked in the previous step.
+
+Create the release from the tag on github (or using GitHub’s CLI tool:
+`gh release create 0.14.1`)
+
+Resolve conflicts in PR and merge into main.
+
+------------------------------------------------------------------------
+
+1.  This describes an edge case (after development of cross-package
+    functionality).
+
+    Effectively, if you have two packages that have complementary
+    features in two pull requests, you can test them in the pull request
+    by changing the `Remotes:` field.
+
+    For example, a branch `pkgA@feature-A1` depends on`pkgB@feature-B1`,
+    so you would do the following steps:
+
+    1.  add `org/pkgB@feature-B1` the `Remotes:` field of
+        `pkgA@feature-A1` (and bump the development version number in
+        `pkgB@feature-B1`) during development.
+    2.  `pkgB@feature-B1` should be merged before `pkgA@feature-A1`.
+    3.  Before you merge `pkgA@feature-A1`, you should ensure that the
+        `Remotes:` removes the feature branch specification.

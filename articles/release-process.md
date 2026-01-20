@@ -1,0 +1,14 @@
+# Hubverse release process
+
+Information about releasing Hubverse packages has moved to the Hubverse
+documentation:
+
+- [Release process
+  overview](https://docs.hubverse.io/en/latest/developer/release-process.html)
+- [Releasing
+  hotfixes](https://docs.hubverse.io/en/latest/developer/hotfix.html)
+- [Python-specific release details and
+  checklists](https://docs.hubverse.io/en/latest/developer/python.html)
+
+**An R-specific release checklist is here:
+[`vignette("release-checklists", package = "hubDevs")`](https://hubverse-org.github.io/hubDevs/articles/release-checklists.md).**
