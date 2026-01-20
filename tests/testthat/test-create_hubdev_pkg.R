@@ -27,5 +27,12 @@ test_that("create_hubdev_pkg works", {
   expect_snapshot(readLines(fs::path(pkg_path, "README.Rmd")))
   expect_snapshot(readLines(fs::path(pkg_path, ".gitignore")))
   expect_snapshot(readLines(fs::path(pkg_path, ".Rbuildignore")))
-  expect_snapshot(readLines(fs::path(pkg_path, "LICENSE")))
+
+  # Check LICENSE has correct format (year will change annually)
+  license_content <- readLines(fs::path(pkg_path, "LICENSE"))
+  expect_match(license_content[1], "^YEAR: [0-9]{4}$")
+  expect_equal(
+    license_content[2],
+    "COPYRIGHT HOLDER: Consortium of Infectious Disease Modeling Hubs"
+  )
 })
