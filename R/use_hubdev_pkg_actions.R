@@ -8,6 +8,8 @@
 #' https://github.com/r-lib/actions/blob/v2-branch/examples/test-coverage.yaml)
 #'    - linting with `lintr` [(`lint`)](
 #' https://github.com/r-lib/actions/blob/v2-branch/examples/lint.yaml)
+#'    - Air format checking [(`format-check`)](
+#' https://github.com/posit-dev/setup-air/blob/main/examples/format-check.yaml)
 #'
 #' @export
 use_hubdev_pkg_actions <- function() {
@@ -15,4 +17,7 @@ use_hubdev_pkg_actions <- function() {
   usethis::use_github_action("test-coverage")
   usethis::use_github_action("lint")
   use_hubdev_lintr()
+  usethis::use_github_action(
+    url = "https://github.com/posit-dev/setup-air/blob/main/examples/format-check.yaml"
+  )
 }

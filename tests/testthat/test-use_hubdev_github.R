@@ -25,7 +25,12 @@ test_that("use_hubdev_pkg_actions works", {
 
   expect_equal(
     workflow_files,
-    c("R-CMD-check.yaml", "lint.yaml", "test-coverage.yaml")
+    c(
+      "R-CMD-check.yaml",
+      "format-check.yaml",
+      "lint.yaml",
+      "test-coverage.yaml"
+    )
   )
 })
 
