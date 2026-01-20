@@ -2,6 +2,13 @@
 
 ## hubDevs 0.1.1.9000
 
+- [`create_hubdev_pkg()`](https://hubverse-org.github.io/hubDevs/reference/create_hubdev_pkg.md)
+  now sets up Air formatting via
+  [`usethis::use_air()`](https://usethis.r-lib.org/reference/use_air.html)
+  ([\#48](https://github.com/hubverse-org/hubDevs/issues/48)).
+- [`use_hubdev_pkg_actions()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_pkg_actions.md)
+  now includes the `format-check` workflow for Air formatting CI
+  ([\#48](https://github.com/hubverse-org/hubDevs/issues/48)).
 - Remove Hubverse release process overview vignettes (that information
   has moved to the [Hubverse
   documentation](https://docs.hubverse.io/en/latest/developer/)).

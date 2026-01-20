@@ -12,6 +12,9 @@ Downloads standard r-lib GitHub Action workflows and writes them to the
 - linting with `lintr`
   [(`lint`)](https://github.com/r-lib/actions/blob/v2-branch/examples/lint.yaml)
 
+- Air format checking
+  [(`format-check`)](https://github.com/posit-dev/setup-air/blob/main/examples/format-check.yaml)
+
 ## Usage
 
 ``` r
