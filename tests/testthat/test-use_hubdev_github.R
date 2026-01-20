@@ -1,5 +1,4 @@
 test_that("use_hubdev_pkg_actions works", {
-
   temp_dir <- tempdir()
   pkg_path <- file.path(temp_dir, "testPkg")
 
@@ -10,7 +9,10 @@ test_that("use_hubdev_pkg_actions works", {
   on.exit(setwd(current_wd))
 
   # Add a fake GitHub remote so usethis::use_github_action() can add badges
-  system2("git", c("remote", "add", "origin", "https://github.com/hubverse-org/testPkg.git"))
+  system2(
+    "git",
+    c("remote", "add", "origin", "https://github.com/hubverse-org/testPkg.git")
+  )
 
   suppressMessages(use_hubdev_pkg_actions())
 
@@ -60,7 +62,10 @@ test_that("use_hubdev_pkgdown_action works", {
   on.exit(setwd(current_wd))
 
   # Add a fake GitHub remote so usethis::use_github_action() can add badges
-  system2("git", c("remote", "add", "origin", "https://github.com/hubverse-org/testPkg.git"))
+  system2(
+    "git",
+    c("remote", "add", "origin", "https://github.com/hubverse-org/testPkg.git")
+  )
 
   # Create a fake standard pkgdown.yaml to test removal
 

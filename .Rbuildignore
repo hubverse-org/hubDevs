@@ -19,3 +19,5 @@
 ^\.lintr$
 ^\.quarto$
 ^vignettes/\.quarto$
+^[.]?air[.]toml$
+^\.vscode$

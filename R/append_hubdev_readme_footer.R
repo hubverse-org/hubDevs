@@ -2,7 +2,10 @@
 #'
 #' @inheritParams create_hubdev_pkg
 #' @export
-append_hubdev_readme_footer <- function(hubdocs_contribute_url = "https://hubverse.io/community/") { # nolint
+append_hubdev_readme_footer <- function(
+  hubdocs_contribute_url = "https://hubverse.io/community/"
+) {
+  # nolint
   data <- list(
     pkgname = get_pkgname(),
     hubdocs_contribute_url = hubdocs_contribute_url
@@ -23,6 +26,8 @@ append_hubdev_readme_footer <- function(hubdocs_contribute_url = "https://hubver
   write(footer, file = "README.Rmd", append = TRUE)
   unlink("readme-footer.md")
 
-  cli::cli_alert_success("{.file README.Rmd} updated with {.field hubverse} footer.")
+  cli::cli_alert_success(
+    "{.file README.Rmd} updated with {.field hubverse} footer."
+  )
   cli::cli_alert("Please re-render {.file README.Rmd} and commit the changes.")
 }
