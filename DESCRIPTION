@@ -1,13 +1,16 @@
 Package: hubDevs
 Title: Utilities for Creating and Standardising Hubverse Packages
-Version: 0.1.1
+Version: 1.0.0
 Authors@R: c(
     person("Anna", "Krystalli", , "annakrystalli@googlemail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2378-4915")),
     person("Zhian N.", "Kamvar", , "zkamvar@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0003-1458-7108"))
   )
-Description: What the package does (one paragraph).
+Description: Provides utilities for creating and maintaining Hubverse R packages
+    with consistent structure, documentation, and CI/CD workflows. Includes
+    functions for setting up pkgdown sites, GitHub Actions, README templates,
+    and code formatting standards.
 License: MIT + file LICENSE
 URL: https://github.com/hubverse-org/hubDevs,
     https://hubverse-org.github.io/hubDevs
