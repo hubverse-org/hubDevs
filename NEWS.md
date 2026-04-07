@@ -1,4 +1,12 @@
-# hubDevs (development version)
+# hubDevs 1.1.0
+
+* Add `development: mode: auto` to `_pkgdown.yml` template so pkgdown builds
+  dev documentation into `docs/dev/` (#54).
+* Disable `indentation_linter` in `.lintr` template to avoid conflicts with Air
+  formatting (#55).
+* Add `build` parameter to `use_hubdev_readme()` and `create_hubdev_pkg()` to
+  allow skipping `devtools::build_readme()`, fixing r-universe build failures
+  (#56).
 
 # hubDevs 1.0.0
 
