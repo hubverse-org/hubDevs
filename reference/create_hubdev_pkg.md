@@ -10,7 +10,8 @@ create_hubdev_pkg(
   fields = list(),
   copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://hubverse.io/community/"
+  hubdocs_contribute_url = "https://hubverse.io/community/",
+  build = TRUE
 )
 ```
 
@@ -44,6 +45,11 @@ create_hubdev_pkg(
 
   Character string. URL of the general contributing information page on
   hubDocs.
+
+- build:
+
+  Logical. Whether to build the README.md from README.Rmd. Defaults to
+  `TRUE`.
 
 ## Value
 

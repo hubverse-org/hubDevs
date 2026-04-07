@@ -7,7 +7,8 @@ Create a basic hubverse README.Rmd from template
 ``` r
 use_hubdev_readme(
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://hubverse.io/community/"
+  hubdocs_contribute_url = "https://hubverse.io/community/",
+  build = TRUE
 )
 ```
 
@@ -23,3 +24,8 @@ use_hubdev_readme(
 
   Character string. URL of the general contributing information page on
   hubDocs.
+
+- build:
+
+  Logical. Whether to build the README.md from README.Rmd. Defaults to
+  `TRUE`.

@@ -7,7 +7,7 @@
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="../index.html">hubDevs</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,12 @@
       <small>Source: <a href="https://github.com/hubverse-org/hubDevs/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.0" id="hubdevs-110">hubDevs 1.1.0<a class="anchor" aria-label="anchor" href="#hubdevs-110"></a></h2>
+<ul><li>Add <code>development: mode: auto</code> to <code>_pkgdown.yml</code> template so pkgdown builds dev documentation into <code>docs/dev/</code> (<a href="https://github.com/hubverse-org/hubDevs/issues/54" class="external-link">#54</a>).</li>
+<li>Disable <code>indentation_linter</code> in <code>.lintr</code> template to avoid conflicts with Air formatting (<a href="https://github.com/hubverse-org/hubDevs/issues/55" class="external-link">#55</a>).</li>
+<li>Add <code>build</code> parameter to <code><a href="../reference/use_hubdev_readme.html">use_hubdev_readme()</a></code> and <code><a href="../reference/create_hubdev_pkg.html">create_hubdev_pkg()</a></code> to allow skipping <code><a href="https://devtools.r-lib.org/reference/build_readme.html" class="external-link">devtools::build_readme()</a></code>, fixing r-universe build failures (<a href="https://github.com/hubverse-org/hubDevs/issues/56" class="external-link">#56</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="hubdevs-100">hubDevs 1.0.0<a class="anchor" aria-label="anchor" href="#hubdevs-100"></a></h2>
 <ul><li>First stable release of hubDevs.</li>

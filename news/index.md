@@ -1,5 +1,22 @@
 # Changelog
 
+## hubDevs 1.1.0
+
+- Add `development: mode: auto` to `_pkgdown.yml` template so pkgdown
+  builds dev documentation into `docs/dev/`
+  ([\#54](https://github.com/hubverse-org/hubDevs/issues/54)).
+- Disable `indentation_linter` in `.lintr` template to avoid conflicts
+  with Air formatting
+  ([\#55](https://github.com/hubverse-org/hubDevs/issues/55)).
+- Add `build` parameter to
+  [`use_hubdev_readme()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_readme.md)
+  and
+  [`create_hubdev_pkg()`](https://hubverse-org.github.io/hubDevs/reference/create_hubdev_pkg.md)
+  to allow skipping
+  [`devtools::build_readme()`](https://devtools.r-lib.org/reference/build_readme.html),
+  fixing r-universe build failures
+  ([\#56](https://github.com/hubverse-org/hubDevs/issues/56)).
+
 ## hubDevs 1.0.0
 
 - First stable release of hubDevs.
