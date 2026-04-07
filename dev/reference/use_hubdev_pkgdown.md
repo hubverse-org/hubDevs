@@ -3,9 +3,13 @@
 The function performs a number of actions to configure a hubverse
 package's pkgdown site to use the `hubStyle` template for docs styling.
 
-- Runs `use_pkgdown()` to initialise pkgdown documentation.
+- Runs
+  [`usethis::use_pkgdown()`](https://usethis.r-lib.org/reference/use_pkgdown.html)
+  to initialise pkgdown documentation.
 
-- Runs `use_github_pages()` to initialise GitHub Pages for the package.
+- Runs
+  [`usethis::use_github_pages()`](https://usethis.r-lib.org/reference/use_github_pages.html)
+  to initialise GitHub Pages for the package.
 
 - Adds a GitHub Action workflow for building pkgdown documentation and
   deploying to GitHub Pages (productions) and Netlify (PR previews)
