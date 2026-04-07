@@ -9,7 +9,8 @@ create_hubdev_pkg(
   fields = list(),
   copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://hubverse.io/community/"
+  hubdocs_contribute_url = "https://hubverse.io/community/",
+  build = TRUE
 )
 }
 \arguments{
@@ -30,6 +31,9 @@ to create repositories in the hubverse organisation.}
 
 \item{hubdocs_contribute_url}{Character string. URL of the general contributing
 information page on hubDocs.}
+
+\item{build}{Logical. Whether to build the README.md from README.Rmd.
+Defaults to \code{TRUE}.}
 }
 \value{
 Path to the newly created project or package, invisibly.

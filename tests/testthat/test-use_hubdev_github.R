@@ -2,7 +2,7 @@ test_that("use_hubdev_pkg_actions works", {
   temp_dir <- tempdir()
   pkg_path <- file.path(temp_dir, "testPkg")
 
-  suppressMessages(create_hubdev_pkg(pkg_path))
+  suppressMessages(create_hubdev_pkg(pkg_path, build = FALSE))
 
   current_wd <- getwd()
   setwd(pkg_path)
@@ -39,7 +39,7 @@ test_that("use_hubdev_pkgdown works", {
   temp_dir <- tempdir()
   pkg_path <- file.path(temp_dir, "testPkg")
 
-  suppressMessages(create_hubdev_pkg(pkg_path))
+  suppressMessages(create_hubdev_pkg(pkg_path, build = FALSE))
 
   current_wd <- getwd()
   setwd(pkg_path)
@@ -60,7 +60,7 @@ test_that("use_hubdev_pkgdown_action works", {
   temp_dir <- tempdir()
   pkg_path <- file.path(temp_dir, "testPkg")
 
-  suppressMessages(create_hubdev_pkg(pkg_path))
+  suppressMessages(create_hubdev_pkg(pkg_path, build = FALSE))
 
   current_wd <- getwd()
   setwd(pkg_path)

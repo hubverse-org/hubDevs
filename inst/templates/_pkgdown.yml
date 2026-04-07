@@ -1,3 +1,5 @@
 url: https://{{{ organisation }}}.github.io/{{{ pkgname }}}/
 template:
   package: hubStyle
+development:
+  mode: auto

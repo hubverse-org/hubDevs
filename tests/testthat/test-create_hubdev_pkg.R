@@ -2,7 +2,7 @@ test_that("create_hubdev_pkg works", {
   temp_dir <- tempdir()
   pkg_path <- file.path(temp_dir, "testPkg")
 
-  suppressMessages(create_hubdev_pkg(pkg_path))
+  suppressMessages(create_hubdev_pkg(pkg_path, build = FALSE))
 
   # Check basic structure
   visible_files <- fs::dir_ls(pkg_path, recurse = TRUE) |>
