@@ -1,3 +1,5 @@
+# hubDevs (development version)
+
 # hubDevs 1.1.0
 
 * Add `development: mode: auto` to `_pkgdown.yml` template so pkgdown builds
