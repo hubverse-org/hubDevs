@@ -6,11 +6,10 @@
       testPkg/DESCRIPTION          testPkg/LICENSE              
       testPkg/LICENSE.md           testPkg/NAMESPACE            
       testPkg/R                    testPkg/README.Rmd           
-      testPkg/README.md            testPkg/air.toml             
-      testPkg/man                  testPkg/man/figures          
-      testPkg/man/figures/logo.png testPkg/testPkg.Rproj        
-      testPkg/tests                testPkg/tests/testthat       
-      testPkg/tests/testthat.R     
+      testPkg/air.toml             testPkg/man                  
+      testPkg/man/figures          testPkg/man/figures/logo.png 
+      testPkg/testPkg.Rproj        testPkg/tests                
+      testPkg/tests/testthat       testPkg/tests/testthat.R     
 
 ---
 

@@ -1,10 +1,13 @@
 #' Create a basic hubverse README.Rmd from template
 #'
 #' @inheritParams create_hubdev_pkg
+#' @param build Logical. Whether to build the README.md from README.Rmd.
+#'   Defaults to `TRUE`.
 #' @export
 use_hubdev_readme <- function(
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://hubverse.io/community/"
+  hubdocs_contribute_url = "https://hubverse.io/community/",
+  build = TRUE
 ) {
   rlang::check_installed("rmarkdown")
 
@@ -25,5 +28,7 @@ use_hubdev_readme <- function(
 
   usethis::use_lifecycle_badge("experimental")
   usethis::use_cran_badge()
-  devtools::build_readme()
+  if (build) {
+    devtools::build_readme()
+  }
 }

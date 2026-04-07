@@ -6,7 +6,8 @@
 \usage{
 use_hubdev_readme(
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://hubverse.io/community/"
+  hubdocs_contribute_url = "https://hubverse.io/community/",
+  build = TRUE
 )
 }
 \arguments{
@@ -16,6 +17,9 @@ to create repositories in the hubverse organisation.}
 
 \item{hubdocs_contribute_url}{Character string. URL of the general contributing
 information page on hubDocs.}
+
+\item{build}{Logical. Whether to build the README.md from README.Rmd.
+Defaults to \code{TRUE}.}
 }
 \description{
 Create a basic hubverse README.Rmd from template

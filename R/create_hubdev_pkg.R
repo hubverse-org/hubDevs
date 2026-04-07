@@ -7,6 +7,7 @@
 #' to create repositories in the hubverse organisation.
 #' @param hubdocs_contribute_url Character string. URL of the general contributing
 #' information page on hubDocs.
+#' @inheritParams use_hubdev_readme
 #'
 #' @return Path to the newly created project or package, invisibly.
 #' @export
@@ -15,7 +16,8 @@ create_hubdev_pkg <- function(
   fields = list(),
   copyright_holder = "Consortium of Infectious Disease Modeling Hubs",
   organisation = "hubverse-org",
-  hubdocs_contribute_url = "https://hubverse.io/community/"
+  hubdocs_contribute_url = "https://hubverse.io/community/",
+  build = TRUE
 ) {
   path <- usethis::create_package(
     path,
@@ -33,7 +35,8 @@ create_hubdev_pkg <- function(
 
   use_hubdev_readme(
     organisation = organisation,
-    hubdocs_contribute_url = hubdocs_contribute_url
+    hubdocs_contribute_url = hubdocs_contribute_url,
+    build = build
   )
 
   # Create community documents

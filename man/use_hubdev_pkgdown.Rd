@@ -13,8 +13,8 @@ use_hubdev_pkgdown(add_logo = FALSE)
 The function performs a number of actions to configure a hubverse package's
 pkgdown site to use the \code{hubStyle} template for docs styling.
 \itemize{
-\item Runs \code{\link[=use_pkgdown]{use_pkgdown()}} to initialise pkgdown documentation.
-\item Runs \code{\link[=use_github_pages]{use_github_pages()}} to initialise GitHub Pages for the package.
+\item Runs \code{\link[usethis:use_pkgdown]{usethis::use_pkgdown()}} to initialise pkgdown documentation.
+\item Runs \code{\link[usethis:use_github_pages]{usethis::use_github_pages()}} to initialise GitHub Pages for the package.
 \item Adds a GitHub Action workflow for building pkgdown documentation and deploying
 to GitHub Pages (productions) and Netlify (PR previews) using
 \code{use_hubdev_pkgdown_action()}.
