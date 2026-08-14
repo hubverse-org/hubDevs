@@ -17,6 +17,7 @@ You can install the [latest version of hubDevs from the
 R-universe](https://hubverse-org.r-universe.dev/hubDevs):
 
 ``` r
+
 install.packages("hubDevs", repos = c("https://hubverse-org.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
@@ -27,6 +28,7 @@ you can install the development version of hubDevs from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("hubverse-org/hubDevs")
 ```
@@ -38,6 +40,7 @@ remotes::install_github("hubverse-org/hubDevs")
 First create a package skeleton.
 
 ``` r
+
 library(hubDevs)
 
 temp_dir <- tempdir()
@@ -160,6 +163,7 @@ this from R with the `usethis` and `gitcreds` packages:
 Once the new package is launched, you can set it up on GitHub with:
 
 ``` r
+
 use_hubdev_github()
 ```
 
@@ -190,6 +194,7 @@ utilities that can be run separately.
 To add a Code of Conduct and Contributing guide to your package, run:
 
 ``` r
+
 use_hubdev_community()
 ```
 
@@ -206,6 +211,7 @@ To configure your package site to pkgdown with the `hubStyle` template,
 and deploy using the hubverse’s pkgdown deployment GitHub action run:
 
 ``` r
+
 use_hubdev_pkgdown()
 ```
 

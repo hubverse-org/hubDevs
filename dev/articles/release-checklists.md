@@ -12,7 +12,7 @@ Create a new branch from `main` called `<author>/release/<X.Y.Z>` (MUST
 be this pattern, e.g. `ls/release/0.1.6`)
 
 (For R packages) Update version number in `DESCRIPTION` and check that
-the `Remotes:` is up-to-date[¹](#fn1). Use
+the `Remotes:` is up-to-date[^1]. Use
 [`usethis::use_version()`](https://usethis.r-lib.org/reference/use_version.html)
 to update the version number and add a new `NEWS.md` section.
 
@@ -92,6 +92,7 @@ Remove the `Remotes:` items in the DESCRIPTION with the
 [`desc`](https://r-lib.github.io/desc) package:
 
 ``` r
+
 desc::desc()$del("Remotes")$write()
 ```
 
@@ -226,9 +227,7 @@ Create the release from the tag on github (or using GitHub’s CLI tool:
 
 Resolve conflicts in PR and merge into main.
 
-------------------------------------------------------------------------
-
-1.  This describes an edge case (after development of cross-package
+[^1]: This describes an edge case (after development of cross-package
     functionality).
 
     Effectively, if you have two packages that have complementary
@@ -237,10 +236,3 @@ Resolve conflicts in PR and merge into main.
 
     For example, a branch `pkgA@feature-A1` depends on`pkgB@feature-B1`,
     so you would do the following steps:
-
-    1.  add `org/pkgB@feature-B1` the `Remotes:` field of
-        `pkgA@feature-A1` (and bump the development version number in
-        `pkgB@feature-B1`) during development.
-    2.  `pkgB@feature-B1` should be merged before `pkgA@feature-A1`.
-    3.  Before you merge `pkgA@feature-A1`, you should ensure that the
-        `Remotes:` removes the feature branch specification.
