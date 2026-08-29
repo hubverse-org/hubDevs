@@ -1,5 +1,10 @@
 # hubDevs (development version)
 
+* Remove orphaned, stale `inst/templates/pkgdown-netlify-preview.yaml`. The
+  single source of truth is the remote copy in
+  `hubverse-org/hubverse-developer-actions`, fetched at runtime by
+  `use_hubdev_pkgdown_action()` (#61).
+
 # hubDevs 1.1.0
 
 * Add `development: mode: auto` to `_pkgdown.yml` template so pkgdown builds
