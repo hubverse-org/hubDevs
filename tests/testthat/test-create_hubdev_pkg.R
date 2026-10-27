@@ -23,6 +23,12 @@ test_that("create_hubdev_pkg works", {
   expect_snapshot(
     github_files
   )
+  for (file in c("dependabot.yml", "CODEOWNERS")) {
+    expect_equal(
+      readLines(fs::path(pkg_path, ".github", file)),
+      readLines(find_template(file, package = "hubDevs"))
+    )
+  }
 
   expect_snapshot(readLines(fs::path(pkg_path, "README.Rmd")))
   expect_snapshot(readLines(fs::path(pkg_path, ".gitignore")))

@@ -4,12 +4,23 @@
 \alias{use_hubdev_github_action}
 \title{Hubverse Developer GitHub Action setup}
 \usage{
-use_hubdev_github_action(name)
+use_hubdev_github_action(name, ref = NULL, overwrite = FALSE)
 }
 \arguments{
 \item{name}{Name of workflow, i.e. the name of one of the
 \href{https://github.com/hubverse-org/hubverse-developer-actions}{hubverse developer action repository}
 directories containing a GitHub Action workflow \code{.yaml} file.}
+
+\item{ref}{Tag, branch or commit SHA of
+\href{https://github.com/hubverse-org/hubverse-developer-actions}{hubverse-org/hubverse-developer-actions}
+to download from. Defaults to the latest release.}
+
+\item{overwrite}{Logical. Whether to replace an existing file without
+asking. When \code{FALSE}, an interactive session asks first and a
+non-interactive session leaves the existing file unchanged.}
+}
+\value{
+\code{TRUE} if the file was written, \code{FALSE} otherwise, invisibly.
 }
 \description{
 Sets up common hubverse developer continuous integration (CI) workflows for

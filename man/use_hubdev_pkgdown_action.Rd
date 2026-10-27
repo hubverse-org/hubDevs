@@ -4,10 +4,18 @@
 \alias{use_hubdev_pkgdown_action}
 \title{Use the hubdev custom pkgdown GitHub Action}
 \usage{
-use_hubdev_pkgdown_action(remove_std = TRUE)
+use_hubdev_pkgdown_action(remove_std = TRUE, ref = NULL, overwrite = FALSE)
 }
 \arguments{
 \item{remove_std}{Logical. Whether to remove the standard pkgdown action if it exists.}
+
+\item{ref}{Tag, branch or commit SHA of
+\href{https://github.com/hubverse-org/hubverse-developer-actions}{hubverse-org/hubverse-developer-actions}
+to download from. Defaults to the latest release.}
+
+\item{overwrite}{Logical. Whether to replace an existing file without
+asking. When \code{FALSE}, an interactive session asks first and a
+non-interactive session leaves the existing file unchanged.}
 }
 \description{
 The functions creates a \code{pkgdown-netlify-preview.yaml} action in the \code{.github/workflows}

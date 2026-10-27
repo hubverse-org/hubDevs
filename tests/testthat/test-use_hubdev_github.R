@@ -80,7 +80,7 @@ test_that("use_hubdev_pkgdown_action works", {
 
   # Snapshot the full output including Netlify setup instructions
   expect_snapshot(
-    use_hubdev_pkgdown_action()
+    use_hubdev_pkgdown_action(ref = "v1.0.0")
   )
 
   # Check workflow file was created
