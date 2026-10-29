@@ -13,7 +13,9 @@
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/append_hubdev_readme_footer.html</loc></url>
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/create_hubdev_pkg.html</loc></url>
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/index.html</loc></url>
+<url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeowners.html</loc></url>
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.html</loc></url>
+<url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_dependabot.html</loc></url>
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_github.html</loc></url>
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_github_action.html</loc></url>
 <url><loc>https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_lintr.html</loc></url>

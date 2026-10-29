@@ -8,10 +8,14 @@
   : Append the standard hubverse footer to a README.Rmd
 - [`create_hubdev_pkg()`](https://hubverse-org.github.io/hubDevs/dev/reference/create_hubdev_pkg.md)
   : Create hubverse package skeleton
+- [`use_hubdev_codeowners()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeowners.md)
+  : Hubverse Developer CODEOWNERS setup
 - [`use_hubdev_community()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)
   [`use_hubdev_coc()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)
   [`use_hubdev_contributing()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)
   : Helpers for creating community facing hubverse package documents
+- [`use_hubdev_dependabot()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_dependabot.md)
+  : Hubverse Developer Dependabot setup
 - [`use_hubdev_github()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_github.md)
   : Set up hubverse package on GitHub
 - [`use_hubdev_github_action()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_github_action.md)

@@ -41,7 +41,10 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="hubdevs-development-version">hubDevs (development version)<a class="anchor" aria-label="anchor" href="#hubdevs-development-version"></a></h2>
-<ul><li>Remove orphaned, stale <code>inst/templates/pkgdown-netlify-preview.yaml</code>. The single source of truth is the remote copy in <code>hubverse-org/hubverse-developer-actions</code>, fetched at runtime by <code><a href="../reference/use_hubdev_pkgdown_action.html">use_hubdev_pkgdown_action()</a></code> (<a href="https://github.com/hubverse-org/hubDevs/issues/61" class="external-link">#61</a>).</li>
+<ul><li>New <code><a href="../reference/use_hubdev_dependabot.html">use_hubdev_dependabot()</a></code> and <code><a href="../reference/use_hubdev_codeowners.html">use_hubdev_codeowners()</a></code> create the hubverse package <code>.github/dependabot.yml</code> and <code>.github/CODEOWNERS</code>. <code><a href="../reference/create_hubdev_pkg.html">create_hubdev_pkg()</a></code> now adds both to new packages (<a href="https://github.com/hubverse-org/hubDevs/issues/33" class="external-link">#33</a>).</li>
+<li>
+<code><a href="../reference/use_hubdev_github_action.html">use_hubdev_github_action()</a></code> and <code><a href="../reference/use_hubdev_pkgdown_action.html">use_hubdev_pkgdown_action()</a></code> download workflows from the latest <code>hubverse-org/hubverse-developer-actions</code> release instead of its <code>main</code> branch. New <code>ref</code> and <code>overwrite</code> arguments select another tag, branch or commit and replace an existing workflow without asking (<a href="https://github.com/hubverse-org/hubDevs/issues/33" class="external-link">#33</a>).</li>
+<li>Remove orphaned, stale <code>inst/templates/pkgdown-netlify-preview.yaml</code>. The single source of truth is the remote copy in <code>hubverse-org/hubverse-developer-actions</code>, fetched at runtime by <code><a href="../reference/use_hubdev_pkgdown_action.html">use_hubdev_pkgdown_action()</a></code> (<a href="https://github.com/hubverse-org/hubDevs/issues/61" class="external-link">#61</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.0" id="hubdevs-110">hubDevs 1.1.0<a class="anchor" aria-label="anchor" href="#hubdevs-110"></a></h2>

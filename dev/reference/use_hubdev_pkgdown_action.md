@@ -8,7 +8,7 @@ can also be set up to publish internal PR previews to Netlify.
 ## Usage
 
 ``` r
-use_hubdev_pkgdown_action(remove_std = TRUE)
+use_hubdev_pkgdown_action(remove_std = TRUE, ref = NULL, overwrite = FALSE)
 ```
 
 ## Arguments
@@ -16,6 +16,18 @@ use_hubdev_pkgdown_action(remove_std = TRUE)
 - remove_std:
 
   Logical. Whether to remove the standard pkgdown action if it exists.
+
+- ref:
+
+  Tag, branch or commit SHA of
+  [hubverse-org/hubverse-developer-actions](https://github.com/hubverse-org/hubverse-developer-actions)
+  to download from. Defaults to the latest release.
+
+- overwrite:
+
+  Logical. Whether to replace an existing file without asking. When
+  `FALSE`, an interactive session asks first and a non-interactive
+  session leaves the existing file unchanged.
 
 ## Details
 

@@ -2,6 +2,23 @@
 
 ## hubDevs (development version)
 
+- New
+  [`use_hubdev_dependabot()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_dependabot.md)
+  and
+  [`use_hubdev_codeowners()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeowners.md)
+  create the hubverse package `.github/dependabot.yml` and
+  `.github/CODEOWNERS`.
+  [`create_hubdev_pkg()`](https://hubverse-org.github.io/hubDevs/dev/reference/create_hubdev_pkg.md)
+  now adds both to new packages
+  ([\#33](https://github.com/hubverse-org/hubDevs/issues/33)).
+- [`use_hubdev_github_action()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_github_action.md)
+  and
+  [`use_hubdev_pkgdown_action()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_pkgdown_action.md)
+  download workflows from the latest
+  `hubverse-org/hubverse-developer-actions` release instead of its
+  `main` branch. New `ref` and `overwrite` arguments select another tag,
+  branch or commit and replace an existing workflow without asking
+  ([\#33](https://github.com/hubverse-org/hubDevs/issues/33)).
 - Remove orphaned, stale `inst/templates/pkgdown-netlify-preview.yaml`.
   The single source of truth is the remote copy in
   `hubverse-org/hubverse-developer-actions`, fetched at runtime by
