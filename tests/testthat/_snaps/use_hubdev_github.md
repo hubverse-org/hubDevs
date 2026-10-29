@@ -1,10 +1,10 @@
 # use_hubdev_pkgdown_action works
 
     Code
-      use_hubdev_pkgdown_action(ref = "v1.0.0")
+      use_hubdev_pkgdown_action(ref = "v1.1.0")
     Message
       v Saving
-        "hubverse-org/hubverse-developer-actions/pkgdown-netlify-preview/pkgdown-netlify-preview.yaml@v1.0.0"
+        "hubverse-org/hubverse-developer-actions/pkgdown-netlify-preview/pkgdown-netlify-preview.yaml@v1.1.0"
         to '.github/workflows/pkgdown-netlify-preview.yaml'.
       * To activate Netlify Previews, remember to:
       > Create a new site on Netlify. See
