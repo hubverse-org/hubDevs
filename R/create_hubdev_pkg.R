@@ -42,6 +42,10 @@ create_hubdev_pkg <- function(
   # Create community documents
   use_hubdev_community()
 
+  # Set up Dependabot and CODEOWNERS
+  use_hubdev_dependabot()
+  use_hubdev_codeowners()
+
   # Set up Air formatting
   usethis::use_air()
 

@@ -16,7 +16,8 @@
     Code
       github_files
     Output
-      testPkg/.github/CODE_OF_CONDUCT.md testPkg/.github/CONTRIBUTING.md    
+      testPkg/.github/CODEOWNERS         testPkg/.github/CODE_OF_CONDUCT.md 
+      testPkg/.github/CONTRIBUTING.md    testPkg/.github/dependabot.yml     
 
 ---
 

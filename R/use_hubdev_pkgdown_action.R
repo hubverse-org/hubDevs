@@ -6,6 +6,7 @@
 #' PR previews to Netlify.
 #'
 #' @param remove_std Logical. Whether to remove the standard pkgdown action if it exists.
+#' @inheritParams use_hubdev_github_action
 #'
 #' @details
 #' To activate Netlify Previews, you must:
@@ -22,12 +23,21 @@
 #' for more details.
 #'
 #' @export
-use_hubdev_pkgdown_action <- function(remove_std = TRUE) {
-  # Remove old pkgdown action if it exists
+use_hubdev_pkgdown_action <- function(
+  remove_std = TRUE,
+  ref = NULL,
+  overwrite = FALSE
+) {
+  use_hubdev_github_action(
+    "pkgdown-netlify-preview",
+    ref = ref,
+    overwrite = overwrite
+  )
+  # Remove old pkgdown action if it exists. This runs after the download, so
+  # that a failed download does not leave the package without a pkgdown action.
   if (remove_std && file.exists(".github/workflows/pkgdown.yaml")) {
     file.remove(".github/workflows/pkgdown.yaml")
   }
-  use_hubdev_github_action("pkgdown-netlify-preview")
 
   usethis::ui_todo("To activate Netlify Previews, remember to:")
   cli::cli_bullets(c(
