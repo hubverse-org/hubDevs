@@ -1,5 +1,8 @@
 # hubDevs (development version)
 
+* New `use_hubdev_codeql()` switches CodeQL code scanning on a package's GitHub
+  repository to the extended query suite, which also flags actions that are
+  not pinned to a commit SHA (#76).
 * New `use_hubdev_dependabot()` and `use_hubdev_codeowners()` create the
   hubverse package `.github/dependabot.yml` and `.github/CODEOWNERS`.
   `create_hubdev_pkg()` now adds both to new packages (#33).
