@@ -5,9 +5,9 @@ standardising Hubverse packages
 
 ## Documentation
 
-- Latest Release: <https://https://hubverse-org.github.io/hubDevs/>
+- Latest Release: <https://hubverse-org.github.io/hubDevs/>
 - Stable Development Version:
-  <https://https://hubverse-org.github.io/hubDevs/dev/>
+  <https://hubverse-org.github.io/hubDevs/dev/>
 
 ## Installation
 
@@ -47,9 +47,9 @@ temp_dir <- tempdir()
 path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
 #> ✔ Creating
-#>   '/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg/'.
+#>   '/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpNbIbnY/testPkg/'.
 #> ✔ Setting active project to
-#>   "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg".
+#>   "/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpNbIbnY/testPkg".
 #> ✔ Creating 'R/'.
 #> ✔ Writing 'DESCRIPTION'.
 #> Package: testPkg
@@ -62,7 +62,7 @@ create_hubdev_pkg(path)
 #>     license
 #> Encoding: UTF-8
 #> Roxygen: list(markdown = TRUE)
-#> RoxygenNote: 7.3.2
+#> RoxygenNote: 7.3.3
 #> ✔ Writing 'NAMESPACE'.
 #> ✔ Writing 'testPkg.Rproj'.
 #> ✔ Adding "^testPkg\\.Rproj$" to '.Rbuildignore'.
@@ -70,8 +70,8 @@ create_hubdev_pkg(path)
 #> ✔ Adding "^\\.Rproj\\.user$" to '.Rbuildignore'.
 #> ✔ Setting active project to "<no active project>".
 #> ✔ Setting active project to
-#>   "/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg".
-#> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', and '.secrets' to '.gitignore' and '.Rbuildignore'
+#>   "/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpNbIbnY/testPkg".
+#> ✔ Adding '.DS_Store', '.Rhistory', '.Rdata', '.httr-oauth', '.secrets', '.claude', and 'claude.md' to '.gitignore' and '.Rbuildignore'
 #> ✔ Adding testthat to 'Suggests' field in DESCRIPTION.
 #> ✔ Adding "3" to 'Config/testthat/edition'.
 #> ✔ Creating 'tests/testthat/'.
@@ -88,34 +88,37 @@ create_hubdev_pkg(path)
 #> ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.
 #> ✔ Adding "CRAN status badge" to 'README.Rmd'.
 #> ☐ Re-knit 'README.Rmd' with `devtools::build_readme()`.
-#> ℹ Installing testPkg in temporary library
-#> ℹ Building
-#>   '/private/var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg/README.Rmd'
 #> ✔ Creating '.github/'.
-#> 
 #> ✔ Adding "^\\.github$" to '.Rbuildignore'.
-#> 
 #> ✔ Adding "*.html" to '.github/.gitignore'.
-#> 
 #> ✔ Writing '.github/CODE_OF_CONDUCT.md'.
-#> 
 #> ✔ Writing '.github/CONTRIBUTING.md'.
-#> 
-#> ✔ Initialising Git repo.
-#> 
-#> ✔ Adding ".quarto" to '.gitignore'.
-#> 
+#> ✔ Writing '.github/dependabot.yml'.
+#> ✔ Writing '.github/CODEOWNERS'.
+#> ✔ Creating 'air.toml'.
+#> ✔ Adding "^[.]?air[.]toml$" to '.Rbuildignore'.
+#> ✔ Creating '.vscode/'.
+#> ✔ Adding "^\\.vscode$" to '.Rbuildignore'.
+#> ✔ Creating '.vscode/settings.json'.
+#> ✔ Creating '.vscode/extensions.json'.
+#> ☐ Read Air's editors guide (<https://posit-dev.github.io/air/editors.html>) to
+#>   learn how to invoke Air in your preferred editor.
+#> ☐ Read Air's GitHub Actions guide
+#>   (<https://posit-dev.github.io/air/integration-github-actions.html>) to learn
+#>   about GHA workflows that continuously run formatting checks.
+#> ✔ Initialising Git repo at
+#>   '/private/var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpNbIbnY/testPkg'.
+#> ✔ Adding ".RData" and ".quarto" to '.gitignore'.
 #> ✔ Writing '.git/hooks/pre-commit'.
-#> 
 #> ✔ Setting active project to "<no active project>".
 ```
 
 This creates all basic infrastructure including a hubverse template
-README, logo, community documents, MIT LICENSE and initiates the package
-as a git repository.
+README, logo, community documents, Dependabot configuration, CODEOWNERS
+file, MIT LICENSE and initiates the package as a git repository.
 
 ``` R
-#> /var/folders/9p/m996p3_55hjf1hc62552cqfr0000gr/T/RtmpXWBX7W/testPkg
+#> /var/folders/p2/ywqk6z3n5nq3csvhfnvwfpzh0000gp/T/RtmpNbIbnY/testPkg
 #> ├── .Rbuildignore
 #> ├── .git
 #> │   ├── HEAD
@@ -134,9 +137,14 @@ as a git repository.
 #> │       └── tags
 #> ├── .github
 #> │   ├── .gitignore
+#> │   ├── CODEOWNERS
 #> │   ├── CODE_OF_CONDUCT.md
-#> │   └── CONTRIBUTING.md
+#> │   ├── CONTRIBUTING.md
+#> │   └── dependabot.yml
 #> ├── .gitignore
+#> ├── .vscode
+#> │   ├── extensions.json
+#> │   └── settings.json
 #> ├── DESCRIPTION
 #> ├── LICENSE
 #> ├── LICENSE.md
@@ -144,6 +152,7 @@ as a git repository.
 #> ├── R
 #> ├── README.Rmd
 #> ├── README.md
+#> ├── air.toml
 #> ├── man
 #> │   └── figures
 #> │       └── logo.png
@@ -184,6 +193,28 @@ hubverse package on GitHub:
   - building pkgdown documentation and deploying production docs to
     GitHub Pages and PR previews to a Netlify site
 
+### Complete the security setup
+
+The [hubverse security
+policy](https://docs.hubverse.io/en/latest/developer/security.html)
+requires two further settings once the package is on GitHub.
+
+First commit the workflows created by
+[`use_hubdev_github()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_github.md)
+and push them to the default branch. Then switch CodeQL code scanning to
+the extended query suite:
+
+``` r
+
+use_hubdev_codeql()
+```
+
+*Note: This requires admin access to the repository.*
+
+Finally, protect the `main` branch so that changes can only be merged
+through an approved pull request. This is currently set by hand in the
+repository settings.
+
 ## Individual Utilities
 
 The high level functions above are wrappers for a number of individual
@@ -204,6 +235,21 @@ and
 [`use_hubdev_contributing()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)
 and creates a `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md` in the
 `.github/` directory.
+
+### Add Dependabot and CODEOWNERS
+
+To add the hubverse Dependabot configuration and CODEOWNERS file, run:
+
+``` r
+
+use_hubdev_dependabot()
+use_hubdev_codeowners()
+```
+
+These create `.github/dependabot.yml` and `.github/CODEOWNERS`.
+Dependabot then opens a weekly pull request to update the actions used
+by the package’s workflows. CODEOWNERS requests a review from the
+`hubverse-org/hubverse-developers` team on changes to the workflows.
 
 ### Configure pkgdown site to use hubverse defaults
 

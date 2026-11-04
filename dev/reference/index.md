@@ -10,6 +10,8 @@
   : Create hubverse package skeleton
 - [`use_hubdev_codeowners()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeowners.md)
   : Hubverse Developer CODEOWNERS setup
+- [`use_hubdev_codeql()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeql.md)
+  : Hubverse Developer CodeQL setup
 - [`use_hubdev_community()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)
   [`use_hubdev_coc()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)
   [`use_hubdev_contributing()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_community.md)

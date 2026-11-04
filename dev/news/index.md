@@ -3,6 +3,12 @@
 ## hubDevs (development version)
 
 - New
+  [`use_hubdev_codeql()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeql.md)
+  switches CodeQL code scanning on a package’s GitHub repository to the
+  extended query suite, which also flags actions that are not pinned to
+  a commit SHA
+  ([\#76](https://github.com/hubverse-org/hubDevs/issues/76)).
+- New
   [`use_hubdev_dependabot()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_dependabot.md)
   and
   [`use_hubdev_codeowners()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeowners.md)
