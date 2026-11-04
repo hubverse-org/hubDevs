@@ -63,7 +63,7 @@ path <- fs::path(temp_dir, "testPkg")
 create_hubdev_pkg(path)
 ```
 
-This creates all basic infrastructure including a hubverse template README, logo, community documents, MIT LICENSE and initiates the package as a git repository.
+This creates all basic infrastructure including a hubverse template README, logo, community documents, Dependabot configuration, CODEOWNERS file, MIT LICENSE and initiates the package as a git repository.
 
 ```{r, echo=FALSE}
 fs::dir_tree(path, all = TRUE, recurse = TRUE)
@@ -95,6 +95,22 @@ The function runs a number of internal utilities for setting up a hubverse packa
   - building pkgdown documentation and deploying production docs to GitHub Pages
     and PR previews to a Netlify site
 
+### Complete the security setup
+
+The [hubverse security policy](https://docs.hubverse.io/en/latest/developer/security.html) requires two further settings once the package is on GitHub.
+
+First commit the workflows created by `use_hubdev_github()` and push them to the default branch.
+Then switch CodeQL code scanning to the extended query suite:
+
+```{r, eval=FALSE}
+use_hubdev_codeql()
+```
+
+*Note: This requires admin access to the repository.*
+
+Finally, protect the `main` branch so that changes can only be merged through an approved pull request.
+This is currently set by hand in the repository settings.
+
 ## Individual Utilities
 
 The high level functions above are wrappers for a number of individual utilities that can be run separately.
@@ -108,6 +124,19 @@ use_hubdev_community()
 ```
 
 This runs `use_hubdev_coc()` and `use_hubdev_contributing()` and creates a `CODE_OF_CONDUCT.md` and `CONTRIBUTING.md` in the `.github/` directory.
+
+### Add Dependabot and CODEOWNERS
+
+To add the hubverse Dependabot configuration and CODEOWNERS file, run:
+
+```{r, eval=FALSE}
+use_hubdev_dependabot()
+use_hubdev_codeowners()
+```
+
+These create `.github/dependabot.yml` and `.github/CODEOWNERS`.
+Dependabot then opens a weekly pull request to update the actions used by the package's workflows.
+CODEOWNERS requests a review from the `hubverse-org/hubverse-developers` team on changes to the workflows.
 
 ### Configure pkgdown site to use hubverse defaults
 
