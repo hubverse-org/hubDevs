@@ -9,7 +9,7 @@ hosted in repository
 ## Usage
 
 ``` r
-use_hubdev_github_action(name)
+use_hubdev_github_action(name, ref = NULL, overwrite = FALSE)
 ```
 
 ## Arguments
@@ -20,3 +20,19 @@ use_hubdev_github_action(name)
   action
   repository](https://github.com/hubverse-org/hubverse-developer-actions)
   directories containing a GitHub Action workflow `.yaml` file.
+
+- ref:
+
+  Tag, branch or commit SHA of
+  [hubverse-org/hubverse-developer-actions](https://github.com/hubverse-org/hubverse-developer-actions)
+  to download from. Defaults to the latest release.
+
+- overwrite:
+
+  Logical. Whether to replace an existing file without asking. When
+  `FALSE`, an interactive session asks first and a non-interactive
+  session leaves the existing file unchanged.
+
+## Value
+
+`TRUE` if the file was written, `FALSE` otherwise, invisibly.

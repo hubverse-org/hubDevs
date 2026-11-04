@@ -1,5 +1,36 @@
 # Changelog
 
+## hubDevs 1.2.0
+
+- New
+  [`use_hubdev_codeql()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_codeql.md)
+  switches CodeQL code scanning on a package’s GitHub repository to the
+  extended query suite, which also flags actions that are not pinned to
+  a commit SHA
+  ([\#76](https://github.com/hubverse-org/hubDevs/issues/76)).
+- New
+  [`use_hubdev_dependabot()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_dependabot.md)
+  and
+  [`use_hubdev_codeowners()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_codeowners.md)
+  create the hubverse package `.github/dependabot.yml` and
+  `.github/CODEOWNERS`.
+  [`create_hubdev_pkg()`](https://hubverse-org.github.io/hubDevs/reference/create_hubdev_pkg.md)
+  now adds both to new packages
+  ([\#33](https://github.com/hubverse-org/hubDevs/issues/33)).
+- [`use_hubdev_github_action()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_github_action.md)
+  and
+  [`use_hubdev_pkgdown_action()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_pkgdown_action.md)
+  download workflows from the latest
+  `hubverse-org/hubverse-developer-actions` release instead of its
+  `main` branch. New `ref` and `overwrite` arguments select another tag,
+  branch or commit and replace an existing workflow without asking
+  ([\#33](https://github.com/hubverse-org/hubDevs/issues/33)).
+- Remove orphaned, stale `inst/templates/pkgdown-netlify-preview.yaml`.
+  The single source of truth is the remote copy in
+  `hubverse-org/hubverse-developer-actions`, fetched at runtime by
+  [`use_hubdev_pkgdown_action()`](https://hubverse-org.github.io/hubDevs/reference/use_hubdev_pkgdown_action.md)
+  ([\#61](https://github.com/hubverse-org/hubDevs/issues/61)).
+
 ## hubDevs 1.1.0
 
 - Add `development: mode: auto` to `_pkgdown.yml` template so pkgdown
