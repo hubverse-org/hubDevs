@@ -10,7 +10,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/hubverse-org/hubDevs/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/hubverse-org/hubDevs/blob/v1.2.0/DESCRIPTION)
 
 Krystalli A, Kamvar Z (2026). *hubDevs: Utilities for Creating and
 Standardising Hubverse Packages*. R package version 1.2.0,
