@@ -2,6 +2,8 @@
 
 ## hubDevs (development version)
 
+## hubDevs 1.2.0
+
 - New
   [`use_hubdev_codeql()`](https://hubverse-org.github.io/hubDevs/dev/reference/use_hubdev_codeql.md)
   switches CodeQL code scanning on a package’s GitHub repository to the
