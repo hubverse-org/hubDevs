@@ -8,7 +8,9 @@ use_hubdev_codeql(repo_spec = NULL)
 }
 \arguments{
 \item{repo_spec}{Character string. The repository as \code{"owner/repo"}.
-Defaults to the repository of the active project's \code{origin} remote.}
+Defaults to the repository of the active project's \code{upstream} remote, or
+its \code{origin} remote when there is no \code{upstream}. In a fork checkout,
+\code{upstream} is the hubverse-org repository.}
 }
 \value{
 The GitHub API response, invisibly. Called for its side effect.

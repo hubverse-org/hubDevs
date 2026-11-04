@@ -15,13 +15,15 @@
 #' repository.
 #'
 #' @param repo_spec Character string. The repository as `"owner/repo"`.
-#' Defaults to the repository of the active project's `origin` remote.
+#' Defaults to the repository of the active project's `upstream` remote, or
+#' its `origin` remote when there is no `upstream`. In a fork checkout,
+#' `upstream` is the hubverse-org repository.
 #'
 #' @returns The GitHub API response, invisibly. Called for its side effect.
-#' @importFrom gh gh_tree_remote
+#' @importFrom usethis git_remotes
 #' @export
 use_hubdev_codeql <- function(repo_spec = NULL) {
-  repo_spec <- repo_spec %||% origin_repo_spec()
+  repo_spec <- repo_spec %||% source_repo_spec()
   call <- rlang::current_env()
   response <- rlang::try_fetch(
     gh(
@@ -48,8 +50,18 @@ use_hubdev_codeql <- function(repo_spec = NULL) {
   invisible(response)
 }
 
-# The "owner/repo" of the `origin` remote of the repository at `path`.
-origin_repo_spec <- function(path = usethis::proj_get()) {
-  remote <- gh_tree_remote(path)
-  paste0(remote$username, "/", remote$repo)
+# The "owner/repo" of the active project's `upstream` remote, or of `origin`
+# when there is no `upstream`.
+source_repo_spec <- function(remotes = git_remotes()) {
+  url <- remotes[["upstream"]] %||% remotes[["origin"]]
+  if (is.null(url)) {
+    cli::cli_abort(
+      c(
+        "Could not find an {.val upstream} or {.val origin} remote.",
+        i = "Supply {.arg repo_spec} as {.val owner/repo}."
+      ),
+      call = rlang::caller_env()
+    )
+  }
+  sub("^.*github\\.com[:/]([^/]+/[^/]+?)(\\.git)?/?$", "\\1", url)
 }
