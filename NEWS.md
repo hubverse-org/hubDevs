@@ -1,4 +1,4 @@
-# hubDevs (development version)
+# hubDevs 1.2.0
 
 * New `use_hubdev_codeql()` switches CodeQL code scanning on a package's GitHub
   repository to the extended query suite, which also flags actions that are
