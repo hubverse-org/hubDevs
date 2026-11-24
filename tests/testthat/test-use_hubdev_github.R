@@ -32,6 +32,22 @@ test_that("use_hubdev_pkg_actions works", {
       "test-coverage.yaml"
     )
   )
+
+  # The hubverse test-coverage workflow, not the r-lib one
+  coverage_workflow <- readLines(fs::path(workflows_path, "test-coverage.yaml"))
+  expect_true(any(grepl("use_oidc: true", coverage_workflow, fixed = TRUE)))
+  expect_false(any(grepl("CODECOV_TOKEN", coverage_workflow, fixed = TRUE)))
+
+  codecov_badge <- paste0(
+    "[![Codecov test coverage]",
+    "(https://codecov.io/gh/hubverse-org/testPkg/graph/badge.svg)]",
+    "(https://app.codecov.io/gh/hubverse-org/testPkg)"
+  )
+  expect_true(any(grepl(
+    codecov_badge,
+    readLines(fs::path(pkg_path, "README.Rmd")),
+    fixed = TRUE
+  )))
 })
 
 

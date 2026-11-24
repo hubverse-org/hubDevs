@@ -1,5 +1,9 @@
 # hubDevs (development version)
 
+* `use_hubdev_pkg_actions()` now sets up the hubverse `test-coverage` workflow,
+  which uploads coverage to Codecov with OIDC instead of a stored Codecov
+  token (#83).
+
 # hubDevs 1.2.0
 
 * New `use_hubdev_codeql()` switches CodeQL code scanning on a package's GitHub
