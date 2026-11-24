@@ -32,6 +32,66 @@ test_that("use_hubdev_pkg_actions works", {
       "test-coverage.yaml"
     )
   )
+
+  # The hubverse test-coverage workflow, not the r-lib one
+  coverage_workflow <- readLines(fs::path(workflows_path, "test-coverage.yaml"))
+  expect_true(any(grepl("use_oidc: true", coverage_workflow, fixed = TRUE)))
+  expect_false(any(grepl("CODECOV_TOKEN", coverage_workflow, fixed = TRUE)))
+
+  codecov_badge <- paste0(
+    "[![Codecov test coverage]",
+    "(https://codecov.io/gh/hubverse-org/testPkg/graph/badge.svg)]",
+    "(https://app.codecov.io/gh/hubverse-org/testPkg)"
+  )
+  expect_true(any(grepl(
+    codecov_badge,
+    readLines(fs::path(pkg_path, "README.Rmd")),
+    fixed = TRUE
+  )))
+})
+
+
+test_that("use_codecov_badge points at the upstream repository of a fork", {
+  pkg_path <- withr::local_tempdir()
+  writeLines(
+    c("<!-- badges: start -->", "<!-- badges: end -->"),
+    fs::path(pkg_path, "README.Rmd")
+  )
+  writeLines("Package: testPkg", fs::path(pkg_path, "DESCRIPTION"))
+  system2("git", c("-C", pkg_path, "init", "-q"))
+  system2(
+    "git",
+    c(
+      "-C",
+      pkg_path,
+      "remote",
+      "add",
+      "origin",
+      "https://github.com/someone/testPkg.git"
+    )
+  )
+  system2(
+    "git",
+    c(
+      "-C",
+      pkg_path,
+      "remote",
+      "add",
+      "upstream",
+      "https://github.com/hubverse-org/testPkg.git"
+    )
+  )
+  usethis::local_project(pkg_path, force = TRUE, quiet = TRUE)
+  # The working directory is not the active project
+  withr::local_dir(withr::local_tempdir())
+
+  use_codecov_badge()
+
+  expect_true(any(grepl(
+    "https://app.codecov.io/gh/hubverse-org/testPkg",
+    readLines(fs::path(pkg_path, "README.Rmd")),
+    fixed = TRUE
+  )))
 })
 
 
