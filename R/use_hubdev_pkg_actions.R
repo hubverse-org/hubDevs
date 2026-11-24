@@ -28,8 +28,7 @@ use_hubdev_pkg_actions <- function() {
 # workflow. The hubverse workflow is downloaded as a plain file, so the badge
 # is added here.
 use_codecov_badge <- function() {
-  remote <- gh::gh_tree_remote()
-  repo_spec <- paste0(remote$username, "/", remote$repo)
+  repo_spec <- source_repo_spec()
   usethis::use_badge(
     "Codecov test coverage",
     href = paste0("https://app.codecov.io/gh/", repo_spec),
